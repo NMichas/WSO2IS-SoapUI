@@ -1,5 +1,5 @@
 # WSO2IS-SoapUI
-A helper to create a SoapUI project with all of WSO2 IS Web Services.  
+A SoapUI project with all of WSO2 IS Web Services.  
 WSO2 IS version supported: `5.1.0`
 
 > __Note__: Since SoapUI does not support relative locations for your WSDLs, when you open `WSO2-IS-soapui-project.xml` you will get a warning that WSDL files could not be found. The simplest way to correct this is to edit the `WSO2-IS-soapui-project.xml` and replace all references of `/Users/nassos/Projects/WSO2IS-SOAPUI/wsdl` to your own working directory.
