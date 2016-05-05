@@ -8,11 +8,11 @@ WSO2 IS version supported: `5.1.0`
 ### Prerequisites
 If you want to extract the WSDLs yourself to create the SoapUI project:  
 1. Edit your WSO2IS' configuration to allow it to expose the WSDL of the services:
- * Open `$WSO2/repository/conf/carbon.xml`.
- * Edit `<HideAdminServiceWSDLs>false</HideAdminServiceWSDLs>`
-2. You need [wget](https://www.gnu.org/software/wget/) available on the command line.
-3. You need [rename](http://linux.die.net/man/1/rename) to properly rename the downloaded WSDLs.
-4. Your WSO2 IS is expected to listen on https://localhost:9443.
+* Open `$WSO2/repository/conf/carbon.xml`.
+* Edit `<HideAdminServiceWSDLs>false</HideAdminServiceWSDLs>`  
+2. You need [wget](https://www.gnu.org/software/wget/) available on the command line.  
+3. You need [rename](http://linux.die.net/man/1/rename) to properly rename the downloaded WSDLs.  
+4. Your WSO2 IS is expected to listen on https://localhost:9443.  
 
 ### Execution
 `./export-wsdl.sh`
