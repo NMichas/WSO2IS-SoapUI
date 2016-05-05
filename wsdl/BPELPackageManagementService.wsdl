@@ -1,0 +1,121 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://wso2.org/bps/management/wsdl/BPELPackageManagement" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://wso2.org/bps/management/schema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ProcessManagement" targetNamespace="http://wso2.org/bps/management/wsdl/BPELPackageManagement">
+  <types>
+    <xsd:schema targetNamespace="http://wso2.org/bps/management/wsdl/BPELPackageManagement">
+            <xsd:import namespace="http://wso2.org/bps/management/schema" schemaLocation="BPELPackageManagementService?xsd=bps_management.xsd"/>
+        </xsd:schema>
+  </types>
+  <message name="undeployBPELPackageResponse">
+    <part name="part" element="ns:undeployStatus">
+    </part>
+  </message>
+  <message name="deleteBPELPackageResponse">
+    <part name="part" element="ns:deleteStatus">
+    </part>
+  </message>
+  <message name="listProcessesInPackageResponse">
+    <part name="part" element="ns:processesInPackage">
+    </part>
+  </message>
+  <message name="redeployBPELPackageResponse">
+    <part name="part" element="ns:redeployStatus">
+    </part>
+  </message>
+  <message name="listDeployedPackagesPaginatedRequest">
+    <part name="part" element="ns:listDeployedPackagesPaginated">
+    </part>
+  </message>
+  <message name="listProcessesInPackageRequest">
+    <part name="part" element="ns:listProcessesInPackage">
+    </part>
+  </message>
+  <message name="undeployBPELPackageRequest">
+    <part name="part" element="ns:undeployBPELPackage">
+    </part>
+  </message>
+  <message name="packageManagementException">
+    <part name="part" element="ns:packageManagementException">
+    </part>
+  </message>
+  <message name="deleteBPELPackageRequest">
+    <part name="part" element="ns:deletePackage">
+    </part>
+  </message>
+  <message name="listDeployedPackagesPaginatedResponse">
+    <part name="part" element="ns:deployedPackagesPaginated">
+    </part>
+  </message>
+  <message name="redeployBPELPackageRequest">
+    <part name="part" element="ns:redeployPackage">
+    </part>
+  </message>
+  <portType name="BPELPackageManagementPortType">
+    <operation name="undeployBPELPackage">
+      <input message="tns:undeployBPELPackageRequest">
+    </input>
+      <output message="tns:undeployBPELPackageResponse">
+    </output>
+      <fault name="packageManagementException" message="tns:packageManagementException">
+    </fault>
+    </operation>
+    <operation name="listDeployedPackagesPaginated">
+      <input message="tns:listDeployedPackagesPaginatedRequest">
+    </input>
+      <output message="tns:listDeployedPackagesPaginatedResponse">
+    </output>
+      <fault name="packageManagementException" message="tns:packageManagementException">
+    </fault>
+    </operation>
+    <operation name="listProcessesInPackage">
+      <input message="tns:listProcessesInPackageRequest">
+    </input>
+      <output message="tns:listProcessesInPackageResponse">
+    </output>
+      <fault name="packageManagementException" message="tns:packageManagementException">
+    </fault>
+    </operation>
+  </portType>
+  <binding name="BPELPackageManagementSOAPBinding" type="tns:BPELPackageManagementPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="undeployBPELPackage">
+      <soap:operation soapAction="urn:undeployBPELPackage"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="packageManagementException">
+        <soap:fault name="packageManagementException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listDeployedPackagesPaginated">
+      <soap:operation soapAction="urn:listDeployedPackagesPaginated"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="packageManagementException">
+        <soap:fault name="packageManagementException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listProcessesInPackage">
+      <soap:operation soapAction="urn:listProcessesInPackage"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="packageManagementException">
+        <soap:fault name="packageManagementException" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="BPELPackageManagementService">
+    <port name="BPELPackageManagementSOAPPort" binding="tns:BPELPackageManagementSOAPBinding">
+      <soap:address location="https://localhost:9443/services/BPELPackageManagementService/"/>
+    </port>
+  </service>
+</definitions>

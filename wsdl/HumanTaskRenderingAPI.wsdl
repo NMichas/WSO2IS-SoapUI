@@ -1,0 +1,254 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://wso2.org/ht/schema/renderings/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ws-humantask-rendering-api" targetNamespace="http://wso2.org/ht/schema/renderings/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://wso2.org/ht/schema/renderings/">
+            <xsd:element name="getRenderings">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="taskIdentifier" type="xsd:anyURI"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getRenderingsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="0" name="input" type="tns:inputType"/>
+                        <xsd:element maxOccurs="1" minOccurs="0" name="output" type="tns:outputType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:complexType name="inputType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="1" name="element" type="tns:inputElementType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="outputType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="1" name="element" type="tns:outputElementType">
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="inputElementType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" name="value" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="outputElementType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string">
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="xpath" type="xsd:string">
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="1" name="value" type="tns:valueType">
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="default" type="xsd:string">
+                    </xsd:element>
+                </xsd:sequence>
+                <xsd:attribute name="id" type="xsd:string"/>
+            </xsd:complexType>
+
+            <xsd:complexType name="valueType">
+                <xsd:simpleContent>
+                    <xsd:extension base="xsd:string">
+                        <xsd:attribute name="type" type="tns:value_tType"/>
+                    </xsd:extension>
+                </xsd:simpleContent>
+            </xsd:complexType>
+
+            <xsd:simpleType name="value_tType">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="string"/>
+                    <xsd:enumeration value="int"/>
+                    <xsd:enumeration value="double"/>
+                    <xsd:enumeration value="float"/>
+                    <xsd:enumeration value="boolean"/>
+                    <xsd:enumeration value="list"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:element name="setTaskOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="taskIdentifier" type="xsd:anyURI">
+                        </xsd:element>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="values" type="tns:setOutputValuesType">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setTaskOutputResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean">
+                        </xsd:element>
+                        <xsd:element maxOccurs="1" minOccurs="0" name="fault" type="xsd:string">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:complexType name="setOutputValuesType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="1" name="value" type="tns:setOutputvalueType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="setOutputvalueType">
+                <xsd:simpleContent>
+                    <xsd:extension base="xsd:string">
+                        <xsd:attribute name="id" type="xsd:string"/>
+                    </xsd:extension>
+                </xsd:simpleContent>
+            </xsd:complexType>
+            <xsd:element name="getRenderingsFault">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="getRenderingsFault" type="xsd:string">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setTaskOutputFault">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="setTaskOutputFault" type="xsd:string">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="completeTask">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="taskIdentifier" type="xsd:anyURI"/>
+                        <xsd:element name="values" type="tns:setOutputValuesType">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="completeTaskResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="success" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="completeTaskFault">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="completeTaskFault" type="xsd:string">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="completeTaskResponse">
+    <wsdl:part name="parameters" element="tns:completeTaskResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRenderingsFault">
+    <wsdl:part name="parameters" element="tns:getRenderingsFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="completeTaskRequest">
+    <wsdl:part name="parameters" element="tns:completeTask">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setTaskOutputRequest">
+    <wsdl:part name="parameters" element="tns:setTaskOutput">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRenderingsRequest">
+    <wsdl:part name="parameters" element="tns:getRenderings">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setTaskOutputFault">
+    <wsdl:part name="parameters" element="tns:setTaskOutputFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRenderingsResponse">
+    <wsdl:part name="parameters" element="tns:getRenderingsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setTaskOutputResponse">
+    <wsdl:part name="parameters" element="tns:setTaskOutputResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="completeTaskFault">
+    <wsdl:part name="parameters" element="tns:completeTaskFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="renderingOperations">
+    <wsdl:operation name="getRenderings">
+      <wsdl:input message="tns:getRenderingsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getRenderingsResponse">
+    </wsdl:output>
+      <wsdl:fault name="getRenderingsFault" message="tns:getRenderingsFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setTaskOutput">
+      <wsdl:input message="tns:setTaskOutputRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:setTaskOutputResponse">
+    </wsdl:output>
+      <wsdl:fault name="setTaskOutputFault" message="tns:setTaskOutputFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="completeTask">
+      <wsdl:input message="tns:completeTaskRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:completeTaskResponse">
+    </wsdl:output>
+      <wsdl:fault name="completeTaskFault" message="tns:completeTaskFault">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="renderingOperationsSOAP" type="tns:renderingOperations">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getRenderings">
+      <soap:operation soapAction="http://wso2.org/ht/schema/renderings/getRenderings"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getRenderingsFault">
+        <soap:fault name="getRenderingsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setTaskOutput">
+      <soap:operation soapAction="http://wso2.org/ht/schema/renderings/setTaskOutput"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="setTaskOutputFault">
+        <soap:fault name="setTaskOutputFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="completeTask">
+      <soap:operation soapAction="http://wso2.org/ht/schema/renderings/completeTask"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="completeTaskFault">
+        <soap:fault name="completeTaskFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HumanTaskRenderingAPI">
+    <wsdl:port name="renderingOperationsSOAP" binding="tns:renderingOperationsSOAP">
+      <soap:address location="https://localhost:9443/services/HumanTaskRenderingAPI/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
