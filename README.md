@@ -6,7 +6,7 @@ WSO2 IS version supported: `5.1.0`
 
 ## Exporting the WSDLs
 ### Prerequisites
-If you want to extract the WSDLs yourself to create the SoapUI project:
+If you want to extract the WSDLs yourself to create the SoapUI project:  
 1. Edit your WSO2IS' configuration to allow it to expose the WSDL of the services:
  * Open `$WSO2/repository/conf/carbon.xml`.
  * Edit `<HideAdminServiceWSDLs>false</HideAdminServiceWSDLs>`
