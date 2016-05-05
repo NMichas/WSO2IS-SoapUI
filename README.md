@@ -1,12 +1,12 @@
-# WSO2IS-SOAPUI
-A helper to create a SOAP UI project with all of WSO2 IS Web Services.  
+# WSO2IS-SoapUI
+A helper to create a SoapUI project with all of WSO2 IS Web Services.  
 WSO2 IS version supported: `5.1.0`
 
-> __Note__: Since SOAP UI does not support relative locations for your WSDLs, when you open `WSO2-IS-soapui-project.xml` you will get a warning that WSDL files could not be found. The simplest way to correct this is to edit the `WSO2-IS-soapui-project.xml` and replace all references of `/Users/nassos/Projects/WSO2IS-SOAPUI/wsdl` to your own working directory.
+> __Note__: Since SoapUI does not support relative locations for your WSDLs, when you open `WSO2-IS-soapui-project.xml` you will get a warning that WSDL files could not be found. The simplest way to correct this is to edit the `WSO2-IS-soapui-project.xml` and replace all references of `/Users/nassos/Projects/WSO2IS-SOAPUI/wsdl` to your own working directory.
 
 ## Exporting the WSDLs
 ### Prerequisites
-If you want to extract the WSDLs yourself to create the SOAP UI project:
+If you want to extract the WSDLs yourself to create the SoapUI project:
 1. Edit your WSO2IS' configuration to allow it to expose the WSDL of the services:
  * Open `$WSO2/repository/conf/carbon.xml`.
  * Edit `<HideAdminServiceWSDLs>false</HideAdminServiceWSDLs>`
