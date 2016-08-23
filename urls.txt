@@ -82,3 +82,5 @@ https://localhost:9443/services/STSAdminService?wsdl
 https://localhost:9443/services/RepositoryAdminService?wsdl
 https://localhost:9443/services/HumanTaskPackageManagement?wsdl
 https://localhost:9443/services/RemoteTenantManagerService?wsdl
+
+https://localhost:9443/services/OAuthService?wsdl
