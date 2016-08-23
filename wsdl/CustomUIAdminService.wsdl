@@ -2,21 +2,6 @@
     <wsdl:documentation>CustomUIAdminService</wsdl:documentation>
     <wsdl:types>
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://services.custom.registry.carbon.wso2.org">
-            <xs:element name="isAuthorized">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="isAuthorizedResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
             <xs:element name="CustomUIAdminServiceException">
                 <xs:complexType>
                     <xs:sequence>
@@ -29,20 +14,6 @@
                     <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
-            <xs:element name="getTextContent">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getTextContentResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
             <xs:element name="addTextContent">
                 <xs:complexType>
                     <xs:sequence>
@@ -76,6 +47,35 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="getTextContent">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getTextContentResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="isAuthorized">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="isAuthorizedResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
         </xs:schema>
     </wsdl:types>
     <wsdl:message name="isAuthorizedRequest">
@@ -93,17 +93,17 @@
     <wsdl:message name="CustomUIAdminServiceException">
         <wsdl:part name="parameters" element="ns:CustomUIAdminServiceException"/>
     </wsdl:message>
-    <wsdl:message name="getTextContentRequest">
-        <wsdl:part name="parameters" element="ns:getTextContent"/>
-    </wsdl:message>
-    <wsdl:message name="getTextContentResponse">
-        <wsdl:part name="parameters" element="ns:getTextContentResponse"/>
-    </wsdl:message>
     <wsdl:message name="updateTextContentRequest">
         <wsdl:part name="parameters" element="ns:updateTextContent"/>
     </wsdl:message>
     <wsdl:message name="updateTextContentResponse">
         <wsdl:part name="parameters" element="ns:updateTextContentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getTextContentRequest">
+        <wsdl:part name="parameters" element="ns:getTextContent"/>
+    </wsdl:message>
+    <wsdl:message name="getTextContentResponse">
+        <wsdl:part name="parameters" element="ns:getTextContentResponse"/>
     </wsdl:message>
     <wsdl:portType name="CustomUIAdminServicePortType">
         <wsdl:operation name="isAuthorized">
@@ -115,15 +115,15 @@
             <wsdl:output message="ns:addTextContentResponse" wsaw:Action="urn:addTextContentResponse"/>
             <wsdl:fault message="ns:CustomUIAdminServiceException" name="CustomUIAdminServiceException" wsaw:Action="urn:addTextContentCustomUIAdminServiceException"/>
         </wsdl:operation>
-        <wsdl:operation name="getTextContent">
-            <wsdl:input message="ns:getTextContentRequest" wsaw:Action="urn:getTextContent"/>
-            <wsdl:output message="ns:getTextContentResponse" wsaw:Action="urn:getTextContentResponse"/>
-            <wsdl:fault message="ns:CustomUIAdminServiceException" name="CustomUIAdminServiceException" wsaw:Action="urn:getTextContentCustomUIAdminServiceException"/>
-        </wsdl:operation>
         <wsdl:operation name="updateTextContent">
             <wsdl:input message="ns:updateTextContentRequest" wsaw:Action="urn:updateTextContent"/>
             <wsdl:output message="ns:updateTextContentResponse" wsaw:Action="urn:updateTextContentResponse"/>
             <wsdl:fault message="ns:CustomUIAdminServiceException" name="CustomUIAdminServiceException" wsaw:Action="urn:updateTextContentCustomUIAdminServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getTextContent">
+            <wsdl:input message="ns:getTextContentRequest" wsaw:Action="urn:getTextContent"/>
+            <wsdl:output message="ns:getTextContentResponse" wsaw:Action="urn:getTextContentResponse"/>
+            <wsdl:fault message="ns:CustomUIAdminServiceException" name="CustomUIAdminServiceException" wsaw:Action="urn:getTextContentCustomUIAdminServiceException"/>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="CustomUIAdminServiceSoap11Binding" type="ns:CustomUIAdminServicePortType">
@@ -149,8 +149,8 @@
                 <soap:fault use="literal" name="CustomUIAdminServiceException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getTextContent">
-            <soap:operation soapAction="urn:getTextContent" style="document"/>
+        <wsdl:operation name="updateTextContent">
+            <soap:operation soapAction="urn:updateTextContent" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -161,8 +161,8 @@
                 <soap:fault use="literal" name="CustomUIAdminServiceException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="updateTextContent">
-            <soap:operation soapAction="urn:updateTextContent" style="document"/>
+        <wsdl:operation name="getTextContent">
+            <soap:operation soapAction="urn:getTextContent" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -197,8 +197,8 @@
                 <soap12:fault use="literal" name="CustomUIAdminServiceException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getTextContent">
-            <soap12:operation soapAction="urn:getTextContent" style="document"/>
+        <wsdl:operation name="updateTextContent">
+            <soap12:operation soapAction="urn:updateTextContent" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -209,8 +209,8 @@
                 <soap12:fault use="literal" name="CustomUIAdminServiceException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="updateTextContent">
-            <soap12:operation soapAction="urn:updateTextContent" style="document"/>
+        <wsdl:operation name="getTextContent">
+            <soap12:operation soapAction="urn:getTextContent" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -242,8 +242,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getTextContent">
-            <http:operation location="getTextContent"/>
+        <wsdl:operation name="updateTextContent">
+            <http:operation location="updateTextContent"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -251,8 +251,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="updateTextContent">
-            <http:operation location="updateTextContent"/>
+        <wsdl:operation name="getTextContent">
+            <http:operation location="getTextContent"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>

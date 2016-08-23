@@ -44,11 +44,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="commit">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
             <xs:element name="enableSynchronizerForCarbonRepository">
                 <xs:complexType>
                     <xs:sequence>
@@ -143,6 +138,11 @@
                 </xs:complexType>
             </xs:element>
             <xs:element name="checkout">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="commit">
                 <xs:complexType>
                     <xs:sequence/>
                 </xs:complexType>

@@ -38,8 +38,6 @@ https://localhost:9443/services/DeploymentSynchronizerAdmin?wsdl
 https://localhost:9443/services/XMPPConfigurationService?wsdl
 https://localhost:9443/services/UserProfileMgtService?wsdl
 https://localhost:9443/services/EntitlementService?wsdl
-41. HumanTaskProtocolHandler,
-    Web Service Definition for WS-HumanTask 1.1 - Operations WS-HumanTask Protocol Participants
 https://localhost:9443/services/HumanTaskProtocolHandler?wsdl
 https://localhost:9443/services/OperationAdmin?wsdl
 https://localhost:9443/services/MultipleCredentialsUserAdmin?wsdl
@@ -82,5 +80,4 @@ https://localhost:9443/services/STSAdminService?wsdl
 https://localhost:9443/services/RepositoryAdminService?wsdl
 https://localhost:9443/services/HumanTaskPackageManagement?wsdl
 https://localhost:9443/services/RemoteTenantManagerService?wsdl
-
 https://localhost:9443/services/OAuthService?wsdl

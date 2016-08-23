@@ -53,41 +53,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getTenantId">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getTenantIdResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" type="xs:int"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getDomain">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="tenantId" type="xs:int"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getDomainResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="deleteTenant">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="tenantId" type="xs:int"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
             <xs:element name="addTenant">
                 <xs:complexType>
                     <xs:sequence>
@@ -109,36 +74,24 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getTenant">
+            <xs:element name="deleteTenant">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="tenantId" type="xs:int"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getTenantResponse">
+            <xs:element name="getTenantId">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2689:Tenant"/>
+                        <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getAllTenants">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getAllTenantsResponse">
+            <xs:element name="getTenantIdResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2689:Tenant"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="activateTenant">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="tenantId" type="xs:int"/>
+                        <xs:element minOccurs="0" name="return" type="xs:int"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -175,6 +128,53 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="getTenant">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="tenantId" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getTenantResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2689:Tenant"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAllTenants">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAllTenantsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2689:Tenant"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="activateTenant">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="tenantId" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDomain">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="tenantId" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDomainResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
         </xs:schema>
         <xs:schema xmlns:ax2690="http://api.user.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tenant.core.user.carbon.wso2.org/xsd">
             <xs:import namespace="http://api.user.carbon.wso2.org/xsd"/>
@@ -197,26 +197,23 @@
             </xs:complexType>
         </xs:schema>
     </wsdl:types>
-    <wsdl:message name="getDomainRequest">
-        <wsdl:part name="parameters" element="ns:getDomain"/>
-    </wsdl:message>
-    <wsdl:message name="getDomainResponse">
-        <wsdl:part name="parameters" element="ns:getDomainResponse"/>
-    </wsdl:message>
-    <wsdl:message name="RemoteTenantManagerServiceUserStoreException">
-        <wsdl:part name="parameters" element="ns:RemoteTenantManagerServiceUserStoreException"/>
-    </wsdl:message>
     <wsdl:message name="getSuperTenantDomainRequest">
         <wsdl:part name="parameters" element="ns:getSuperTenantDomain"/>
     </wsdl:message>
     <wsdl:message name="getSuperTenantDomainResponse">
         <wsdl:part name="parameters" element="ns:getSuperTenantDomainResponse"/>
     </wsdl:message>
+    <wsdl:message name="RemoteTenantManagerServiceUserStoreException">
+        <wsdl:part name="parameters" element="ns:RemoteTenantManagerServiceUserStoreException"/>
+    </wsdl:message>
+    <wsdl:message name="getDomainRequest">
+        <wsdl:part name="parameters" element="ns:getDomain"/>
+    </wsdl:message>
+    <wsdl:message name="getDomainResponse">
+        <wsdl:part name="parameters" element="ns:getDomainResponse"/>
+    </wsdl:message>
     <wsdl:message name="deactivateTenantRequest">
         <wsdl:part name="parameters" element="ns:deactivateTenant"/>
-    </wsdl:message>
-    <wsdl:message name="deleteTenantRequest">
-        <wsdl:part name="parameters" element="ns:deleteTenant"/>
     </wsdl:message>
     <wsdl:message name="addTenantRequest">
         <wsdl:part name="parameters" element="ns:addTenant"/>
@@ -226,6 +223,9 @@
     </wsdl:message>
     <wsdl:message name="updateTenantRequest">
         <wsdl:part name="parameters" element="ns:updateTenant"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTenantRequest">
+        <wsdl:part name="parameters" element="ns:deleteTenant"/>
     </wsdl:message>
     <wsdl:message name="isTenantActiveRequest">
         <wsdl:part name="parameters" element="ns:isTenantActive"/>
@@ -255,23 +255,19 @@
         <wsdl:part name="parameters" element="ns:activateTenant"/>
     </wsdl:message>
     <wsdl:portType name="RemoteTenantManagerServicePortType">
-        <wsdl:operation name="getDomain">
-            <wsdl:input message="ns:getDomainRequest" wsaw:Action="urn:getDomain"/>
-            <wsdl:output message="ns:getDomainResponse" wsaw:Action="urn:getDomainResponse"/>
-            <wsdl:fault message="ns:RemoteTenantManagerServiceUserStoreException" name="RemoteTenantManagerServiceUserStoreException" wsaw:Action="urn:getDomainRemoteTenantManagerServiceUserStoreException"/>
-        </wsdl:operation>
         <wsdl:operation name="getSuperTenantDomain">
             <wsdl:input message="ns:getSuperTenantDomainRequest" wsaw:Action="urn:getSuperTenantDomain"/>
             <wsdl:output message="ns:getSuperTenantDomainResponse" wsaw:Action="urn:getSuperTenantDomainResponse"/>
             <wsdl:fault message="ns:RemoteTenantManagerServiceUserStoreException" name="RemoteTenantManagerServiceUserStoreException" wsaw:Action="urn:getSuperTenantDomainRemoteTenantManagerServiceUserStoreException"/>
         </wsdl:operation>
+        <wsdl:operation name="getDomain">
+            <wsdl:input message="ns:getDomainRequest" wsaw:Action="urn:getDomain"/>
+            <wsdl:output message="ns:getDomainResponse" wsaw:Action="urn:getDomainResponse"/>
+            <wsdl:fault message="ns:RemoteTenantManagerServiceUserStoreException" name="RemoteTenantManagerServiceUserStoreException" wsaw:Action="urn:getDomainRemoteTenantManagerServiceUserStoreException"/>
+        </wsdl:operation>
         <wsdl:operation name="deactivateTenant">
             <wsdl:input message="ns:deactivateTenantRequest" wsaw:Action="urn:deactivateTenant"/>
             <wsdl:fault message="ns:RemoteTenantManagerServiceUserStoreException" name="RemoteTenantManagerServiceUserStoreException" wsaw:Action="urn:deactivateTenantRemoteTenantManagerServiceUserStoreException"/>
-        </wsdl:operation>
-        <wsdl:operation name="deleteTenant">
-            <wsdl:input message="ns:deleteTenantRequest" wsaw:Action="urn:deleteTenant"/>
-            <wsdl:fault message="ns:RemoteTenantManagerServiceUserStoreException" name="RemoteTenantManagerServiceUserStoreException" wsaw:Action="urn:deleteTenantRemoteTenantManagerServiceUserStoreException"/>
         </wsdl:operation>
         <wsdl:operation name="addTenant">
             <wsdl:input message="ns:addTenantRequest" wsaw:Action="urn:addTenant"/>
@@ -281,6 +277,10 @@
         <wsdl:operation name="updateTenant">
             <wsdl:input message="ns:updateTenantRequest" wsaw:Action="urn:updateTenant"/>
             <wsdl:fault message="ns:RemoteTenantManagerServiceUserStoreException" name="RemoteTenantManagerServiceUserStoreException" wsaw:Action="urn:updateTenantRemoteTenantManagerServiceUserStoreException"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTenant">
+            <wsdl:input message="ns:deleteTenantRequest" wsaw:Action="urn:deleteTenant"/>
+            <wsdl:fault message="ns:RemoteTenantManagerServiceUserStoreException" name="RemoteTenantManagerServiceUserStoreException" wsaw:Action="urn:deleteTenantRemoteTenantManagerServiceUserStoreException"/>
         </wsdl:operation>
         <wsdl:operation name="isTenantActive">
             <wsdl:input message="ns:isTenantActiveRequest" wsaw:Action="urn:isTenantActive"/>
@@ -309,18 +309,6 @@
     </wsdl:portType>
     <wsdl:binding name="RemoteTenantManagerServiceSoap11Binding" type="ns:RemoteTenantManagerServicePortType">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <wsdl:operation name="getDomain">
-            <soap:operation soapAction="urn:getDomain" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-            <wsdl:fault name="RemoteTenantManagerServiceUserStoreException">
-                <soap:fault use="literal" name="RemoteTenantManagerServiceUserStoreException"/>
-            </wsdl:fault>
-        </wsdl:operation>
         <wsdl:operation name="getSuperTenantDomain">
             <soap:operation soapAction="urn:getSuperTenantDomain" style="document"/>
             <wsdl:input>
@@ -333,17 +321,20 @@
                 <soap:fault use="literal" name="RemoteTenantManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="deactivateTenant">
-            <soap:operation soapAction="urn:deactivateTenant" style="document"/>
+        <wsdl:operation name="getDomain">
+            <soap:operation soapAction="urn:getDomain" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
             <wsdl:fault name="RemoteTenantManagerServiceUserStoreException">
                 <soap:fault use="literal" name="RemoteTenantManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="deleteTenant">
-            <soap:operation soapAction="urn:deleteTenant" style="document"/>
+        <wsdl:operation name="deactivateTenant">
+            <soap:operation soapAction="urn:deactivateTenant" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -365,6 +356,15 @@
         </wsdl:operation>
         <wsdl:operation name="updateTenant">
             <soap:operation soapAction="urn:updateTenant" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:fault name="RemoteTenantManagerServiceUserStoreException">
+                <soap:fault use="literal" name="RemoteTenantManagerServiceUserStoreException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTenant">
+            <soap:operation soapAction="urn:deleteTenant" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -432,18 +432,6 @@
     </wsdl:binding>
     <wsdl:binding name="RemoteTenantManagerServiceSoap12Binding" type="ns:RemoteTenantManagerServicePortType">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <wsdl:operation name="getDomain">
-            <soap12:operation soapAction="urn:getDomain" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-            <wsdl:fault name="RemoteTenantManagerServiceUserStoreException">
-                <soap12:fault use="literal" name="RemoteTenantManagerServiceUserStoreException"/>
-            </wsdl:fault>
-        </wsdl:operation>
         <wsdl:operation name="getSuperTenantDomain">
             <soap12:operation soapAction="urn:getSuperTenantDomain" style="document"/>
             <wsdl:input>
@@ -456,17 +444,20 @@
                 <soap12:fault use="literal" name="RemoteTenantManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="deactivateTenant">
-            <soap12:operation soapAction="urn:deactivateTenant" style="document"/>
+        <wsdl:operation name="getDomain">
+            <soap12:operation soapAction="urn:getDomain" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
             <wsdl:fault name="RemoteTenantManagerServiceUserStoreException">
                 <soap12:fault use="literal" name="RemoteTenantManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="deleteTenant">
-            <soap12:operation soapAction="urn:deleteTenant" style="document"/>
+        <wsdl:operation name="deactivateTenant">
+            <soap12:operation soapAction="urn:deactivateTenant" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -488,6 +479,15 @@
         </wsdl:operation>
         <wsdl:operation name="updateTenant">
             <soap12:operation soapAction="urn:updateTenant" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:fault name="RemoteTenantManagerServiceUserStoreException">
+                <soap12:fault use="literal" name="RemoteTenantManagerServiceUserStoreException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTenant">
+            <soap12:operation soapAction="urn:deleteTenant" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -555,15 +555,6 @@
     </wsdl:binding>
     <wsdl:binding name="RemoteTenantManagerServiceHttpBinding" type="ns:RemoteTenantManagerServicePortType">
         <http:binding verb="POST"/>
-        <wsdl:operation name="getDomain">
-            <http:operation location="getDomain"/>
-            <wsdl:input>
-                <mime:content type="text/xml" part="parameters"/>
-            </wsdl:input>
-            <wsdl:output>
-                <mime:content type="text/xml" part="parameters"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="getSuperTenantDomain">
             <http:operation location="getSuperTenantDomain"/>
             <wsdl:input>
@@ -573,14 +564,17 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="deactivateTenant">
-            <http:operation location="deactivateTenant"/>
+        <wsdl:operation name="getDomain">
+            <http:operation location="getDomain"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="deleteTenant">
-            <http:operation location="deleteTenant"/>
+        <wsdl:operation name="deactivateTenant">
+            <http:operation location="deactivateTenant"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -596,6 +590,12 @@
         </wsdl:operation>
         <wsdl:operation name="updateTenant">
             <http:operation location="updateTenant"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTenant">
+            <http:operation location="deleteTenant"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>

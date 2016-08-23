@@ -3,6 +3,59 @@
     <wsdl:types>
         <xs:schema xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2119="http://data.prov.services.mgt.feature.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://org.apache.axis2/xsd">
             <xs:import namespace="http://data.prov.services.mgt.feature.carbon.wso2.org/xsd"/>
+            <xs:element name="getLicensingInformation">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getLicensingInformationResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2118:LicenseInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getInstalledFeatureInfo">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="featureID" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="featureVersion" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getInstalledFeatureInfoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2118:FeatureInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="reviewProvisioningAction">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="provActionInfo" nillable="true" type="ax2118:ProvisioningActionInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="reviewProvisioningActionResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2118:ProvisioningActionResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getFeatureLicenseInfo">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getFeatureLicenseInfoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2118:LicenseFeatureHolder"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="getAllInstalledFeatures">
                 <xs:complexType>
                     <xs:sequence/>
@@ -54,59 +107,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getInstalledFeatureInfo">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="featureID" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="featureVersion" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getInstalledFeatureInfoResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2118:FeatureInfo"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="reviewProvisioningAction">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="provActionInfo" nillable="true" type="ax2118:ProvisioningActionInfo"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="reviewProvisioningActionResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2118:ProvisioningActionResultInfo"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getLicensingInformation">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getLicensingInformationResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2118:LicenseInfo"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getFeatureLicenseInfo">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getFeatureLicenseInfoResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2118:LicenseFeatureHolder"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
             <xs:element name="performProvisioningAction">
                 <xs:complexType>
                     <xs:sequence>
@@ -135,17 +135,10 @@
             </xs:element>
         </xs:schema>
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://data.prov.services.mgt.feature.carbon.wso2.org/xsd">
-            <xs:complexType name="Feature">
+            <xs:complexType name="LicenseInfo">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="featureDescription" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="featureID" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="featureName" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="featureType" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="featureVersion" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="installed" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="provider" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="required" type="xs:boolean"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="requiredFeatures" nillable="true" type="ax2118:Feature"/>
+                    <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="body" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="FeatureInfo">
@@ -160,12 +153,6 @@
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="CopyrightInfo">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="body" nillable="true" type="xs:string"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:complexType name="LicenseInfo">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="body" nillable="true" type="xs:string"/>
@@ -198,6 +185,19 @@
                     <xs:element minOccurs="0" name="licenseInfo" nillable="true" type="ax2118:LicenseInfo"/>
                 </xs:sequence>
             </xs:complexType>
+            <xs:complexType name="Feature">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="featureDescription" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="featureID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="featureName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="featureType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="featureVersion" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="installed" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="provider" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="required" type="xs:boolean"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="requiredFeatures" nillable="true" type="ax2118:Feature"/>
+                </xs:sequence>
+            </xs:complexType>
             <xs:complexType name="ProfileHistory">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="summary" nillable="true" type="xs:string"/>
@@ -206,17 +206,17 @@
             </xs:complexType>
         </xs:schema>
     </wsdl:types>
-    <wsdl:message name="getInstalledFeaturesWithPropertyRequest">
-        <wsdl:part name="parameters" element="ns1:getInstalledFeaturesWithProperty"/>
-    </wsdl:message>
-    <wsdl:message name="getInstalledFeaturesWithPropertyResponse">
-        <wsdl:part name="parameters" element="ns1:getInstalledFeaturesWithPropertyResponse"/>
-    </wsdl:message>
     <wsdl:message name="getFeatureLicenseInfoRequest">
         <wsdl:part name="parameters" element="ns1:getFeatureLicenseInfo"/>
     </wsdl:message>
     <wsdl:message name="getFeatureLicenseInfoResponse">
         <wsdl:part name="parameters" element="ns1:getFeatureLicenseInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getInstalledFeaturesWithPropertyRequest">
+        <wsdl:part name="parameters" element="ns1:getInstalledFeaturesWithProperty"/>
+    </wsdl:message>
+    <wsdl:message name="getInstalledFeaturesWithPropertyResponse">
+        <wsdl:part name="parameters" element="ns1:getInstalledFeaturesWithPropertyResponse"/>
     </wsdl:message>
     <wsdl:message name="removeAllConsoleFeaturesRequest">
         <wsdl:part name="parameters" element="ns1:removeAllConsoleFeatures"/>
@@ -230,11 +230,11 @@
     <wsdl:message name="performProvisioningActionResponse">
         <wsdl:part name="parameters" element="ns1:performProvisioningActionResponse"/>
     </wsdl:message>
-    <wsdl:message name="getAllInstalledFeaturesRequest">
-        <wsdl:part name="parameters" element="ns1:getAllInstalledFeatures"/>
+    <wsdl:message name="getLicensingInformationRequest">
+        <wsdl:part name="parameters" element="ns1:getLicensingInformation"/>
     </wsdl:message>
-    <wsdl:message name="getAllInstalledFeaturesResponse">
-        <wsdl:part name="parameters" element="ns1:getAllInstalledFeaturesResponse"/>
+    <wsdl:message name="getLicensingInformationResponse">
+        <wsdl:part name="parameters" element="ns1:getLicensingInformationResponse"/>
     </wsdl:message>
     <wsdl:message name="reviewProvisioningActionRequest">
         <wsdl:part name="parameters" element="ns1:reviewProvisioningAction"/>
@@ -242,11 +242,11 @@
     <wsdl:message name="reviewProvisioningActionResponse">
         <wsdl:part name="parameters" element="ns1:reviewProvisioningActionResponse"/>
     </wsdl:message>
-    <wsdl:message name="getLicensingInformationRequest">
-        <wsdl:part name="parameters" element="ns1:getLicensingInformation"/>
+    <wsdl:message name="getAllInstalledFeaturesRequest">
+        <wsdl:part name="parameters" element="ns1:getAllInstalledFeatures"/>
     </wsdl:message>
-    <wsdl:message name="getLicensingInformationResponse">
-        <wsdl:part name="parameters" element="ns1:getLicensingInformationResponse"/>
+    <wsdl:message name="getAllInstalledFeaturesResponse">
+        <wsdl:part name="parameters" element="ns1:getAllInstalledFeaturesResponse"/>
     </wsdl:message>
     <wsdl:message name="getInstalledFeatureInfoRequest">
         <wsdl:part name="parameters" element="ns1:getInstalledFeatureInfo"/>
@@ -267,13 +267,13 @@
         <wsdl:part name="parameters" element="ns1:removeAllServerFeaturesResponse"/>
     </wsdl:message>
     <wsdl:portType name="ProvisioningAdminServicePortType">
-        <wsdl:operation name="getInstalledFeaturesWithProperty">
-            <wsdl:input message="tns:getInstalledFeaturesWithPropertyRequest" wsaw:Action="urn:getInstalledFeaturesWithProperty"/>
-            <wsdl:output message="tns:getInstalledFeaturesWithPropertyResponse" wsaw:Action="urn:getInstalledFeaturesWithPropertyResponse"/>
-        </wsdl:operation>
         <wsdl:operation name="getFeatureLicenseInfo">
             <wsdl:input message="tns:getFeatureLicenseInfoRequest" wsaw:Action="urn:getFeatureLicenseInfo"/>
             <wsdl:output message="tns:getFeatureLicenseInfoResponse" wsaw:Action="urn:getFeatureLicenseInfoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getInstalledFeaturesWithProperty">
+            <wsdl:input message="tns:getInstalledFeaturesWithPropertyRequest" wsaw:Action="urn:getInstalledFeaturesWithProperty"/>
+            <wsdl:output message="tns:getInstalledFeaturesWithPropertyResponse" wsaw:Action="urn:getInstalledFeaturesWithPropertyResponse"/>
         </wsdl:operation>
         <wsdl:operation name="removeAllConsoleFeatures">
             <wsdl:input message="tns:removeAllConsoleFeaturesRequest" wsaw:Action="urn:removeAllConsoleFeatures"/>
@@ -283,17 +283,17 @@
             <wsdl:input message="tns:performProvisioningActionRequest" wsaw:Action="urn:performProvisioningAction"/>
             <wsdl:output message="tns:performProvisioningActionResponse" wsaw:Action="urn:performProvisioningActionResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="getAllInstalledFeatures">
-            <wsdl:input message="tns:getAllInstalledFeaturesRequest" wsaw:Action="urn:getAllInstalledFeatures"/>
-            <wsdl:output message="tns:getAllInstalledFeaturesResponse" wsaw:Action="urn:getAllInstalledFeaturesResponse"/>
+        <wsdl:operation name="getLicensingInformation">
+            <wsdl:input message="tns:getLicensingInformationRequest" wsaw:Action="urn:getLicensingInformation"/>
+            <wsdl:output message="tns:getLicensingInformationResponse" wsaw:Action="urn:getLicensingInformationResponse"/>
         </wsdl:operation>
         <wsdl:operation name="reviewProvisioningAction">
             <wsdl:input message="tns:reviewProvisioningActionRequest" wsaw:Action="urn:reviewProvisioningAction"/>
             <wsdl:output message="tns:reviewProvisioningActionResponse" wsaw:Action="urn:reviewProvisioningActionResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="getLicensingInformation">
-            <wsdl:input message="tns:getLicensingInformationRequest" wsaw:Action="urn:getLicensingInformation"/>
-            <wsdl:output message="tns:getLicensingInformationResponse" wsaw:Action="urn:getLicensingInformationResponse"/>
+        <wsdl:operation name="getAllInstalledFeatures">
+            <wsdl:input message="tns:getAllInstalledFeaturesRequest" wsaw:Action="urn:getAllInstalledFeatures"/>
+            <wsdl:output message="tns:getAllInstalledFeaturesResponse" wsaw:Action="urn:getAllInstalledFeaturesResponse"/>
         </wsdl:operation>
         <wsdl:operation name="getInstalledFeatureInfo">
             <wsdl:input message="tns:getInstalledFeatureInfoRequest" wsaw:Action="urn:getInstalledFeatureInfo"/>
@@ -310,8 +310,8 @@
     </wsdl:portType>
     <wsdl:binding name="ProvisioningAdminServiceSoap11Binding" type="tns:ProvisioningAdminServicePortType">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <wsdl:operation name="getInstalledFeaturesWithProperty">
-            <soap:operation soapAction="urn:getInstalledFeaturesWithProperty" style="document"/>
+        <wsdl:operation name="getFeatureLicenseInfo">
+            <soap:operation soapAction="urn:getFeatureLicenseInfo" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -319,8 +319,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getFeatureLicenseInfo">
-            <soap:operation soapAction="urn:getFeatureLicenseInfo" style="document"/>
+        <wsdl:operation name="getInstalledFeaturesWithProperty">
+            <soap:operation soapAction="urn:getInstalledFeaturesWithProperty" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -346,8 +346,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getAllInstalledFeatures">
-            <soap:operation soapAction="urn:getAllInstalledFeatures" style="document"/>
+        <wsdl:operation name="getLicensingInformation">
+            <soap:operation soapAction="urn:getLicensingInformation" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -364,8 +364,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getLicensingInformation">
-            <soap:operation soapAction="urn:getLicensingInformation" style="document"/>
+        <wsdl:operation name="getAllInstalledFeatures">
+            <soap:operation soapAction="urn:getAllInstalledFeatures" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -403,8 +403,8 @@
     </wsdl:binding>
     <wsdl:binding name="ProvisioningAdminServiceSoap12Binding" type="tns:ProvisioningAdminServicePortType">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <wsdl:operation name="getInstalledFeaturesWithProperty">
-            <soap12:operation soapAction="urn:getInstalledFeaturesWithProperty" style="document"/>
+        <wsdl:operation name="getFeatureLicenseInfo">
+            <soap12:operation soapAction="urn:getFeatureLicenseInfo" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -412,8 +412,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getFeatureLicenseInfo">
-            <soap12:operation soapAction="urn:getFeatureLicenseInfo" style="document"/>
+        <wsdl:operation name="getInstalledFeaturesWithProperty">
+            <soap12:operation soapAction="urn:getInstalledFeaturesWithProperty" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -439,8 +439,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getAllInstalledFeatures">
-            <soap12:operation soapAction="urn:getAllInstalledFeatures" style="document"/>
+        <wsdl:operation name="getLicensingInformation">
+            <soap12:operation soapAction="urn:getLicensingInformation" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -457,8 +457,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getLicensingInformation">
-            <soap12:operation soapAction="urn:getLicensingInformation" style="document"/>
+        <wsdl:operation name="getAllInstalledFeatures">
+            <soap12:operation soapAction="urn:getAllInstalledFeatures" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -496,8 +496,8 @@
     </wsdl:binding>
     <wsdl:binding name="ProvisioningAdminServiceHttpBinding" type="tns:ProvisioningAdminServicePortType">
         <http:binding verb="POST"/>
-        <wsdl:operation name="getInstalledFeaturesWithProperty">
-            <http:operation location="getInstalledFeaturesWithProperty"/>
+        <wsdl:operation name="getFeatureLicenseInfo">
+            <http:operation location="getFeatureLicenseInfo"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -505,8 +505,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getFeatureLicenseInfo">
-            <http:operation location="getFeatureLicenseInfo"/>
+        <wsdl:operation name="getInstalledFeaturesWithProperty">
+            <http:operation location="getInstalledFeaturesWithProperty"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -532,8 +532,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getAllInstalledFeatures">
-            <http:operation location="getAllInstalledFeatures"/>
+        <wsdl:operation name="getLicensingInformation">
+            <http:operation location="getLicensingInformation"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -550,8 +550,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getLicensingInformation">
-            <http:operation location="getLicensingInformation"/>
+        <wsdl:operation name="getAllInstalledFeatures">
+            <http:operation location="getAllInstalledFeatures"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>

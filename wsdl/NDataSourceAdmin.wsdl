@@ -47,6 +47,58 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="getAllDataSourcesForType">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="dsType" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAllDataSourcesForTypeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2456:WSDataSourceInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDataSourceTypes">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDataSourceTypesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="reloadAllDataSources">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="reloadAllDataSourcesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="reloadDataSource">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="dsName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="reloadDataSourceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="addDataSource">
                 <xs:complexType>
                     <xs:sequence>
@@ -100,58 +152,6 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="return" nillable="true" type="ax2456:WSDataSourceInfo"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getAllDataSourcesForType">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="dsType" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getAllDataSourcesForTypeResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2456:WSDataSourceInfo"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getDataSourceTypes">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getDataSourceTypesResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="reloadAllDataSources">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="reloadAllDataSourcesResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="reloadDataSource">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="dsName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="reloadDataSourceResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -231,17 +231,17 @@
     <wsdl:message name="reloadAllDataSourcesResponse">
         <wsdl:part name="parameters" element="ns1:reloadAllDataSourcesResponse"/>
     </wsdl:message>
-    <wsdl:message name="addDataSourceRequest">
-        <wsdl:part name="parameters" element="ns1:addDataSource"/>
-    </wsdl:message>
-    <wsdl:message name="addDataSourceResponse">
-        <wsdl:part name="parameters" element="ns1:addDataSourceResponse"/>
-    </wsdl:message>
     <wsdl:message name="getAllDataSourcesForTypeRequest">
         <wsdl:part name="parameters" element="ns1:getAllDataSourcesForType"/>
     </wsdl:message>
     <wsdl:message name="getAllDataSourcesForTypeResponse">
         <wsdl:part name="parameters" element="ns1:getAllDataSourcesForTypeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="addDataSourceRequest">
+        <wsdl:part name="parameters" element="ns1:addDataSource"/>
+    </wsdl:message>
+    <wsdl:message name="addDataSourceResponse">
+        <wsdl:part name="parameters" element="ns1:addDataSourceResponse"/>
     </wsdl:message>
     <wsdl:portType name="NDataSourceAdminPortType">
         <wsdl:operation name="deleteDataSource">
@@ -279,15 +279,15 @@
             <wsdl:output message="tns:reloadAllDataSourcesResponse" wsaw:Action="urn:reloadAllDataSourcesResponse"/>
             <wsdl:fault message="tns:NDataSourceAdminDataSourceException" name="NDataSourceAdminDataSourceException" wsaw:Action="urn:reloadAllDataSourcesNDataSourceAdminDataSourceException"/>
         </wsdl:operation>
-        <wsdl:operation name="addDataSource">
-            <wsdl:input message="tns:addDataSourceRequest" wsaw:Action="urn:addDataSource"/>
-            <wsdl:output message="tns:addDataSourceResponse" wsaw:Action="urn:addDataSourceResponse"/>
-            <wsdl:fault message="tns:NDataSourceAdminDataSourceException" name="NDataSourceAdminDataSourceException" wsaw:Action="urn:addDataSourceNDataSourceAdminDataSourceException"/>
-        </wsdl:operation>
         <wsdl:operation name="getAllDataSourcesForType">
             <wsdl:input message="tns:getAllDataSourcesForTypeRequest" wsaw:Action="urn:getAllDataSourcesForType"/>
             <wsdl:output message="tns:getAllDataSourcesForTypeResponse" wsaw:Action="urn:getAllDataSourcesForTypeResponse"/>
             <wsdl:fault message="tns:NDataSourceAdminDataSourceException" name="NDataSourceAdminDataSourceException" wsaw:Action="urn:getAllDataSourcesForTypeNDataSourceAdminDataSourceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="addDataSource">
+            <wsdl:input message="tns:addDataSourceRequest" wsaw:Action="urn:addDataSource"/>
+            <wsdl:output message="tns:addDataSourceResponse" wsaw:Action="urn:addDataSourceResponse"/>
+            <wsdl:fault message="tns:NDataSourceAdminDataSourceException" name="NDataSourceAdminDataSourceException" wsaw:Action="urn:addDataSourceNDataSourceAdminDataSourceException"/>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="NDataSourceAdminSoap11Binding" type="tns:NDataSourceAdminPortType">
@@ -376,8 +376,8 @@
                 <soap:fault use="literal" name="NDataSourceAdminDataSourceException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="addDataSource">
-            <soap:operation soapAction="urn:addDataSource" style="document"/>
+        <wsdl:operation name="getAllDataSourcesForType">
+            <soap:operation soapAction="urn:getAllDataSourcesForType" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -388,8 +388,8 @@
                 <soap:fault use="literal" name="NDataSourceAdminDataSourceException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getAllDataSourcesForType">
-            <soap:operation soapAction="urn:getAllDataSourcesForType" style="document"/>
+        <wsdl:operation name="addDataSource">
+            <soap:operation soapAction="urn:addDataSource" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -487,8 +487,8 @@
                 <soap12:fault use="literal" name="NDataSourceAdminDataSourceException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="addDataSource">
-            <soap12:operation soapAction="urn:addDataSource" style="document"/>
+        <wsdl:operation name="getAllDataSourcesForType">
+            <soap12:operation soapAction="urn:getAllDataSourcesForType" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -499,8 +499,8 @@
                 <soap12:fault use="literal" name="NDataSourceAdminDataSourceException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getAllDataSourcesForType">
-            <soap12:operation soapAction="urn:getAllDataSourcesForType" style="document"/>
+        <wsdl:operation name="addDataSource">
+            <soap12:operation soapAction="urn:addDataSource" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -577,8 +577,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="addDataSource">
-            <http:operation location="addDataSource"/>
+        <wsdl:operation name="getAllDataSourcesForType">
+            <http:operation location="getAllDataSourcesForType"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -586,8 +586,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getAllDataSourcesForType">
-            <http:operation location="getAllDataSourcesForType"/>
+        <wsdl:operation name="addDataSource">
+            <http:operation location="addDataSource"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>

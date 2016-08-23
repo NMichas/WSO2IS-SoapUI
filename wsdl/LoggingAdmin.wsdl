@@ -48,6 +48,24 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="LoggingAdminLoggingAdminException">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="LoggingAdminException" nillable="true" type="ax2443:LoggingAdminException"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSyslogConfig">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="url" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="port" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="realm" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="getAppenderData">
                 <xs:complexType>
                     <xs:sequence>
@@ -73,24 +91,6 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="return" nillable="true" type="ax2440:LoggerData"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="LoggingAdminLoggingAdminException">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="LoggingAdminException" nillable="true" type="ax2443:LoggingAdminException"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="updateSyslogConfig">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="url" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="port" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="realm" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

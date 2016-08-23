@@ -38,31 +38,12 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="removeServer">
+            <xs:element name="addServer">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="serverName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="isKDCEnabled">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="isKDCEnabledResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="changePassword">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="serverPrinciple" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="existingPassword" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="serverDescription" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="serverPassword" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -80,12 +61,12 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="addServer">
+            <xs:element name="changePassword">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="serverName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="serverDescription" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="serverPassword" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="serverPrinciple" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="existingPassword" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -124,6 +105,25 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="isKDCEnabled">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="isKDCEnabledResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="removeServer">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="serverName" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

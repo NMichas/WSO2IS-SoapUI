@@ -1,18 +1,18 @@
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2465="http://api.registry.carbon.wso2.org/xsd" xmlns:ax2487="http://service.core.user.carbon.wso2.org/xsd" xmlns:ax2488="http://core.user.carbon.wso2.org/xsd" xmlns:ax2500="http://framework.osgi.org/xsd" xmlns:ax2489="http://claim.core.user.carbon.wso2.org/xsd" xmlns:ax2468="http://session.core.registry.carbon.wso2.org/xsd" xmlns:ax2469="http://config.core.registry.carbon.wso2.org/xsd" xmlns:ns="http://service.indexing.registry.carbon.wso2.org" xmlns:ax2505="http://statistics.core.registry.carbon.wso2.org/xsd" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ax2480="http://jdbc.core.registry.carbon.wso2.org/xsd" xmlns:ax2483="http://utils.core.registry.carbon.wso2.org/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax2462="http://indexer.indexing.registry.carbon.wso2.org/xsd" xmlns:ax2485="http://queries.jdbc.core.registry.carbon.wso2.org/xsd" xmlns:ax2464="http://exceptions.core.registry.carbon.wso2.org/xsd" xmlns:ax2499="http://tenant.core.user.carbon.wso2.org/xsd" xmlns:ax2510="http://service.indexing.registry.carbon.wso2.org/xsd" xmlns:ax2511="http://common.registry.carbon.wso2.org/xsd" xmlns:ax2478="http://securevault.wso2.org/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ax2491="http://profile.core.user.carbon.wso2.org/xsd" xmlns:ax2470="http://util.java/xsd" xmlns:ax2493="http://api.user.carbon.wso2.org/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ax2472="http://handlers.jdbc.core.registry.carbon.wso2.org/xsd" xmlns:ax2474="http://dataaccess.core.registry.carbon.wso2.org/xsd" xmlns:ax2475="http://dao.core.registry.carbon.wso2.org/xsd" xmlns:ax2497="http://multitenancy.config.core.user.carbon.wso2.org/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://service.indexing.registry.carbon.wso2.org">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2487="http://utils.core.registry.carbon.wso2.org/xsd" xmlns:ax2466="http://service.indexing.registry.carbon.wso2.org/xsd" xmlns:ax2467="http://common.registry.carbon.wso2.org/xsd" xmlns:ax2489="http://queries.jdbc.core.registry.carbon.wso2.org/xsd" xmlns:ax2501="http://multitenancy.config.core.user.carbon.wso2.org/xsd" xmlns:ax2503="http://tenant.core.user.carbon.wso2.org/xsd" xmlns:ns="http://service.indexing.registry.carbon.wso2.org" xmlns:ax2504="http://framework.osgi.org/xsd" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ax2482="http://securevault.wso2.org/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax2484="http://jdbc.core.registry.carbon.wso2.org/xsd" xmlns:ax2462="http://exceptions.core.registry.carbon.wso2.org/xsd" xmlns:ax2463="http://api.registry.carbon.wso2.org/xsd" xmlns:ax2476="http://handlers.jdbc.core.registry.carbon.wso2.org/xsd" xmlns:ax2478="http://dataaccess.core.registry.carbon.wso2.org/xsd" xmlns:ax2479="http://dao.core.registry.carbon.wso2.org/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ax2491="http://service.core.user.carbon.wso2.org/xsd" xmlns:ax2492="http://core.user.carbon.wso2.org/xsd" xmlns:ax2470="http://indexer.indexing.registry.carbon.wso2.org/xsd" xmlns:ax2493="http://claim.core.user.carbon.wso2.org/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ax2472="http://session.core.registry.carbon.wso2.org/xsd" xmlns:ax2473="http://config.core.registry.carbon.wso2.org/xsd" xmlns:ax2495="http://profile.core.user.carbon.wso2.org/xsd" xmlns:ax2474="http://util.java/xsd" xmlns:ax2497="http://api.user.carbon.wso2.org/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax2509="http://statistics.core.registry.carbon.wso2.org/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://service.indexing.registry.carbon.wso2.org">
     <wsdl:documentation>ContentSearchAdminService</wsdl:documentation>
     <wsdl:types>
-        <xs:schema xmlns:ax2481="http://session.core.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://jdbc.core.registry.carbon.wso2.org/xsd">
+        <xs:schema xmlns:ax2485="http://session.core.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://jdbc.core.registry.carbon.wso2.org/xsd">
             <xs:import namespace="http://session.core.registry.carbon.wso2.org/xsd"/>
             <xs:complexType name="EmbeddedRegistryService">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="configSystemRegistry" nillable="true" type="ax2468:UserRegistry"/>
-                    <xs:element minOccurs="0" name="configUserRegistry" nillable="true" type="ax2468:UserRegistry"/>
-                    <xs:element minOccurs="0" name="governanceSystemRegistry" nillable="true" type="ax2468:UserRegistry"/>
-                    <xs:element minOccurs="0" name="governanceUserRegistry" nillable="true" type="ax2468:UserRegistry"/>
-                    <xs:element minOccurs="0" name="localRepository" nillable="true" type="ax2468:UserRegistry"/>
-                    <xs:element minOccurs="0" name="registry" nillable="true" type="ax2468:UserRegistry"/>
-                    <xs:element minOccurs="0" name="systemRegistry" nillable="true" type="ax2468:UserRegistry"/>
-                    <xs:element minOccurs="0" name="userRegistry" nillable="true" type="ax2468:UserRegistry"/>
+                    <xs:element minOccurs="0" name="configSystemRegistry" nillable="true" type="ax2485:UserRegistry"/>
+                    <xs:element minOccurs="0" name="configUserRegistry" nillable="true" type="ax2485:UserRegistry"/>
+                    <xs:element minOccurs="0" name="governanceSystemRegistry" nillable="true" type="ax2485:UserRegistry"/>
+                    <xs:element minOccurs="0" name="governanceUserRegistry" nillable="true" type="ax2485:UserRegistry"/>
+                    <xs:element minOccurs="0" name="localRepository" nillable="true" type="ax2485:UserRegistry"/>
+                    <xs:element minOccurs="0" name="registry" nillable="true" type="ax2485:UserRegistry"/>
+                    <xs:element minOccurs="0" name="systemRegistry" nillable="true" type="ax2485:UserRegistry"/>
+                    <xs:element minOccurs="0" name="userRegistry" nillable="true" type="ax2485:UserRegistry"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="Repository">
@@ -43,7 +43,7 @@
                     <xs:element minOccurs="0" name="relativePath" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="resourcePath" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="resourceType" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tagCounts" nillable="true" type="ax2511:TagCount"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tagCounts" nillable="true" type="ax2467:TagCount"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="TagCount">
@@ -78,17 +78,17 @@
                 <xs:sequence/>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2490="http://claim.core.user.carbon.wso2.org/xsd" xmlns:ax2492="http://profile.core.user.carbon.wso2.org/xsd" xmlns:ax2494="http://api.user.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://core.user.carbon.wso2.org/xsd">
+        <xs:schema xmlns:ax2498="http://api.user.carbon.wso2.org/xsd" xmlns:ax2494="http://claim.core.user.carbon.wso2.org/xsd" xmlns:ax2496="http://profile.core.user.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://core.user.carbon.wso2.org/xsd">
             <xs:import namespace="http://claim.core.user.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://profile.core.user.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://api.user.carbon.wso2.org/xsd"/>
             <xs:complexType abstract="true" name="UserRealm">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="authorizationManager" nillable="true" type="ax2488:AuthorizationManager"/>
-                    <xs:element minOccurs="0" name="claimManager" nillable="true" type="ax2489:ClaimManager"/>
-                    <xs:element minOccurs="0" name="profileConfigurationManager" nillable="true" type="ax2491:ProfileConfigurationManager"/>
-                    <xs:element minOccurs="0" name="realmConfiguration" nillable="true" type="ax2493:RealmConfiguration"/>
-                    <xs:element minOccurs="0" name="userStoreManager" nillable="true" type="ax2488:UserStoreManager"/>
+                    <xs:element minOccurs="0" name="authorizationManager" nillable="true" type="ax2492:AuthorizationManager"/>
+                    <xs:element minOccurs="0" name="claimManager" nillable="true" type="ax2493:ClaimManager"/>
+                    <xs:element minOccurs="0" name="profileConfigurationManager" nillable="true" type="ax2495:ProfileConfigurationManager"/>
+                    <xs:element minOccurs="0" name="realmConfiguration" nillable="true" type="ax2498:RealmConfiguration"/>
+                    <xs:element minOccurs="0" name="userStoreManager" nillable="true" type="ax2492:UserStoreManager"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="AuthorizationManager">
@@ -103,9 +103,9 @@
                     <xs:element minOccurs="0" name="bulkImportSupported" type="xs:boolean"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="hybridRoles" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="readOnly" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="realmConfiguration" nillable="true" type="ax2493:RealmConfiguration"/>
+                    <xs:element minOccurs="0" name="realmConfiguration" nillable="true" type="ax2498:RealmConfiguration"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="roleNames" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="secondaryUserStoreManager" nillable="true" type="ax2488:UserStoreManager"/>
+                    <xs:element minOccurs="0" name="secondaryUserStoreManager" nillable="true" type="ax2492:UserStoreManager"/>
                     <xs:element minOccurs="0" name="tenantId" type="xs:int"/>
                 </xs:sequence>
             </xs:complexType>
@@ -115,24 +115,24 @@
                 <xs:sequence/>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2476="http://dao.core.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://dataaccess.core.registry.carbon.wso2.org/xsd">
+        <xs:schema xmlns:ax2480="http://dao.core.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://dataaccess.core.registry.carbon.wso2.org/xsd">
             <xs:import namespace="http://dao.core.registry.carbon.wso2.org/xsd"/>
             <xs:complexType abstract="true" name="DataAccessManager">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="DAOManager" nillable="true" type="ax2474:DAOManager"/>
-                    <xs:element minOccurs="0" name="clusterLock" nillable="true" type="ax2474:ClusterLock"/>
+                    <xs:element minOccurs="0" name="DAOManager" nillable="true" type="ax2478:DAOManager"/>
+                    <xs:element minOccurs="0" name="clusterLock" nillable="true" type="ax2478:ClusterLock"/>
                     <xs:element minOccurs="0" name="databaseExisting" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="databaseTransaction" nillable="true" type="ax2474:DatabaseTransaction"/>
-                    <xs:element minOccurs="0" name="queryProcessor" nillable="true" type="ax2474:QueryProcessor"/>
-                    <xs:element minOccurs="0" name="transactionManager" nillable="true" type="ax2474:TransactionManager"/>
+                    <xs:element minOccurs="0" name="databaseTransaction" nillable="true" type="ax2478:DatabaseTransaction"/>
+                    <xs:element minOccurs="0" name="queryProcessor" nillable="true" type="ax2478:QueryProcessor"/>
+                    <xs:element minOccurs="0" name="transactionManager" nillable="true" type="ax2478:TransactionManager"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="DAOManager">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="associationDAO" nillable="true" type="ax2476:AssociationDAO"/>
-                    <xs:element minOccurs="0" name="logsDAO" nillable="true" type="ax2476:LogsDAO"/>
-                    <xs:element minOccurs="0" name="resourceDAO" nillable="true" type="ax2476:ResourceDAO"/>
-                    <xs:element minOccurs="0" name="resourceVersionDAO" nillable="true" type="ax2476:ResourceVersionDAO"/>
+                    <xs:element minOccurs="0" name="associationDAO" nillable="true" type="ax2480:AssociationDAO"/>
+                    <xs:element minOccurs="0" name="logsDAO" nillable="true" type="ax2480:LogsDAO"/>
+                    <xs:element minOccurs="0" name="resourceDAO" nillable="true" type="ax2480:ResourceDAO"/>
+                    <xs:element minOccurs="0" name="resourceVersionDAO" nillable="true" type="ax2480:ResourceVersionDAO"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="ClusterLock">
@@ -152,33 +152,33 @@
                 <xs:sequence/>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2501="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://framework.osgi.org/xsd">
+        <xs:schema xmlns:ax2505="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://framework.osgi.org/xsd">
             <xs:import namespace="http://util.java/xsd"/>
             <xs:complexType abstract="true" name="BundleContext">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="bundle" nillable="true" type="ax2500:Bundle"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="bundles" nillable="true" type="ax2500:Bundle"/>
+                    <xs:element minOccurs="0" name="bundle" nillable="true" type="ax2504:Bundle"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="bundles" nillable="true" type="ax2504:Bundle"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="Bundle">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="bundleContext" nillable="true" type="ax2500:BundleContext"/>
+                    <xs:element minOccurs="0" name="bundleContext" nillable="true" type="ax2504:BundleContext"/>
                     <xs:element minOccurs="0" name="bundleId" type="xs:long"/>
-                    <xs:element minOccurs="0" name="headers" nillable="true" type="ax2501:Dictionary"/>
+                    <xs:element minOccurs="0" name="headers" nillable="true" type="ax2505:Dictionary"/>
                     <xs:element minOccurs="0" name="lastModified" type="xs:long"/>
                     <xs:element minOccurs="0" name="location" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="registeredServices" nillable="true" type="ax2500:ServiceReference"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="servicesInUse" nillable="true" type="ax2500:ServiceReference"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="registeredServices" nillable="true" type="ax2504:ServiceReference"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="servicesInUse" nillable="true" type="ax2504:ServiceReference"/>
                     <xs:element minOccurs="0" name="state" type="xs:int"/>
                     <xs:element minOccurs="0" name="symbolicName" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="version" nillable="true" type="ax2500:Version"/>
+                    <xs:element minOccurs="0" name="version" nillable="true" type="ax2504:Version"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="ServiceReference">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="bundle" nillable="true" type="ax2500:Bundle"/>
+                    <xs:element minOccurs="0" name="bundle" nillable="true" type="ax2504:Bundle"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="propertyKeys" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="usingBundles" nillable="true" type="ax2500:Bundle"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="usingBundles" nillable="true" type="ax2504:Bundle"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="Version">
@@ -207,7 +207,7 @@
                     <xs:element minOccurs="0" name="primary" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="realmClassName" nillable="true" type="xs:string"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="realmProperties" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="secondaryRealmConfig" nillable="true" type="ax2493:RealmConfiguration"/>
+                    <xs:element minOccurs="0" name="secondaryRealmConfig" nillable="true" type="ax2497:RealmConfiguration"/>
                     <xs:element minOccurs="0" name="tenantId" type="xs:int"/>
                     <xs:element minOccurs="0" name="userStoreClass" nillable="true" type="xs:string"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="userStoreProperties" nillable="true" type="xs:string"/>
@@ -224,11 +224,11 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2502="http://framework.osgi.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tenant.core.user.carbon.wso2.org/xsd">
+        <xs:schema xmlns:ax2506="http://framework.osgi.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tenant.core.user.carbon.wso2.org/xsd">
             <xs:import namespace="http://framework.osgi.org/xsd"/>
             <xs:complexType abstract="true" name="TenantManager">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="bundleContext" nillable="true" type="ax2500:BundleContext"/>
+                    <xs:element minOccurs="0" name="bundleContext" nillable="true" type="ax2504:BundleContext"/>
                     <xs:element minOccurs="0" name="superTenantDomain" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
@@ -258,7 +258,7 @@
                 <xs:sequence/>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2477="http://dataaccess.core.registry.carbon.wso2.org/xsd" xmlns:ax2479="http://securevault.wso2.org/xsd" xmlns:ax2504="http://service.core.user.carbon.wso2.org/xsd" xmlns:ax2506="http://statistics.core.registry.carbon.wso2.org/xsd" xmlns:ax2482="http://jdbc.core.registry.carbon.wso2.org/xsd" xmlns:ax2471="http://util.java/xsd" xmlns:ax2484="http://utils.core.registry.carbon.wso2.org/xsd" xmlns:ax2473="http://handlers.jdbc.core.registry.carbon.wso2.org/xsd" xmlns:ax2486="http://queries.jdbc.core.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://config.core.registry.carbon.wso2.org/xsd">
+        <xs:schema xmlns:ax2488="http://utils.core.registry.carbon.wso2.org/xsd" xmlns:ax2477="http://handlers.jdbc.core.registry.carbon.wso2.org/xsd" xmlns:ax2510="http://statistics.core.registry.carbon.wso2.org/xsd" xmlns:ax2490="http://queries.jdbc.core.registry.carbon.wso2.org/xsd" xmlns:ax2481="http://dataaccess.core.registry.carbon.wso2.org/xsd" xmlns:ax2508="http://service.core.user.carbon.wso2.org/xsd" xmlns:ax2483="http://securevault.wso2.org/xsd" xmlns:ax2486="http://jdbc.core.registry.carbon.wso2.org/xsd" xmlns:ax2475="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://config.core.registry.carbon.wso2.org/xsd">
             <xs:import namespace="http://util.java/xsd"/>
             <xs:import namespace="http://handlers.jdbc.core.registry.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://dataaccess.core.registry.carbon.wso2.org/xsd"/>
@@ -270,38 +270,38 @@
             <xs:import namespace="http://statistics.core.registry.carbon.wso2.org/xsd"/>
             <xs:complexType name="RegistryContext">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="DBConfigNames" nillable="true" type="ax2470:Iterator"/>
+                    <xs:element minOccurs="0" name="DBConfigNames" nillable="true" type="ax2474:Iterator"/>
                     <xs:element minOccurs="0" name="basePath" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="cacheEnabled" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="clone" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="collectionMediaTypes" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="customEditManager" nillable="true" type="ax2472:CustomEditManager"/>
+                    <xs:element minOccurs="0" name="customEditManager" nillable="true" type="ax2476:CustomEditManager"/>
                     <xs:element minOccurs="0" name="customUIMediaTypes" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="dataAccessManager" nillable="true" type="ax2477:DataAccessManager"/>
-                    <xs:element minOccurs="0" name="defaultDataBaseConfiguration" nillable="true" type="ax2469:DataBaseConfiguration"/>
-                    <xs:element minOccurs="0" name="embeddedRegistryService" nillable="true" type="ax2480:EmbeddedRegistryService"/>
+                    <xs:element minOccurs="0" name="dataAccessManager" nillable="true" type="ax2481:DataAccessManager"/>
+                    <xs:element minOccurs="0" name="defaultDataBaseConfiguration" nillable="true" type="ax2473:DataBaseConfiguration"/>
+                    <xs:element minOccurs="0" name="embeddedRegistryService" nillable="true" type="ax2484:EmbeddedRegistryService"/>
                     <xs:element minOccurs="0" name="handlerConfigurations" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="handlerManager" nillable="true" type="ax2472:HandlerManager"/>
-                    <xs:element minOccurs="0" name="logWriter" nillable="true" type="ax2483:LogWriter"/>
+                    <xs:element minOccurs="0" name="handlerManager" nillable="true" type="ax2476:HandlerManager"/>
+                    <xs:element minOccurs="0" name="logWriter" nillable="true" type="ax2487:LogWriter"/>
                     <xs:element minOccurs="0" name="maxCache" type="xs:int"/>
                     <xs:element minOccurs="0" name="mediaTypeHandlers" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="mounts" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="nodeIdentifier" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="profilesPath" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="queryProcessorManager" nillable="true" type="ax2485:QueryProcessorManager"/>
+                    <xs:element minOccurs="0" name="queryProcessorManager" nillable="true" type="ax2489:QueryProcessorManager"/>
                     <xs:element minOccurs="0" name="queryProcessors" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="readOnly" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="realmService" nillable="true" type="ax2487:RealmService"/>
+                    <xs:element minOccurs="0" name="realmService" nillable="true" type="ax2491:RealmService"/>
                     <xs:element minOccurs="0" name="registryRoot" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="remoteInstances" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="repository" nillable="true" type="ax2480:Repository"/>
+                    <xs:element minOccurs="0" name="repository" nillable="true" type="ax2484:Repository"/>
                     <xs:element minOccurs="0" name="resourceMediaTypes" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="servicePath" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="setup" type="xs:boolean"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="statisticsCollectors" nillable="true" type="ax2505:StatisticsCollector"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="statisticsCollectors" nillable="true" type="ax2510:StatisticsCollector"/>
                     <xs:element minOccurs="0" name="urlHandlers" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="versionOnChange" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="versionRepository" nillable="true" type="ax2480:VersionRepository"/>
+                    <xs:element minOccurs="0" name="versionRepository" nillable="true" type="ax2484:VersionRepository"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="DataBaseConfiguration">
@@ -317,7 +317,7 @@
                     <xs:element minOccurs="0" name="minIdle" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="numTestsPerEvictionRun" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="passWord" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="passwordManager" nillable="true" type="ax2478:SecretResolver"/>
+                    <xs:element minOccurs="0" name="passwordManager" nillable="true" type="ax2482:SecretResolver"/>
                     <xs:element minOccurs="0" name="resolvedPassword" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="testWhileIdle" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="timeBetweenEvictionRunsMillis" nillable="true" type="xs:string"/>
@@ -326,77 +326,57 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2498="http://multitenancy.config.core.user.carbon.wso2.org/xsd" xmlns:ax2503="http://tenant.core.user.carbon.wso2.org/xsd" xmlns:ax2495="http://core.user.carbon.wso2.org/xsd" xmlns:ax2496="http://api.user.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.core.user.carbon.wso2.org/xsd">
+        <xs:schema xmlns:ax2499="http://core.user.carbon.wso2.org/xsd" xmlns:ax2507="http://tenant.core.user.carbon.wso2.org/xsd" xmlns:ax2500="http://api.user.carbon.wso2.org/xsd" xmlns:ax2502="http://multitenancy.config.core.user.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.core.user.carbon.wso2.org/xsd">
             <xs:import namespace="http://core.user.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://api.user.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://multitenancy.config.core.user.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://tenant.core.user.carbon.wso2.org/xsd"/>
             <xs:complexType abstract="true" name="RealmService">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="bootstrapRealm" nillable="true" type="ax2488:UserRealm"/>
-                    <xs:element minOccurs="0" name="bootstrapRealmConfiguration" nillable="true" type="ax2493:RealmConfiguration"/>
-                    <xs:element minOccurs="0" name="multiTenantRealmConfigBuilder" nillable="true" type="ax2498:MultiTenantRealmConfigBuilder"/>
+                    <xs:element minOccurs="0" name="bootstrapRealm" nillable="true" type="ax2499:UserRealm"/>
+                    <xs:element minOccurs="0" name="bootstrapRealmConfiguration" nillable="true" type="ax2500:RealmConfiguration"/>
+                    <xs:element minOccurs="0" name="multiTenantRealmConfigBuilder" nillable="true" type="ax2501:MultiTenantRealmConfigBuilder"/>
                     <xs:element minOccurs="0" name="tenantManager" nillable="true" type="ax2503:TenantManager"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2466="http://api.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://exceptions.core.registry.carbon.wso2.org/xsd">
+        <xs:schema xmlns:ax2464="http://api.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://exceptions.core.registry.carbon.wso2.org/xsd">
             <xs:import namespace="http://api.registry.carbon.wso2.org/xsd"/>
             <xs:complexType name="RegistryException">
                 <xs:complexContent>
-                    <xs:extension base="ax2465:RegistryException">
+                    <xs:extension base="ax2463:RegistryException">
                         <xs:sequence/>
                     </xs:extension>
                 </xs:complexContent>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2467="http://exceptions.core.registry.carbon.wso2.org/xsd" xmlns:ax2509="http://session.core.registry.carbon.wso2.org/xsd" xmlns:ax2513="http://service.indexing.registry.carbon.wso2.org/xsd" xmlns:ax2463="http://indexer.indexing.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.indexing.registry.carbon.wso2.org">
-            <xs:import namespace="http://indexer.indexing.registry.carbon.wso2.org/xsd"/>
+        <xs:schema xmlns:ax2465="http://exceptions.core.registry.carbon.wso2.org/xsd" xmlns:ax2471="http://indexer.indexing.registry.carbon.wso2.org/xsd" xmlns:ax2469="http://service.indexing.registry.carbon.wso2.org/xsd" xmlns:ax2513="http://session.core.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.indexing.registry.carbon.wso2.org">
             <xs:import namespace="http://exceptions.core.registry.carbon.wso2.org/xsd"/>
-            <xs:import namespace="http://session.core.registry.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://service.indexing.registry.carbon.wso2.org/xsd"/>
-            <xs:element name="ContentSearchAdminServiceIndexerException">
+            <xs:import namespace="http://indexer.indexing.registry.carbon.wso2.org/xsd"/>
+            <xs:import namespace="http://session.core.registry.carbon.wso2.org/xsd"/>
+            <xs:element name="getLoggedInUserName">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getLoggedInUserNameResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="IndexerException" nillable="true" type="ax2462:IndexerException"/>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="ContentSearchAdminServiceRegistryException">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="RegistryException" nillable="true" type="ax2467:RegistryException"/>
+                        <xs:element minOccurs="0" name="RegistryException" nillable="true" type="ax2465:RegistryException"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="searchContent">
+            <xs:element name="restartIndexing">
                 <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="searchQuery" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="registry" nillable="true" type="ax2468:UserRegistry"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="searchContentResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2510:SearchResultsBean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="searchTerms">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="registry" nillable="true" type="ax2468:UserRegistry"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="searchTermsResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2510:SearchResultsBean"/>
-                    </xs:sequence>
+                    <xs:sequence/>
                 </xs:complexType>
             </xs:element>
             <xs:element name="getContentSearchResults">
@@ -409,34 +389,7 @@
             <xs:element name="getContentSearchResultsResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2510:SearchResultsBean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="searchByAttribute">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="registry" nillable="true" type="ax2468:UserRegistry"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="searchByAttributeResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2510:SearchResultsBean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getLoggedInUserName">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getLoggedInUserNameResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2466:SearchResultsBean"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -455,27 +408,74 @@
             <xs:element name="getAttributeSearchResultsResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2510:SearchResultsBean"/>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2466:SearchResultsBean"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="restartIndexing">
+            <xs:element name="ContentSearchAdminServiceIndexerException">
                 <xs:complexType>
-                    <xs:sequence/>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="IndexerException" nillable="true" type="ax2470:IndexerException"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="searchContent">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="searchQuery" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="registry" nillable="true" type="ax2513:UserRegistry"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="searchContentResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2466:SearchResultsBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="searchTerms">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="registry" nillable="true" type="ax2513:UserRegistry"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="searchTermsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2466:SearchResultsBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="searchByAttribute">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="registry" nillable="true" type="ax2513:UserRegistry"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="searchByAttributeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2466:SearchResultsBean"/>
+                    </xs:sequence>
                 </xs:complexType>
             </xs:element>
         </xs:schema>
-        <xs:schema xmlns:ax2507="http://config.core.registry.carbon.wso2.org/xsd" xmlns:ax2508="http://core.user.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://session.core.registry.carbon.wso2.org/xsd">
+        <xs:schema xmlns:ax2511="http://config.core.registry.carbon.wso2.org/xsd" xmlns:ax2512="http://core.user.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://session.core.registry.carbon.wso2.org/xsd">
             <xs:import namespace="http://config.core.registry.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://core.user.carbon.wso2.org/xsd"/>
             <xs:complexType name="UserRegistry">
                 <xs:sequence>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="availableAspects" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="callerTenantId" type="xs:int"/>
-                    <xs:element minOccurs="0" name="registryContext" nillable="true" type="ax2469:RegistryContext"/>
+                    <xs:element minOccurs="0" name="registryContext" nillable="true" type="ax2511:RegistryContext"/>
                     <xs:element minOccurs="0" name="tenantId" type="xs:int"/>
                     <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="userRealm" nillable="true" type="ax2488:UserRealm"/>
+                    <xs:element minOccurs="0" name="userRealm" nillable="true" type="ax2512:UserRealm"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
@@ -497,7 +497,7 @@
                     <xs:extension base="xs:Thread">
                         <xs:sequence>
                             <xs:element minOccurs="0" name="canWriteLogs" type="xs:boolean"/>
-                            <xs:element minOccurs="0" name="logQueue" nillable="true" type="ax2483:LogQueue"/>
+                            <xs:element minOccurs="0" name="logQueue" nillable="true" type="ax2487:LogQueue"/>
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
@@ -506,13 +506,13 @@
                 <xs:sequence/>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2512="http://common.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.indexing.registry.carbon.wso2.org/xsd">
+        <xs:schema xmlns:ax2468="http://common.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.indexing.registry.carbon.wso2.org/xsd">
             <xs:import namespace="http://common.registry.carbon.wso2.org/xsd"/>
             <xs:complexType name="SearchResultsBean">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="resourceDataList" nillable="true" type="ax2511:ResourceData"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="termDataList" nillable="true" type="ax2511:TermData"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="resourceDataList" nillable="true" type="ax2467:ResourceData"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="termDataList" nillable="true" type="ax2467:TermData"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>

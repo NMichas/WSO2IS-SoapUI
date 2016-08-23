@@ -1,41 +1,8 @@
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2645="http://beans.resource.registry.carbon.wso2.org/xsd" xmlns:ax2646="http://common.registry.carbon.wso2.org/xsd" xmlns:ns="http://services.mgt.theme.carbon.wso2.org" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://services.mgt.theme.carbon.wso2.org">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2645="http://beans.resource.registry.carbon.wso2.org/xsd" xmlns:ns="http://services.mgt.theme.carbon.wso2.org" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ax2647="http://common.registry.carbon.wso2.org/xsd" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://services.mgt.theme.carbon.wso2.org">
     <wsdl:documentation>ThemeMgtService</wsdl:documentation>
     <wsdl:types>
-        <xs:schema xmlns:ax2647="http://common.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://beans.resource.registry.carbon.wso2.org/xsd">
+        <xs:schema xmlns:ax2649="http://common.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://beans.resource.registry.carbon.wso2.org/xsd">
             <xs:import namespace="http://common.registry.carbon.wso2.org/xsd"/>
-            <xs:complexType name="MetadataBean">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="activeResourcePath" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="author" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="collection" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="contentPath" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="deleteLocked" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="formattedCreatedOn" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="formattedLastModified" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="lastUpdater" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="navigatablePaths" nillable="true" type="ax2646:WebResourcePath"/>
-                    <xs:element minOccurs="0" name="path" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="pathWithVersion" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="permalink" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="putAllowed" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="resourceVersion" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="serverBaseURL" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="versionView" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="writeLocked" nillable="true" type="xs:string"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:complexType name="CollectionContentBean">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="childCount" type="xs:int"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="childPaths" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="collectionTypes" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="pathWithVersion" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="remoteInstances" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="versionView" type="xs:boolean"/>
-                </xs:sequence>
-            </xs:complexType>
             <xs:complexType name="ContentBean">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="absent" nillable="true" type="xs:string"/>
@@ -46,6 +13,16 @@
                     <xs:element minOccurs="0" name="pathWithVersion" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="putAllowed" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="realPath" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="versionView" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CollectionContentBean">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="childCount" type="xs:int"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="childPaths" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="collectionTypes" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pathWithVersion" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="remoteInstances" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="versionView" type="xs:boolean"/>
                 </xs:sequence>
             </xs:complexType>
@@ -64,14 +41,31 @@
                     <xs:element minOccurs="0" name="resourceName" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
-        </xs:schema>
-        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://common.registry.carbon.wso2.org/xsd">
-            <xs:complexType name="WebResourcePath">
+            <xs:complexType name="MetadataBean">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="navigateName" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="navigatePath" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="activeResourcePath" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="author" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="collection" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="contentPath" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="deleteLocked" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="formattedCreatedOn" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="formattedLastModified" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lastUpdater" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="navigatablePaths" nillable="true" type="ax2649:WebResourcePath"/>
+                    <xs:element minOccurs="0" name="path" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pathWithVersion" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="permalink" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="putAllowed" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="resourceVersion" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="serverBaseURL" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="versionView" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="writeLocked" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://common.registry.carbon.wso2.org/xsd">
             <xs:complexType name="ResourceData">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="absent" nillable="true" type="xs:string"/>
@@ -92,7 +86,7 @@
                     <xs:element minOccurs="0" name="relativePath" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="resourcePath" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="resourceType" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tagCounts" nillable="true" type="ax2646:TagCount"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tagCounts" nillable="true" type="ax2647:TagCount"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="TagCount">
@@ -101,8 +95,14 @@
                     <xs:element minOccurs="0" name="value" nillable="true" type="xs:long"/>
                 </xs:sequence>
             </xs:complexType>
+            <xs:complexType name="WebResourcePath">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="navigateName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="navigatePath" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2649="http://common.registry.carbon.wso2.org/xsd" xmlns:ax2648="http://beans.resource.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://services.mgt.theme.carbon.wso2.org">
+        <xs:schema xmlns:ax2646="http://beans.resource.registry.carbon.wso2.org/xsd" xmlns:ax2648="http://common.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://services.mgt.theme.carbon.wso2.org">
             <xs:import namespace="http://beans.resource.registry.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://common.registry.carbon.wso2.org/xsd"/>
             <xs:element name="ThemeMgtServiceException">
@@ -117,80 +117,31 @@
                     <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
-            <xs:element name="delete">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="pathToDelete" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getTextContent">
+            <xs:element name="getContentBean">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="path" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getTextContentResponse">
+            <xs:element name="getContentBeanResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2645:ContentBean"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="addCollection">
+            <xs:element name="getResourceData">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="parentPath" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="collectionName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="paths" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="addCollectionResponse">
+            <xs:element name="getResourceDataResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="importResource">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="parentPath" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="resourceName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="fetchURL" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="symlinkLocation" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="tenantPass" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getMetadata">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getMetadataResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2645:MetadataBean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="addResource">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="content" nillable="true" type="xs:base64Binary"/>
-                        <xs:element minOccurs="0" name="symlinkLocation" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="tenantPass" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2647:ResourceData"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -205,34 +156,6 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="return" nillable="true" type="ax2645:CollectionContentBean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getResourceData">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="paths" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getResourceDataResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2646:ResourceData"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getContentBean">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getContentBeanResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2645:ContentBean"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -335,6 +258,83 @@
                     <xs:sequence>
                         <xs:element minOccurs="0" name="themeName" nillable="true" type="xs:string"/>
                         <xs:element minOccurs="0" name="tenantPass" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="importResource">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="parentPath" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="resourceName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="fetchURL" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="symlinkLocation" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="tenantPass" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addCollection">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="parentPath" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="collectionName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addCollectionResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getMetadata">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getMetadataResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2645:MetadataBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getTextContent">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getTextContentResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addResource">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="content" nillable="true" type="xs:base64Binary"/>
+                        <xs:element minOccurs="0" name="symlinkLocation" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="tenantPass" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="pathToDelete" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

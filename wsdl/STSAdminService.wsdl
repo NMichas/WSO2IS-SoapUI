@@ -37,6 +37,33 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="getCertAliasOfPrimaryKeyStore">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getCertAliasOfPrimaryKeyStoreResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addTrustedService">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="serviceAddress" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="certAlias" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="removeTrustedService">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="serviceAddress" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="getTrustedServices">
                 <xs:complexType>
                     <xs:sequence/>
@@ -68,43 +95,16 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="addTrustedService">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="serviceAddress" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="certAlias" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="removeTrustedService">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="serviceAddress" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getCertAliasOfPrimaryKeyStore">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getCertAliasOfPrimaryKeyStoreResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
         </xs:schema>
     </wsdl:types>
-    <wsdl:message name="setProofKeyTypeRequest">
-        <wsdl:part name="parameters" element="ns:setProofKeyType"/>
+    <wsdl:message name="removeTrustedServiceRequest">
+        <wsdl:part name="parameters" element="ns:removeTrustedService"/>
     </wsdl:message>
     <wsdl:message name="STSAdminServiceSecurityConfigException">
         <wsdl:part name="parameters" element="ns:STSAdminServiceSecurityConfigException"/>
     </wsdl:message>
-    <wsdl:message name="removeTrustedServiceRequest">
-        <wsdl:part name="parameters" element="ns:removeTrustedService"/>
+    <wsdl:message name="setProofKeyTypeRequest">
+        <wsdl:part name="parameters" element="ns:setProofKeyType"/>
     </wsdl:message>
     <wsdl:message name="getProofKeyTypeRequest">
         <wsdl:part name="parameters" element="ns:getProofKeyType"/>
@@ -128,13 +128,13 @@
         <wsdl:part name="parameters" element="ns:addTrustedService"/>
     </wsdl:message>
     <wsdl:portType name="STSAdminServicePortType">
-        <wsdl:operation name="setProofKeyType">
-            <wsdl:input message="ns:setProofKeyTypeRequest" wsaw:Action="urn:setProofKeyType"/>
-            <wsdl:fault message="ns:STSAdminServiceSecurityConfigException" name="STSAdminServiceSecurityConfigException" wsaw:Action="urn:setProofKeyTypeSTSAdminServiceSecurityConfigException"/>
-        </wsdl:operation>
         <wsdl:operation name="removeTrustedService">
             <wsdl:input message="ns:removeTrustedServiceRequest" wsaw:Action="urn:removeTrustedService"/>
             <wsdl:fault message="ns:STSAdminServiceSecurityConfigException" name="STSAdminServiceSecurityConfigException" wsaw:Action="urn:removeTrustedServiceSTSAdminServiceSecurityConfigException"/>
+        </wsdl:operation>
+        <wsdl:operation name="setProofKeyType">
+            <wsdl:input message="ns:setProofKeyTypeRequest" wsaw:Action="urn:setProofKeyType"/>
+            <wsdl:fault message="ns:STSAdminServiceSecurityConfigException" name="STSAdminServiceSecurityConfigException" wsaw:Action="urn:setProofKeyTypeSTSAdminServiceSecurityConfigException"/>
         </wsdl:operation>
         <wsdl:operation name="getProofKeyType">
             <wsdl:input message="ns:getProofKeyTypeRequest" wsaw:Action="urn:getProofKeyType"/>
@@ -158,8 +158,8 @@
     </wsdl:portType>
     <wsdl:binding name="STSAdminServiceSoap11Binding" type="ns:STSAdminServicePortType">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <wsdl:operation name="setProofKeyType">
-            <soap:operation soapAction="urn:setProofKeyType" style="document"/>
+        <wsdl:operation name="removeTrustedService">
+            <soap:operation soapAction="urn:removeTrustedService" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -167,8 +167,8 @@
                 <soap:fault use="literal" name="STSAdminServiceSecurityConfigException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="removeTrustedService">
-            <soap:operation soapAction="urn:removeTrustedService" style="document"/>
+        <wsdl:operation name="setProofKeyType">
+            <soap:operation soapAction="urn:setProofKeyType" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -224,8 +224,8 @@
     </wsdl:binding>
     <wsdl:binding name="STSAdminServiceSoap12Binding" type="ns:STSAdminServicePortType">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <wsdl:operation name="setProofKeyType">
-            <soap12:operation soapAction="urn:setProofKeyType" style="document"/>
+        <wsdl:operation name="removeTrustedService">
+            <soap12:operation soapAction="urn:removeTrustedService" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -233,8 +233,8 @@
                 <soap12:fault use="literal" name="STSAdminServiceSecurityConfigException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="removeTrustedService">
-            <soap12:operation soapAction="urn:removeTrustedService" style="document"/>
+        <wsdl:operation name="setProofKeyType">
+            <soap12:operation soapAction="urn:setProofKeyType" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -290,14 +290,14 @@
     </wsdl:binding>
     <wsdl:binding name="STSAdminServiceHttpBinding" type="ns:STSAdminServicePortType">
         <http:binding verb="POST"/>
-        <wsdl:operation name="setProofKeyType">
-            <http:operation location="setProofKeyType"/>
+        <wsdl:operation name="removeTrustedService">
+            <http:operation location="removeTrustedService"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
         </wsdl:operation>
-        <wsdl:operation name="removeTrustedService">
-            <http:operation location="removeTrustedService"/>
+        <wsdl:operation name="setProofKeyType">
+            <http:operation location="setProofKeyType"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>

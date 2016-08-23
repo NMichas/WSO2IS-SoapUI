@@ -1,4 +1,4 @@
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2543="http://beans.search.registry.carbon.wso2.org/xsd" xmlns:ax2545="http://common.registry.carbon.wso2.org/xsd" xmlns:ns="http://services.search.registry.carbon.wso2.org" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax2540="http://api.registry.carbon.wso2.org/xsd" xmlns:ax2539="http://exceptions.core.registry.carbon.wso2.org/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://services.search.registry.carbon.wso2.org">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2543="http://beans.search.registry.carbon.wso2.org/xsd" xmlns:ax2544="http://common.registry.carbon.wso2.org/xsd" xmlns:ns="http://services.search.registry.carbon.wso2.org" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax2540="http://api.registry.carbon.wso2.org/xsd" xmlns:ax2539="http://exceptions.core.registry.carbon.wso2.org/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://services.search.registry.carbon.wso2.org">
     <wsdl:documentation>SearchAdminService</wsdl:documentation>
     <wsdl:types>
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://common.registry.carbon.wso2.org/xsd">
@@ -22,7 +22,7 @@
                     <xs:element minOccurs="0" name="relativePath" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="resourcePath" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="resourceType" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tagCounts" nillable="true" type="ax2545:TagCount"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tagCounts" nillable="true" type="ax2544:TagCount"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="TagCount">
@@ -42,27 +42,13 @@
                 </xs:complexContent>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2542="http://exceptions.core.registry.carbon.wso2.org/xsd" xmlns:ax2544="http://beans.search.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://services.search.registry.carbon.wso2.org">
+        <xs:schema xmlns:ax2542="http://exceptions.core.registry.carbon.wso2.org/xsd" xmlns:ax2546="http://beans.search.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://services.search.registry.carbon.wso2.org">
             <xs:import namespace="http://exceptions.core.registry.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://beans.search.registry.carbon.wso2.org/xsd"/>
             <xs:element name="SearchAdminServiceRegistryException">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="RegistryException" nillable="true" type="ax2542:RegistryException"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getAdvancedSearchResults">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="parameters" nillable="true" type="ax2543:CustomSearchParameterBean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getAdvancedSearchResultsResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2543:AdvancedSearchResultsBean"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -136,9 +122,35 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="getAdvancedSearchResults">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="parameters" nillable="true" type="ax2543:CustomSearchParameterBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAdvancedSearchResultsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2543:AdvancedSearchResultsBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
         </xs:schema>
-        <xs:schema xmlns:ax2546="http://common.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://beans.search.registry.carbon.wso2.org/xsd">
+        <xs:schema xmlns:ax2545="http://common.registry.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://beans.search.registry.carbon.wso2.org/xsd">
             <xs:import namespace="http://common.registry.carbon.wso2.org/xsd"/>
+            <xs:complexType name="SearchResultsBean">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="resourceDataList" nillable="true" type="ax2544:ResourceData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="MediaTypeValueList">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="searchFields" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
             <xs:complexType name="CustomSearchParameterBean">
                 <xs:sequence>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="parameterValues" nillable="true" type="ax2543:ArrayOfString"/>
@@ -152,19 +164,7 @@
             <xs:complexType name="AdvancedSearchResultsBean">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="resourceDataList" nillable="true" type="ax2545:ResourceData"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:complexType name="SearchResultsBean">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="resourceDataList" nillable="true" type="ax2545:ResourceData"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:complexType name="MediaTypeValueList">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="searchFields" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="resourceDataList" nillable="true" type="ax2544:ResourceData"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
@@ -183,14 +183,14 @@
     <wsdl:message name="SearchAdminServiceRegistryException">
         <wsdl:part name="parameters" element="ns:SearchAdminServiceRegistryException"/>
     </wsdl:message>
+    <wsdl:message name="saveAdvancedSearchFilterRequest">
+        <wsdl:part name="parameters" element="ns:saveAdvancedSearchFilter"/>
+    </wsdl:message>
     <wsdl:message name="getAdvancedSearchResultsRequest">
         <wsdl:part name="parameters" element="ns:getAdvancedSearchResults"/>
     </wsdl:message>
     <wsdl:message name="getAdvancedSearchResultsResponse">
         <wsdl:part name="parameters" element="ns:getAdvancedSearchResultsResponse"/>
-    </wsdl:message>
-    <wsdl:message name="saveAdvancedSearchFilterRequest">
-        <wsdl:part name="parameters" element="ns:saveAdvancedSearchFilter"/>
     </wsdl:message>
     <wsdl:message name="deleteFilterRequest">
         <wsdl:part name="parameters" element="ns:deleteFilter"/>
@@ -219,14 +219,14 @@
             <wsdl:output message="ns:getAdvancedSearchFilterResponse" wsaw:Action="urn:getAdvancedSearchFilterResponse"/>
             <wsdl:fault message="ns:SearchAdminServiceRegistryException" name="SearchAdminServiceRegistryException" wsaw:Action="urn:getAdvancedSearchFilterSearchAdminServiceRegistryException"/>
         </wsdl:operation>
+        <wsdl:operation name="saveAdvancedSearchFilter">
+            <wsdl:input message="ns:saveAdvancedSearchFilterRequest" wsaw:Action="urn:saveAdvancedSearchFilter"/>
+            <wsdl:fault message="ns:SearchAdminServiceRegistryException" name="SearchAdminServiceRegistryException" wsaw:Action="urn:saveAdvancedSearchFilterSearchAdminServiceRegistryException"/>
+        </wsdl:operation>
         <wsdl:operation name="getAdvancedSearchResults">
             <wsdl:input message="ns:getAdvancedSearchResultsRequest" wsaw:Action="urn:getAdvancedSearchResults"/>
             <wsdl:output message="ns:getAdvancedSearchResultsResponse" wsaw:Action="urn:getAdvancedSearchResultsResponse"/>
             <wsdl:fault message="ns:SearchAdminServiceRegistryException" name="SearchAdminServiceRegistryException" wsaw:Action="urn:getAdvancedSearchResultsSearchAdminServiceRegistryException"/>
-        </wsdl:operation>
-        <wsdl:operation name="saveAdvancedSearchFilter">
-            <wsdl:input message="ns:saveAdvancedSearchFilterRequest" wsaw:Action="urn:saveAdvancedSearchFilter"/>
-            <wsdl:fault message="ns:SearchAdminServiceRegistryException" name="SearchAdminServiceRegistryException" wsaw:Action="urn:saveAdvancedSearchFilterSearchAdminServiceRegistryException"/>
         </wsdl:operation>
         <wsdl:operation name="deleteFilter">
             <wsdl:input message="ns:deleteFilterRequest" wsaw:Action="urn:deleteFilter"/>
@@ -262,6 +262,15 @@
                 <soap:fault use="literal" name="SearchAdminServiceRegistryException"/>
             </wsdl:fault>
         </wsdl:operation>
+        <wsdl:operation name="saveAdvancedSearchFilter">
+            <soap:operation soapAction="urn:saveAdvancedSearchFilter" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:fault name="SearchAdminServiceRegistryException">
+                <soap:fault use="literal" name="SearchAdminServiceRegistryException"/>
+            </wsdl:fault>
+        </wsdl:operation>
         <wsdl:operation name="getAdvancedSearchResults">
             <soap:operation soapAction="urn:getAdvancedSearchResults" style="document"/>
             <wsdl:input>
@@ -270,15 +279,6 @@
             <wsdl:output>
                 <soap:body use="literal"/>
             </wsdl:output>
-            <wsdl:fault name="SearchAdminServiceRegistryException">
-                <soap:fault use="literal" name="SearchAdminServiceRegistryException"/>
-            </wsdl:fault>
-        </wsdl:operation>
-        <wsdl:operation name="saveAdvancedSearchFilter">
-            <soap:operation soapAction="urn:saveAdvancedSearchFilter" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
             <wsdl:fault name="SearchAdminServiceRegistryException">
                 <soap:fault use="literal" name="SearchAdminServiceRegistryException"/>
             </wsdl:fault>
@@ -343,6 +343,15 @@
                 <soap12:fault use="literal" name="SearchAdminServiceRegistryException"/>
             </wsdl:fault>
         </wsdl:operation>
+        <wsdl:operation name="saveAdvancedSearchFilter">
+            <soap12:operation soapAction="urn:saveAdvancedSearchFilter" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:fault name="SearchAdminServiceRegistryException">
+                <soap12:fault use="literal" name="SearchAdminServiceRegistryException"/>
+            </wsdl:fault>
+        </wsdl:operation>
         <wsdl:operation name="getAdvancedSearchResults">
             <soap12:operation soapAction="urn:getAdvancedSearchResults" style="document"/>
             <wsdl:input>
@@ -351,15 +360,6 @@
             <wsdl:output>
                 <soap12:body use="literal"/>
             </wsdl:output>
-            <wsdl:fault name="SearchAdminServiceRegistryException">
-                <soap12:fault use="literal" name="SearchAdminServiceRegistryException"/>
-            </wsdl:fault>
-        </wsdl:operation>
-        <wsdl:operation name="saveAdvancedSearchFilter">
-            <soap12:operation soapAction="urn:saveAdvancedSearchFilter" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
             <wsdl:fault name="SearchAdminServiceRegistryException">
                 <soap12:fault use="literal" name="SearchAdminServiceRegistryException"/>
             </wsdl:fault>
@@ -421,6 +421,12 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
+        <wsdl:operation name="saveAdvancedSearchFilter">
+            <http:operation location="saveAdvancedSearchFilter"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
         <wsdl:operation name="getAdvancedSearchResults">
             <http:operation location="getAdvancedSearchResults"/>
             <wsdl:input>
@@ -429,12 +435,6 @@
             <wsdl:output>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="saveAdvancedSearchFilter">
-            <http:operation location="saveAdvancedSearchFilter"/>
-            <wsdl:input>
-                <mime:content type="text/xml" part="parameters"/>
-            </wsdl:input>
         </wsdl:operation>
         <wsdl:operation name="deleteFilter">
             <http:operation location="deleteFilter"/>

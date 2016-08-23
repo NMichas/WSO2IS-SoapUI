@@ -10,73 +10,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="addRole">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="userList" nillable="true" type="xs:string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="permissions" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="isSharedRole" type="xs:boolean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="deleteUser">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="listUsers">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="limit" type="xs:int"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="listUsersResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="deleteRole">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="updateRoleName">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="newRoleName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="addUser">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="roles" nillable="true" type="xs:string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="claims" nillable="true" type="ax2696:ClaimValue"/>
-                        <xs:element minOccurs="0" name="profileName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="addInternalRole">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="userList" nillable="true" type="xs:string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="permissions" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
             <xs:element name="changePassword">
                 <xs:complexType>
                     <xs:sequence>
@@ -362,17 +295,78 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="deleteUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="listUsers">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="limit" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="listUsersResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addRole">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="userList" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="permissions" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isSharedRole" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteRole">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateRoleName">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="newRoleName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="roles" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="claims" nillable="true" type="ax2696:ClaimValue"/>
+                        <xs:element minOccurs="0" name="profileName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addInternalRole">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="userList" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="permissions" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
         </xs:schema>
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://common.mgt.user.carbon.wso2.org/xsd">
             <xs:complexType name="UserAdminException">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="message" nillable="true" type="xs:string"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:complexType name="ClaimValue">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="claimURI" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="value" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="UIPermissionNode">
@@ -431,6 +425,12 @@
                     <xs:element minOccurs="0" name="userNameRegEx" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="usernameRegExViolationErrorMsg" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="writeGroupsEnabled" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ClaimValue">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="claimURI" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="value" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
@@ -534,11 +534,11 @@
     <wsdl:message name="deleteRoleRequest">
         <wsdl:part name="parameters" element="ns1:deleteRole"/>
     </wsdl:message>
-    <wsdl:message name="addInternalRoleRequest">
-        <wsdl:part name="parameters" element="ns1:addInternalRole"/>
-    </wsdl:message>
     <wsdl:message name="addRemoveRolesOfUserRequest">
         <wsdl:part name="parameters" element="ns1:addRemoveRolesOfUser"/>
+    </wsdl:message>
+    <wsdl:message name="addInternalRoleRequest">
+        <wsdl:part name="parameters" element="ns1:addInternalRole"/>
     </wsdl:message>
     <wsdl:message name="changePasswordRequest">
         <wsdl:part name="parameters" element="ns1:changePassword"/>
@@ -673,13 +673,13 @@
             <wsdl:input message="tns:deleteRoleRequest" wsaw:Action="urn:deleteRole"/>
             <wsdl:fault message="tns:UserAdminUserAdminException" name="UserAdminUserAdminException" wsaw:Action="urn:deleteRoleUserAdminUserAdminException"/>
         </wsdl:operation>
-        <wsdl:operation name="addInternalRole">
-            <wsdl:input message="tns:addInternalRoleRequest" wsaw:Action="urn:addInternalRole"/>
-            <wsdl:fault message="tns:UserAdminUserAdminException" name="UserAdminUserAdminException" wsaw:Action="urn:addInternalRoleUserAdminUserAdminException"/>
-        </wsdl:operation>
         <wsdl:operation name="addRemoveRolesOfUser">
             <wsdl:input message="tns:addRemoveRolesOfUserRequest" wsaw:Action="urn:addRemoveRolesOfUser"/>
             <wsdl:fault message="tns:UserAdminUserAdminException" name="UserAdminUserAdminException" wsaw:Action="urn:addRemoveRolesOfUserUserAdminUserAdminException"/>
+        </wsdl:operation>
+        <wsdl:operation name="addInternalRole">
+            <wsdl:input message="tns:addInternalRoleRequest" wsaw:Action="urn:addInternalRole"/>
+            <wsdl:fault message="tns:UserAdminUserAdminException" name="UserAdminUserAdminException" wsaw:Action="urn:addInternalRoleUserAdminUserAdminException"/>
         </wsdl:operation>
         <wsdl:operation name="changePassword">
             <wsdl:input message="tns:changePasswordRequest" wsaw:Action="urn:changePassword"/>
@@ -942,8 +942,8 @@
                 <soap:fault use="literal" name="UserAdminUserAdminException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="addInternalRole">
-            <soap:operation soapAction="urn:addInternalRole" style="document"/>
+        <wsdl:operation name="addRemoveRolesOfUser">
+            <soap:operation soapAction="urn:addRemoveRolesOfUser" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -951,8 +951,8 @@
                 <soap:fault use="literal" name="UserAdminUserAdminException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="addRemoveRolesOfUser">
-            <soap:operation soapAction="urn:addRemoveRolesOfUser" style="document"/>
+        <wsdl:operation name="addInternalRole">
+            <soap:operation soapAction="urn:addInternalRole" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1278,8 +1278,8 @@
                 <soap12:fault use="literal" name="UserAdminUserAdminException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="addInternalRole">
-            <soap12:operation soapAction="urn:addInternalRole" style="document"/>
+        <wsdl:operation name="addRemoveRolesOfUser">
+            <soap12:operation soapAction="urn:addRemoveRolesOfUser" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1287,8 +1287,8 @@
                 <soap12:fault use="literal" name="UserAdminUserAdminException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="addRemoveRolesOfUser">
-            <soap12:operation soapAction="urn:addRemoveRolesOfUser" style="document"/>
+        <wsdl:operation name="addInternalRole">
+            <soap12:operation soapAction="urn:addInternalRole" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1557,14 +1557,14 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
         </wsdl:operation>
-        <wsdl:operation name="addInternalRole">
-            <http:operation location="addInternalRole"/>
+        <wsdl:operation name="addRemoveRolesOfUser">
+            <http:operation location="addRemoveRolesOfUser"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
         </wsdl:operation>
-        <wsdl:operation name="addRemoveRolesOfUser">
-            <http:operation location="addRemoveRolesOfUser"/>
+        <wsdl:operation name="addInternalRole">
+            <http:operation location="addInternalRole"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>

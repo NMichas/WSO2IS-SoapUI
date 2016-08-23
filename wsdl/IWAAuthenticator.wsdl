@@ -1,4 +1,9 @@
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2168="http://securevault.wso2.org/xsd" xmlns:ax2146="http://engine.axis2.apache.org/xsd" xmlns:ax2202="http://client.axis2.apache.org/xsd" xmlns:ax2147="http://clustering.axis2.apache.org/xsd" xmlns:ax2204="http://transport.axis2.apache.org/xsd" xmlns:ns="http://iwa.authenticator.identity.carbon.wso2.org" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ax2184="http://schema.commons.ws.apache.org/xsd" xmlns:ax2140="http://util.java/xsd" xmlns:ax2163="http://util.deployment.axis2.apache.org/xsd" xmlns:ax2142="http://lifecycle.attachments.axiom.apache.org/xsd" xmlns:ax2186="http://dom.w3c.org/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax2188="http://constants.schema.commons.ws.apache.org/xsd" xmlns:ax2166="http://net.java/xsd" xmlns:ax2145="http://description.axis2.apache.org/xsd" xmlns:ax2181="http://neethi.apache.org/xsd" xmlns:ax2157="http://state.clustering.axis2.apache.org/xsd" xmlns:ax2136="http://context.axis2.apache.org/xsd" xmlns:ax2137="http://attachments.axiom.apache.org/xsd" xmlns:ax2138="http://io.java/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ax2193="http://soap.axiom.apache.org/xsd" xmlns:ax2172="http://transaction.axis2.apache.org/xsd" xmlns:ax2150="http://threadpool.util.axis2.apache.org/xsd" xmlns:ax2194="http://om.axiom.apache.org/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ax2154="http://management.clustering.axis2.apache.org/xsd" xmlns:ax2199="http://addressing.axis2.apache.org/xsd" xmlns:ax2134="http://common.core.carbon.wso2.org/xsd" xmlns:ax2178="http://java2wsdl.description.axis2.apache.org/xsd" xmlns:ax2170="http://util.axis2.apache.org/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://iwa.authenticator.identity.carbon.wso2.org">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2168="http://util.axis2.apache.org/xsd" xmlns:ax2202="http://transport.axis2.apache.org/xsd" xmlns:ax2148="http://threadpool.util.axis2.apache.org/xsd" xmlns:ns="http://iwa.authenticator.identity.carbon.wso2.org" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ax2182="http://schema.commons.ws.apache.org/xsd" xmlns:ax2161="http://util.deployment.axis2.apache.org/xsd" xmlns:ax2140="http://lifecycle.attachments.axiom.apache.org/xsd" xmlns:ax2184="http://dom.w3c.org/xsd" xmlns:ax2186="http://constants.schema.commons.ws.apache.org/xsd" xmlns:ax2164="http://net.java/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax2143="http://description.axis2.apache.org/xsd" xmlns:ax2166="http://securevault.wso2.org/xsd" xmlns:ax2144="http://engine.axis2.apache.org/xsd" xmlns:ax2200="http://client.axis2.apache.org/xsd" xmlns:ax2145="http://clustering.axis2.apache.org/xsd" xmlns:ax2179="http://neethi.apache.org/xsd" xmlns:ax2135="http://attachments.axiom.apache.org/xsd" xmlns:ax2136="http://io.java/xsd" xmlns:ax2138="http://util.java/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ax2152="http://management.clustering.axis2.apache.org/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ax2197="http://addressing.axis2.apache.org/xsd" xmlns:ax2176="http://java2wsdl.description.axis2.apache.org/xsd" xmlns:ax2155="http://state.clustering.axis2.apache.org/xsd" xmlns:ax2134="http://context.axis2.apache.org/xsd" xmlns:ax2191="http://soap.axiom.apache.org/xsd" xmlns:ax2170="http://transaction.axis2.apache.org/xsd" xmlns:ax2192="http://om.axiom.apache.org/xsd" xmlns:ax2209="http://common.core.carbon.wso2.org/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://iwa.authenticator.identity.carbon.wso2.org">
+    <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="75eda0ae50db9459e34a0c3daf8fd1b6f28930ceedf1f41a">
+        <wsp:ExactlyOne>
+            <wsp:All/>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
     <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SigOnly">
         <wsp:ExactlyOne>
             <wsp:All>
@@ -50,11 +55,6 @@
             </wsp:All>
         </wsp:ExactlyOne>
     </wsp:Policy>
-    <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="c756734ad2b2357eb94f6742d778a740ad7805d63c3df109">
-        <wsp:ExactlyOne>
-            <wsp:All/>
-        </wsp:ExactlyOne>
-    </wsp:Policy>
     <wsdl:documentation>IWAAuthenticator</wsdl:documentation>
     <wsdl:types>
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://transaction.axis2.apache.org/xsd">
@@ -66,12 +66,12 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2182="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://neethi.apache.org/xsd">
+        <xs:schema xmlns:ax2180="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://neethi.apache.org/xsd">
             <xs:import namespace="http://util.java/xsd"/>
             <xs:complexType abstract="true" name="AbstractPolicyOperator">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="empty" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="firstPolicyComponent" nillable="true" type="ax2181:PolicyComponent"/>
+                    <xs:element minOccurs="0" name="firstPolicyComponent" nillable="true" type="ax2179:PolicyComponent"/>
                     <xs:element minOccurs="0" name="policyComponents" nillable="true" type="xs:anyType"/>
                 </xs:sequence>
             </xs:complexType>
@@ -82,7 +82,7 @@
             </xs:complexType>
             <xs:complexType name="All">
                 <xs:complexContent>
-                    <xs:extension base="ax2181:AbstractPolicyOperator">
+                    <xs:extension base="ax2179:AbstractPolicyOperator">
                         <xs:sequence>
                             <xs:element minOccurs="0" name="assertions" nillable="true" type="xs:anyType"/>
                             <xs:element minOccurs="0" name="type" type="xs:short"/>
@@ -92,10 +92,10 @@
             </xs:complexType>
             <xs:complexType name="Policy">
                 <xs:complexContent>
-                    <xs:extension base="ax2181:All">
+                    <xs:extension base="ax2179:All">
                         <xs:sequence>
-                            <xs:element minOccurs="0" name="alternatives" nillable="true" type="ax2182:Iterator"/>
-                            <xs:element minOccurs="0" name="attributes" nillable="true" type="ax2182:Map"/>
+                            <xs:element minOccurs="0" name="alternatives" nillable="true" type="ax2180:Iterator"/>
+                            <xs:element minOccurs="0" name="attributes" nillable="true" type="ax2180:Map"/>
                             <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
                             <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
                             <xs:element minOccurs="0" name="type" type="xs:short"/>
@@ -116,7 +116,7 @@
                 <xs:sequence/>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2185="http://util.java/xsd" xmlns:ax2187="http://dom.w3c.org/xsd" xmlns:ax2189="http://constants.schema.commons.ws.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schema.commons.ws.apache.org/xsd">
+        <xs:schema xmlns:ax2183="http://util.java/xsd" xmlns:ax2185="http://dom.w3c.org/xsd" xmlns:ax2187="http://constants.schema.commons.ws.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schema.commons.ws.apache.org/xsd">
             <xs:import namespace="http://util.java/xsd"/>
             <xs:import namespace="http://dom.w3c.org/xsd"/>
             <xs:import namespace="http://constants.schema.commons.ws.apache.org/xsd"/>
@@ -124,26 +124,26 @@
                 <xs:sequence>
                     <xs:element minOccurs="0" name="lineNumber" type="xs:int"/>
                     <xs:element minOccurs="0" name="linePosition" type="xs:int"/>
-                    <xs:element minOccurs="0" name="metaInfoMap" nillable="true" type="ax2140:Map"/>
+                    <xs:element minOccurs="0" name="metaInfoMap" nillable="true" type="ax2183:Map"/>
                     <xs:element minOccurs="0" name="sourceURI" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="XmlSchemaAnnotated">
                 <xs:complexContent>
-                    <xs:extension base="ax2184:XmlSchemaObject">
+                    <xs:extension base="ax2182:XmlSchemaObject">
                         <xs:sequence>
-                            <xs:element minOccurs="0" name="annotation" nillable="true" type="ax2184:XmlSchemaAnnotation"/>
+                            <xs:element minOccurs="0" name="annotation" nillable="true" type="ax2182:XmlSchemaAnnotation"/>
                             <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
-                            <xs:element maxOccurs="unbounded" minOccurs="0" name="unhandledAttributes" nillable="true" type="ax2186:Attr"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="unhandledAttributes" nillable="true" type="ax2184:Attr"/>
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
             </xs:complexType>
             <xs:complexType name="XmlSchemaAnnotation">
                 <xs:complexContent>
-                    <xs:extension base="ax2184:XmlSchemaObject">
+                    <xs:extension base="ax2182:XmlSchemaObject">
                         <xs:sequence>
-                            <xs:element minOccurs="0" name="items" nillable="true" type="ax2184:XmlSchemaObjectCollection"/>
+                            <xs:element minOccurs="0" name="items" nillable="true" type="ax2182:XmlSchemaObjectCollection"/>
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
@@ -151,12 +151,12 @@
             <xs:complexType name="XmlSchemaObjectCollection">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="count" type="xs:int"/>
-                    <xs:element minOccurs="0" name="iterator" nillable="true" type="ax2140:Iterator"/>
+                    <xs:element minOccurs="0" name="iterator" nillable="true" type="ax2183:Iterator"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="XmlSchemaParticle">
                 <xs:complexContent>
-                    <xs:extension base="ax2184:XmlSchemaAnnotated">
+                    <xs:extension base="ax2182:XmlSchemaAnnotated">
                         <xs:sequence>
                             <xs:element minOccurs="0" name="maxOccurs" type="xs:long"/>
                             <xs:element minOccurs="0" name="minOccurs" type="xs:long"/>
@@ -166,32 +166,32 @@
             </xs:complexType>
             <xs:complexType name="XmlSchemaElement">
                 <xs:complexContent>
-                    <xs:extension base="ax2184:XmlSchemaParticle">
+                    <xs:extension base="ax2182:XmlSchemaParticle">
                         <xs:sequence>
                             <xs:element minOccurs="0" name="QName" nillable="true" type="xs:anyType"/>
                             <xs:element minOccurs="0" name="abstract" type="xs:boolean"/>
-                            <xs:element minOccurs="0" name="block" nillable="true" type="ax2184:XmlSchemaDerivationMethod"/>
-                            <xs:element minOccurs="0" name="blockResolved" nillable="true" type="ax2184:XmlSchemaDerivationMethod"/>
-                            <xs:element minOccurs="0" name="constraints" nillable="true" type="ax2184:XmlSchemaObjectCollection"/>
+                            <xs:element minOccurs="0" name="block" nillable="true" type="ax2182:XmlSchemaDerivationMethod"/>
+                            <xs:element minOccurs="0" name="blockResolved" nillable="true" type="ax2182:XmlSchemaDerivationMethod"/>
+                            <xs:element minOccurs="0" name="constraints" nillable="true" type="ax2182:XmlSchemaObjectCollection"/>
                             <xs:element minOccurs="0" name="defaultValue" nillable="true" type="xs:string"/>
                             <xs:element minOccurs="0" name="elementType" nillable="true" type="xs:anyType"/>
-                            <xs:element minOccurs="0" name="final" nillable="true" type="ax2184:XmlSchemaDerivationMethod"/>
+                            <xs:element minOccurs="0" name="final" nillable="true" type="ax2182:XmlSchemaDerivationMethod"/>
                             <xs:element minOccurs="0" name="fixedValue" nillable="true" type="xs:string"/>
-                            <xs:element minOccurs="0" name="form" nillable="true" type="ax2184:XmlSchemaForm"/>
+                            <xs:element minOccurs="0" name="form" nillable="true" type="ax2182:XmlSchemaForm"/>
                             <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
                             <xs:element minOccurs="0" name="nillable" type="xs:boolean"/>
                             <xs:element minOccurs="0" name="refName" nillable="true" type="xs:anyType"/>
-                            <xs:element minOccurs="0" name="schemaType" nillable="true" type="ax2184:XmlSchemaType"/>
+                            <xs:element minOccurs="0" name="schemaType" nillable="true" type="ax2182:XmlSchemaType"/>
                             <xs:element minOccurs="0" name="schemaTypeName" nillable="true" type="xs:anyType"/>
                             <xs:element minOccurs="0" name="substitutionGroup" nillable="true" type="xs:anyType"/>
-                            <xs:element minOccurs="0" name="type" nillable="true" type="ax2184:XmlSchemaType"/>
+                            <xs:element minOccurs="0" name="type" nillable="true" type="ax2182:XmlSchemaType"/>
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
             </xs:complexType>
             <xs:complexType name="XmlSchemaDerivationMethod">
                 <xs:complexContent>
-                    <xs:extension base="ax2188:Enum">
+                    <xs:extension base="ax2186:Enum">
                         <xs:sequence>
                             <xs:element maxOccurs="unbounded" minOccurs="0" name="values" nillable="true" type="xs:string"/>
                         </xs:sequence>
@@ -200,7 +200,7 @@
             </xs:complexType>
             <xs:complexType name="XmlSchemaForm">
                 <xs:complexContent>
-                    <xs:extension base="ax2188:Enum">
+                    <xs:extension base="ax2186:Enum">
                         <xs:sequence>
                             <xs:element maxOccurs="unbounded" minOccurs="0" name="values" nillable="true" type="xs:string"/>
                         </xs:sequence>
@@ -209,15 +209,15 @@
             </xs:complexType>
             <xs:complexType name="XmlSchemaType">
                 <xs:complexContent>
-                    <xs:extension base="ax2184:XmlSchemaAnnotated">
+                    <xs:extension base="ax2182:XmlSchemaAnnotated">
                         <xs:sequence>
                             <xs:element minOccurs="0" name="QName" nillable="true" type="xs:anyType"/>
                             <xs:element minOccurs="0" name="baseSchemaType" nillable="true" type="xs:anyType"/>
                             <xs:element minOccurs="0" name="baseSchemaTypeName" nillable="true" type="xs:anyType"/>
-                            <xs:element minOccurs="0" name="dataType" nillable="true" type="ax2184:XmlSchemaDatatype"/>
-                            <xs:element minOccurs="0" name="deriveBy" nillable="true" type="ax2184:XmlSchemaDerivationMethod"/>
-                            <xs:element minOccurs="0" name="final" nillable="true" type="ax2184:XmlSchemaDerivationMethod"/>
-                            <xs:element minOccurs="0" name="finalResolved" nillable="true" type="ax2184:XmlSchemaDerivationMethod"/>
+                            <xs:element minOccurs="0" name="dataType" nillable="true" type="ax2182:XmlSchemaDatatype"/>
+                            <xs:element minOccurs="0" name="deriveBy" nillable="true" type="ax2182:XmlSchemaDerivationMethod"/>
+                            <xs:element minOccurs="0" name="final" nillable="true" type="ax2182:XmlSchemaDerivationMethod"/>
+                            <xs:element minOccurs="0" name="finalResolved" nillable="true" type="ax2182:XmlSchemaDerivationMethod"/>
                             <xs:element minOccurs="0" name="mixed" type="xs:boolean"/>
                             <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
                         </xs:sequence>
@@ -238,33 +238,40 @@
                 <xs:sequence/>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2195="http://om.axiom.apache.org/xsd" xmlns:ax2196="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://soap.axiom.apache.org/xsd">
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://common.core.carbon.wso2.org/xsd">
+            <xs:complexType name="AuthenticationException">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="uiErrorCode" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax2193="http://om.axiom.apache.org/xsd" xmlns:ax2194="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://soap.axiom.apache.org/xsd">
             <xs:import namespace="http://om.axiom.apache.org/xsd"/>
             <xs:import namespace="http://util.java/xsd"/>
             <xs:complexType abstract="true" name="SOAPEnvelope">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="SOAPBodyFirstElementLocalName" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="SOAPBodyFirstElementNS" nillable="true" type="ax2194:OMNamespace"/>
-                    <xs:element minOccurs="0" name="body" nillable="true" type="ax2193:SOAPBody"/>
-                    <xs:element minOccurs="0" name="header" nillable="true" type="ax2193:SOAPHeader"/>
-                    <xs:element minOccurs="0" name="version" nillable="true" type="ax2193:SOAPVersion"/>
+                    <xs:element minOccurs="0" name="SOAPBodyFirstElementNS" nillable="true" type="ax2193:OMNamespace"/>
+                    <xs:element minOccurs="0" name="body" nillable="true" type="ax2191:SOAPBody"/>
+                    <xs:element minOccurs="0" name="header" nillable="true" type="ax2191:SOAPHeader"/>
+                    <xs:element minOccurs="0" name="version" nillable="true" type="ax2191:SOAPVersion"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="SOAPBody">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="fault" nillable="true" type="ax2193:SOAPFault"/>
+                    <xs:element minOccurs="0" name="fault" nillable="true" type="ax2191:SOAPFault"/>
                     <xs:element minOccurs="0" name="firstElementLocalName" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="firstElementNS" nillable="true" type="ax2194:OMNamespace"/>
+                    <xs:element minOccurs="0" name="firstElementNS" nillable="true" type="ax2193:OMNamespace"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="SOAPFault">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="code" nillable="true" type="ax2193:SOAPFaultCode"/>
-                    <xs:element minOccurs="0" name="detail" nillable="true" type="ax2193:SOAPFaultDetail"/>
+                    <xs:element minOccurs="0" name="code" nillable="true" type="ax2191:SOAPFaultCode"/>
+                    <xs:element minOccurs="0" name="detail" nillable="true" type="ax2191:SOAPFaultDetail"/>
                     <xs:element minOccurs="0" name="exception" nillable="true"/>
-                    <xs:element minOccurs="0" name="node" nillable="true" type="ax2193:SOAPFaultNode"/>
-                    <xs:element minOccurs="0" name="reason" nillable="true" type="ax2193:SOAPFaultReason"/>
-                    <xs:element minOccurs="0" name="role" nillable="true" type="ax2193:SOAPFaultRole"/>
+                    <xs:element minOccurs="0" name="node" nillable="true" type="ax2191:SOAPFaultNode"/>
+                    <xs:element minOccurs="0" name="reason" nillable="true" type="ax2191:SOAPFaultReason"/>
+                    <xs:element minOccurs="0" name="role" nillable="true" type="ax2191:SOAPFaultRole"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="SOAPFaultCode">
@@ -272,7 +279,7 @@
             </xs:complexType>
             <xs:complexType abstract="true" name="SOAPFaultDetail">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="allDetailEntries" nillable="true" type="ax2140:Iterator"/>
+                    <xs:element minOccurs="0" name="allDetailEntries" nillable="true" type="ax2138:Iterator"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="SOAPFaultNode">
@@ -283,7 +290,7 @@
             <xs:complexType abstract="true" name="SOAPFaultReason">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="allSoapTexts" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="firstSOAPText" nillable="true" type="ax2193:SOAPFaultText"/>
+                    <xs:element minOccurs="0" name="firstSOAPText" nillable="true" type="ax2191:SOAPFaultText"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="SOAPFaultText">
@@ -315,7 +322,7 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2141="http://util.java/xsd" xmlns:ax2139="http://io.java/xsd" xmlns:ax2143="http://lifecycle.attachments.axiom.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://attachments.axiom.apache.org/xsd">
+        <xs:schema xmlns:ax2137="http://io.java/xsd" xmlns:ax2141="http://lifecycle.attachments.axiom.apache.org/xsd" xmlns:ax2139="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://attachments.axiom.apache.org/xsd">
             <xs:import namespace="http://io.java/xsd"/>
             <xs:import namespace="http://util.java/xsd"/>
             <xs:import namespace="http://lifecycle.attachments.axiom.apache.org/xsd"/>
@@ -323,42 +330,35 @@
                 <xs:sequence>
                     <xs:element minOccurs="0" name="SOAPPartContentID" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="SOAPPartContentType" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="SOAPPartInputStream" nillable="true" type="ax2138:InputStream"/>
+                    <xs:element minOccurs="0" name="SOAPPartInputStream" nillable="true" type="ax2136:InputStream"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="allContentIDs" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="attachmentSpecType" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="contentIDList" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="contentIDSet" nillable="true" type="ax2140:Set"/>
+                    <xs:element minOccurs="0" name="contentIDSet" nillable="true" type="ax2138:Set"/>
                     <xs:element minOccurs="0" name="contentLength" type="xs:long"/>
-                    <xs:element minOccurs="0" name="incomingAttachmentStreams" nillable="true" type="ax2137:IncomingAttachmentStreams"/>
-                    <xs:element minOccurs="0" name="incomingAttachmentsAsSingleStream" nillable="true" type="ax2138:InputStream"/>
-                    <xs:element minOccurs="0" name="lifecycleManager" nillable="true" type="ax2142:LifecycleManager"/>
-                    <xs:element minOccurs="0" name="map" nillable="true" type="ax2140:Map"/>
+                    <xs:element minOccurs="0" name="incomingAttachmentStreams" nillable="true" type="ax2135:IncomingAttachmentStreams"/>
+                    <xs:element minOccurs="0" name="incomingAttachmentsAsSingleStream" nillable="true" type="ax2136:InputStream"/>
+                    <xs:element minOccurs="0" name="lifecycleManager" nillable="true" type="ax2140:LifecycleManager"/>
+                    <xs:element minOccurs="0" name="map" nillable="true" type="ax2138:Map"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="IncomingAttachmentStreams">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="nextStream" nillable="true" type="ax2137:IncomingAttachmentInputStream"/>
+                    <xs:element minOccurs="0" name="nextStream" nillable="true" type="ax2135:IncomingAttachmentInputStream"/>
                     <xs:element minOccurs="0" name="readyToGetNextStream" type="xs:boolean"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="IncomingAttachmentInputStream">
                 <xs:complexContent>
-                    <xs:extension base="ax2138:InputStream">
+                    <xs:extension base="ax2136:InputStream">
                         <xs:sequence>
                             <xs:element minOccurs="0" name="contentId" nillable="true" type="xs:string"/>
                             <xs:element minOccurs="0" name="contentLocation" nillable="true" type="xs:string"/>
                             <xs:element minOccurs="0" name="contentType" nillable="true" type="xs:string"/>
-                            <xs:element minOccurs="0" name="headers" nillable="true" type="ax2140:Map"/>
+                            <xs:element minOccurs="0" name="headers" nillable="true" type="ax2138:Map"/>
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
-            </xs:complexType>
-        </xs:schema>
-        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://common.core.carbon.wso2.org/xsd">
-            <xs:complexType name="AuthenticationException">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="uiErrorCode" nillable="true" type="xs:string"/>
-                </xs:sequence>
             </xs:complexType>
         </xs:schema>
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://transport.axis2.apache.org/xsd">
@@ -374,15 +374,15 @@
                 <xs:sequence>
                     <xs:element minOccurs="0" name="id" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="ownerElement" nillable="true" type="ax2186:Element"/>
-                    <xs:element minOccurs="0" name="schemaTypeInfo" nillable="true" type="ax2186:TypeInfo"/>
+                    <xs:element minOccurs="0" name="ownerElement" nillable="true" type="ax2184:Element"/>
+                    <xs:element minOccurs="0" name="schemaTypeInfo" nillable="true" type="ax2184:TypeInfo"/>
                     <xs:element minOccurs="0" name="specified" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="value" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="Element">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="schemaTypeInfo" nillable="true" type="ax2186:TypeInfo"/>
+                    <xs:element minOccurs="0" name="schemaTypeInfo" nillable="true" type="ax2184:TypeInfo"/>
                     <xs:element minOccurs="0" name="tagName" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
@@ -393,7 +393,7 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2203="http://addressing.axis2.apache.org/xsd" xmlns:ax2205="http://transport.axis2.apache.org/xsd" xmlns:ax2208="http://description.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://client.axis2.apache.org/xsd">
+        <xs:schema xmlns:ax2201="http://addressing.axis2.apache.org/xsd" xmlns:ax2203="http://transport.axis2.apache.org/xsd" xmlns:ax2206="http://description.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://client.axis2.apache.org/xsd">
             <xs:import namespace="http://addressing.axis2.apache.org/xsd"/>
             <xs:import namespace="http://transport.axis2.apache.org/xsd"/>
             <xs:import namespace="http://description.axis2.apache.org/xsd"/>
@@ -402,24 +402,24 @@
                     <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="callTransportCleanup" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="exceptionToBeThrownOnSOAPFault" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="faultTo" nillable="true" type="ax2203:EndpointReference"/>
-                    <xs:element minOccurs="0" name="from" nillable="true" type="ax2203:EndpointReference"/>
-                    <xs:element minOccurs="0" name="listener" nillable="true" type="ax2204:TransportListener"/>
+                    <xs:element minOccurs="0" name="faultTo" nillable="true" type="ax2201:EndpointReference"/>
+                    <xs:element minOccurs="0" name="from" nillable="true" type="ax2201:EndpointReference"/>
+                    <xs:element minOccurs="0" name="listener" nillable="true" type="ax2202:TransportListener"/>
                     <xs:element minOccurs="0" name="logCorrelationIDString" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="manageSession" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="messageId" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="parent" nillable="true" type="ax2202:Options"/>
+                    <xs:element minOccurs="0" name="parent" nillable="true" type="ax2200:Options"/>
                     <xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="properties" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="relatesTo" nillable="true" type="ax2203:RelatesTo"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="relationships" nillable="true" type="ax2203:RelatesTo"/>
-                    <xs:element minOccurs="0" name="replyTo" nillable="true" type="ax2203:EndpointReference"/>
+                    <xs:element minOccurs="0" name="relatesTo" nillable="true" type="ax2201:RelatesTo"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="relationships" nillable="true" type="ax2201:RelatesTo"/>
+                    <xs:element minOccurs="0" name="replyTo" nillable="true" type="ax2201:EndpointReference"/>
                     <xs:element minOccurs="0" name="soapVersionURI" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="timeOutInMilliSeconds" type="xs:long"/>
-                    <xs:element minOccurs="0" name="to" nillable="true" type="ax2203:EndpointReference"/>
-                    <xs:element minOccurs="0" name="transportIn" nillable="true" type="ax2208:TransportInDescription"/>
+                    <xs:element minOccurs="0" name="to" nillable="true" type="ax2201:EndpointReference"/>
+                    <xs:element minOccurs="0" name="transportIn" nillable="true" type="ax2206:TransportInDescription"/>
                     <xs:element minOccurs="0" name="transportInProtocol" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="transportOut" nillable="true" type="ax2208:TransportOutDescription"/>
+                    <xs:element minOccurs="0" name="transportOut" nillable="true" type="ax2206:TransportOutDescription"/>
                     <xs:element minOccurs="0" name="useSeparateListener" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
                 </xs:sequence>
@@ -454,13 +454,27 @@
                 <xs:sequence/>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2135="http://common.core.carbon.wso2.org/xsd" xmlns:ax2210="http://context.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://iwa.authenticator.identity.carbon.wso2.org">
-            <xs:import namespace="http://common.core.carbon.wso2.org/xsd"/>
+        <xs:schema xmlns:ax2210="http://common.core.carbon.wso2.org/xsd" xmlns:ax2208="http://context.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://iwa.authenticator.identity.carbon.wso2.org">
             <xs:import namespace="http://context.axis2.apache.org/xsd"/>
+            <xs:import namespace="http://common.core.carbon.wso2.org/xsd"/>
+            <xs:element name="canHandle">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="msgContext" nillable="true" type="ax2208:MessageContext"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="canHandleResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="IWAAuthenticatorAuthenticationException">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="AuthenticationException" nillable="true" type="ax2135:AuthenticationException"/>
+                        <xs:element minOccurs="0" name="AuthenticationException" nillable="true" type="ax2210:AuthenticationException"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -479,30 +493,16 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="canHandle">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="msgContext" nillable="true" type="ax2136:MessageContext"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="canHandleResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
         </xs:schema>
-        <xs:schema xmlns:ax2155="http://context.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://management.clustering.axis2.apache.org/xsd">
+        <xs:schema xmlns:ax2153="http://context.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://management.clustering.axis2.apache.org/xsd">
             <xs:import namespace="http://context.axis2.apache.org/xsd"/>
             <xs:complexType abstract="true" name="NodeManager">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="configurationContext" nillable="true" type="ax2136:ConfigurationContext"/>
+                    <xs:element minOccurs="0" name="configurationContext" nillable="true" type="ax2153:ConfigurationContext"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2190="http://schema.commons.ws.apache.org/xsd" xmlns:ax2207="http://transport.axis2.apache.org/xsd" xmlns:ax2180="http://java2wsdl.description.axis2.apache.org/xsd" xmlns:ax2183="http://neethi.apache.org/xsd" xmlns:ax2174="http://engine.axis2.apache.org/xsd" xmlns:ax2175="http://util.java/xsd" xmlns:ax2176="http://util.deployment.axis2.apache.org/xsd" xmlns:ax2177="http://net.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://description.axis2.apache.org/xsd">
+        <xs:schema xmlns:ax2205="http://transport.axis2.apache.org/xsd" xmlns:ax2181="http://neethi.apache.org/xsd" xmlns:ax2172="http://engine.axis2.apache.org/xsd" xmlns:ax2173="http://util.java/xsd" xmlns:ax2174="http://util.deployment.axis2.apache.org/xsd" xmlns:ax2175="http://net.java/xsd" xmlns:ax2188="http://schema.commons.ws.apache.org/xsd" xmlns:ax2178="http://java2wsdl.description.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://description.axis2.apache.org/xsd">
             <xs:import namespace="http://engine.axis2.apache.org/xsd"/>
             <xs:import namespace="http://util.java/xsd"/>
             <xs:import namespace="http://util.deployment.axis2.apache.org/xsd"/>
@@ -513,9 +513,9 @@
             <xs:import namespace="http://transport.axis2.apache.org/xsd"/>
             <xs:complexType name="AxisMessage">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="axisOperation" nillable="true" type="ax2145:AxisOperation"/>
+                    <xs:element minOccurs="0" name="axisOperation" nillable="true" type="ax2143:AxisOperation"/>
                     <xs:element minOccurs="0" name="direction" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="effectivePolicy" nillable="true" type="ax2183:Policy"/>
+                    <xs:element minOccurs="0" name="effectivePolicy" nillable="true" type="ax2181:Policy"/>
                     <xs:element minOccurs="0" name="elementQName" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="extensibilityAttributes" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="key" nillable="true" type="xs:anyType"/>
@@ -525,7 +525,7 @@
                     <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="partName" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="policyUpdated" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="schemaElement" nillable="true" type="ax2184:XmlSchemaElement"/>
+                    <xs:element minOccurs="0" name="schemaElement" nillable="true" type="ax2182:XmlSchemaElement"/>
                     <xs:element minOccurs="0" name="soapHeaders" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="wrapped" type="xs:boolean"/>
                 </xs:sequence>
@@ -533,7 +533,7 @@
             <xs:complexType abstract="true" name="AxisOperation">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="WSAMappingList" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="axisService" nillable="true" type="ax2145:AxisService"/>
+                    <xs:element minOccurs="0" name="axisService" nillable="true" type="ax2143:AxisService"/>
                     <xs:element minOccurs="0" name="axisSpecificMEPConstant" type="xs:int"/>
                     <xs:element minOccurs="0" name="controlOperation" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="faultAction" nillable="true" type="xs:string"/>
@@ -542,8 +542,8 @@
                     <xs:element minOccurs="0" name="inputAction" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="key" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="messageExchangePattern" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="messageReceiver" nillable="true" type="ax2146:MessageReceiver"/>
-                    <xs:element minOccurs="0" name="messages" nillable="true" type="ax2140:Iterator"/>
+                    <xs:element minOccurs="0" name="messageReceiver" nillable="true" type="ax2144:MessageReceiver"/>
+                    <xs:element minOccurs="0" name="messages" nillable="true" type="ax2138:Iterator"/>
                     <xs:element minOccurs="0" name="moduleRefs" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="name" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="outputAction" nillable="true" type="xs:string"/>
@@ -561,7 +561,7 @@
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="EPRs" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="WSAddressingFlag" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="active" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="axisServiceGroup" nillable="true" type="ax2145:AxisServiceGroup"/>
+                    <xs:element minOccurs="0" name="axisServiceGroup" nillable="true" type="ax2143:AxisServiceGroup"/>
                     <xs:element minOccurs="0" name="bindingName" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="classLoader" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="clientSide" type="xs:boolean"/>
@@ -573,10 +573,10 @@
                     <xs:element minOccurs="0" name="enableAllTransports" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="endpointName" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="endpointURL" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="endpoints" nillable="true" type="ax2140:Map"/>
-                    <xs:element minOccurs="0" name="excludeInfo" nillable="true" type="ax2163:ExcludeInfo"/>
+                    <xs:element minOccurs="0" name="endpoints" nillable="true" type="ax2138:Map"/>
+                    <xs:element minOccurs="0" name="excludeInfo" nillable="true" type="ax2161:ExcludeInfo"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="exposedTransports" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="fileName" nillable="true" type="ax2166:URL"/>
+                    <xs:element minOccurs="0" name="fileName" nillable="true" type="ax2164:URL"/>
                     <xs:element minOccurs="0" name="importedNamespaces" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="key" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="lastUpdate" type="xs:long"/>
@@ -585,30 +585,30 @@
                     <xs:element minOccurs="0" name="modifyUserWSDLPortAddress" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="modules" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="nameSpacesMap" nillable="true" type="ax2140:Map"/>
-                    <xs:element minOccurs="0" name="namespaceMap" nillable="true" type="ax2140:Map"/>
-                    <xs:element minOccurs="0" name="objectSupplier" nillable="true" type="ax2146:ObjectSupplier"/>
-                    <xs:element minOccurs="0" name="operations" nillable="true" type="ax2140:Iterator"/>
+                    <xs:element minOccurs="0" name="nameSpacesMap" nillable="true" type="ax2138:Map"/>
+                    <xs:element minOccurs="0" name="namespaceMap" nillable="true" type="ax2138:Map"/>
+                    <xs:element minOccurs="0" name="objectSupplier" nillable="true" type="ax2144:ObjectSupplier"/>
+                    <xs:element minOccurs="0" name="operations" nillable="true" type="ax2138:Iterator"/>
                     <xs:element minOccurs="0" name="operationsNameList" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="p2nMap" nillable="true" type="ax2140:Map"/>
-                    <xs:element minOccurs="0" name="parent" nillable="true" type="ax2145:AxisServiceGroup"/>
+                    <xs:element minOccurs="0" name="p2nMap" nillable="true" type="ax2138:Map"/>
+                    <xs:element minOccurs="0" name="parent" nillable="true" type="ax2143:AxisServiceGroup"/>
                     <xs:element minOccurs="0" name="portTypeName" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="publishedOperations" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="schema" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="schemaLocationsAdjusted" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="schemaMappingTable" nillable="true" type="ax2140:Map"/>
+                    <xs:element minOccurs="0" name="schemaMappingTable" nillable="true" type="ax2138:Map"/>
                     <xs:element minOccurs="0" name="schemaTargetNamespace" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="schemaTargetNamespacePrefix" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="schematargetNamespace" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="schematargetNamespacePrefix" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="scope" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="serviceDescription" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="serviceLifeCycle" nillable="true" type="ax2146:ServiceLifeCycle"/>
+                    <xs:element minOccurs="0" name="serviceLifeCycle" nillable="true" type="ax2144:ServiceLifeCycle"/>
                     <xs:element minOccurs="0" name="setEndpointsToAllUsedBindings" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="soapNsUri" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="targetNamespace" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="targetNamespacePrefix" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="typeTable" nillable="true" type="ax2180:TypeTable"/>
+                    <xs:element minOccurs="0" name="typeTable" nillable="true" type="ax2176:TypeTable"/>
                     <xs:element minOccurs="0" name="useDefaultChains" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="useUserWSDL" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="wsdlFound" type="xs:boolean"/>
@@ -616,24 +616,24 @@
             </xs:complexType>
             <xs:complexType name="AxisServiceGroup">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="axisDescription" nillable="true" type="ax2146:AxisConfiguration"/>
+                    <xs:element minOccurs="0" name="axisDescription" nillable="true" type="ax2144:AxisConfiguration"/>
                     <xs:element minOccurs="0" name="foundWebResources" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="key" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="moduleRefs" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="serviceGroupClassLoader" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="serviceGroupName" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="services" nillable="true" type="ax2140:Iterator"/>
+                    <xs:element minOccurs="0" name="services" nillable="true" type="ax2138:Iterator"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="TransportInDescription">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="faultFlow" nillable="true" type="ax2145:Flow"/>
-                    <xs:element minOccurs="0" name="faultPhase" nillable="true" type="ax2146:Phase"/>
-                    <xs:element minOccurs="0" name="inFlow" nillable="true" type="ax2145:Flow"/>
-                    <xs:element minOccurs="0" name="inPhase" nillable="true" type="ax2146:Phase"/>
+                    <xs:element minOccurs="0" name="faultFlow" nillable="true" type="ax2143:Flow"/>
+                    <xs:element minOccurs="0" name="faultPhase" nillable="true" type="ax2144:Phase"/>
+                    <xs:element minOccurs="0" name="inFlow" nillable="true" type="ax2143:Flow"/>
+                    <xs:element minOccurs="0" name="inPhase" nillable="true" type="ax2144:Phase"/>
                     <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="parameters" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="receiver" nillable="true" type="ax2204:TransportListener"/>
+                    <xs:element minOccurs="0" name="receiver" nillable="true" type="ax2202:TransportListener"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="Flow">
@@ -644,11 +644,11 @@
             <xs:complexType name="HandlerDescription">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="className" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="handler" nillable="true" type="ax2146:Handler"/>
+                    <xs:element minOccurs="0" name="handler" nillable="true" type="ax2144:Handler"/>
                     <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="parameters" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="parent" nillable="true" type="ax2145:ParameterInclude"/>
-                    <xs:element minOccurs="0" name="rules" nillable="true" type="ax2145:PhaseRule"/>
+                    <xs:element minOccurs="0" name="parent" nillable="true" type="ax2143:ParameterInclude"/>
+                    <xs:element minOccurs="0" name="rules" nillable="true" type="ax2143:PhaseRule"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="ParameterInclude">
@@ -667,13 +667,13 @@
             </xs:complexType>
             <xs:complexType name="TransportOutDescription">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="faultFlow" nillable="true" type="ax2145:Flow"/>
-                    <xs:element minOccurs="0" name="faultPhase" nillable="true" type="ax2146:Phase"/>
+                    <xs:element minOccurs="0" name="faultFlow" nillable="true" type="ax2143:Flow"/>
+                    <xs:element minOccurs="0" name="faultPhase" nillable="true" type="ax2144:Phase"/>
                     <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="outFlow" nillable="true" type="ax2145:Flow"/>
-                    <xs:element minOccurs="0" name="outPhase" nillable="true" type="ax2146:Phase"/>
+                    <xs:element minOccurs="0" name="outFlow" nillable="true" type="ax2143:Flow"/>
+                    <xs:element minOccurs="0" name="outPhase" nillable="true" type="ax2144:Phase"/>
                     <xs:element minOccurs="0" name="parameters" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="sender" nillable="true" type="ax2204:TransportSender"/>
+                    <xs:element minOccurs="0" name="sender" nillable="true" type="ax2202:TransportSender"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
@@ -686,7 +686,7 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2201="http://addressing.axis2.apache.org/xsd" xmlns:ax2148="http://engine.axis2.apache.org/xsd" xmlns:ax2191="http://description.axis2.apache.org/xsd" xmlns:ax2192="http://neethi.apache.org/xsd" xmlns:ax2209="http://client.axis2.apache.org/xsd" xmlns:ax2151="http://threadpool.util.axis2.apache.org/xsd" xmlns:ax2197="http://soap.axiom.apache.org/xsd" xmlns:ax2198="http://util.java/xsd" xmlns:ax2144="http://attachments.axiom.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://context.axis2.apache.org/xsd">
+        <xs:schema xmlns:ax2146="http://engine.axis2.apache.org/xsd" xmlns:ax2149="http://threadpool.util.axis2.apache.org/xsd" xmlns:ax2190="http://neethi.apache.org/xsd" xmlns:ax2207="http://client.axis2.apache.org/xsd" xmlns:ax2195="http://soap.axiom.apache.org/xsd" xmlns:ax2196="http://util.java/xsd" xmlns:ax2142="http://attachments.axiom.apache.org/xsd" xmlns:ax2199="http://addressing.axis2.apache.org/xsd" xmlns:ax2189="http://description.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://context.axis2.apache.org/xsd">
             <xs:import namespace="http://attachments.axiom.apache.org/xsd"/>
             <xs:import namespace="http://engine.axis2.apache.org/xsd"/>
             <xs:import namespace="http://threadpool.util.axis2.apache.org/xsd"/>
@@ -702,26 +702,26 @@
                     <xs:element minOccurs="0" name="SOAP11" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="WSAAction" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="WSAMessageId" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="attachmentMap" nillable="true" type="ax2144:Attachments"/>
-                    <xs:element minOccurs="0" name="axisMessage" nillable="true" type="ax2145:AxisMessage"/>
-                    <xs:element minOccurs="0" name="axisOperation" nillable="true" type="ax2145:AxisOperation"/>
-                    <xs:element minOccurs="0" name="axisService" nillable="true" type="ax2145:AxisService"/>
-                    <xs:element minOccurs="0" name="axisServiceGroup" nillable="true" type="ax2145:AxisServiceGroup"/>
-                    <xs:element minOccurs="0" name="configurationContext" nillable="true" type="ax2136:ConfigurationContext"/>
+                    <xs:element minOccurs="0" name="attachmentMap" nillable="true" type="ax2142:Attachments"/>
+                    <xs:element minOccurs="0" name="axisMessage" nillable="true" type="ax2143:AxisMessage"/>
+                    <xs:element minOccurs="0" name="axisOperation" nillable="true" type="ax2143:AxisOperation"/>
+                    <xs:element minOccurs="0" name="axisService" nillable="true" type="ax2143:AxisService"/>
+                    <xs:element minOccurs="0" name="axisServiceGroup" nillable="true" type="ax2143:AxisServiceGroup"/>
+                    <xs:element minOccurs="0" name="configurationContext" nillable="true" type="ax2134:ConfigurationContext"/>
                     <xs:element minOccurs="0" name="currentHandlerIndex" type="xs:int"/>
                     <xs:element minOccurs="0" name="currentPhaseIndex" type="xs:int"/>
                     <xs:element minOccurs="0" name="doingMTOM" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="doingREST" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="doingSwA" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="effectivePolicy" nillable="true" type="ax2181:Policy"/>
-                    <xs:element minOccurs="0" name="envelope" nillable="true" type="ax2193:SOAPEnvelope"/>
-                    <xs:element minOccurs="0" name="executedPhases" nillable="true" type="ax2140:Iterator"/>
-                    <xs:element minOccurs="0" name="executedPhasesExplicit" nillable="true" type="ax2140:LinkedList"/>
+                    <xs:element minOccurs="0" name="effectivePolicy" nillable="true" type="ax2179:Policy"/>
+                    <xs:element minOccurs="0" name="envelope" nillable="true" type="ax2195:SOAPEnvelope"/>
+                    <xs:element minOccurs="0" name="executedPhases" nillable="true" type="ax2138:Iterator"/>
+                    <xs:element minOccurs="0" name="executedPhasesExplicit" nillable="true" type="ax2138:LinkedList"/>
                     <xs:element minOccurs="0" name="executionChain" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="failureReason" nillable="true"/>
                     <xs:element minOccurs="0" name="fault" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="faultTo" nillable="true" type="ax2201:EndpointReference"/>
-                    <xs:element minOccurs="0" name="from" nillable="true" type="ax2201:EndpointReference"/>
+                    <xs:element minOccurs="0" name="faultTo" nillable="true" type="ax2197:EndpointReference"/>
+                    <xs:element minOccurs="0" name="from" nillable="true" type="ax2197:EndpointReference"/>
                     <xs:element minOccurs="0" name="headerPresent" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="inboundContentLength" type="xs:long"/>
                     <xs:element minOccurs="0" name="incomingTransportName" nillable="true" type="xs:string"/>
@@ -730,29 +730,29 @@
                     <xs:element minOccurs="0" name="logIDString" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="messageID" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="newThreadRequired" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="operationContext" nillable="true" type="ax2136:OperationContext"/>
-                    <xs:element minOccurs="0" name="options" nillable="true" type="ax2202:Options"/>
-                    <xs:element minOccurs="0" name="optionsExplicit" nillable="true" type="ax2202:Options"/>
+                    <xs:element minOccurs="0" name="operationContext" nillable="true" type="ax2134:OperationContext"/>
+                    <xs:element minOccurs="0" name="options" nillable="true" type="ax2207:Options"/>
+                    <xs:element minOccurs="0" name="optionsExplicit" nillable="true" type="ax2207:Options"/>
                     <xs:element minOccurs="0" name="outputWritten" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="paused" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="processingFault" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="properties" nillable="true" type="ax2140:Map"/>
-                    <xs:element minOccurs="0" name="relatesTo" nillable="true" type="ax2201:RelatesTo"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="relationships" nillable="true" type="ax2201:RelatesTo"/>
-                    <xs:element minOccurs="0" name="replyTo" nillable="true" type="ax2201:EndpointReference"/>
+                    <xs:element minOccurs="0" name="properties" nillable="true" type="ax2138:Map"/>
+                    <xs:element minOccurs="0" name="relatesTo" nillable="true" type="ax2197:RelatesTo"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="relationships" nillable="true" type="ax2197:RelatesTo"/>
+                    <xs:element minOccurs="0" name="replyTo" nillable="true" type="ax2197:EndpointReference"/>
                     <xs:element minOccurs="0" name="responseWritten" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="rootContext" nillable="true" type="ax2136:ConfigurationContext"/>
-                    <xs:element minOccurs="0" name="selfManagedDataMapExplicit" nillable="true" type="ax2140:LinkedHashMap"/>
+                    <xs:element minOccurs="0" name="rootContext" nillable="true" type="ax2134:ConfigurationContext"/>
+                    <xs:element minOccurs="0" name="selfManagedDataMapExplicit" nillable="true" type="ax2138:LinkedHashMap"/>
                     <xs:element minOccurs="0" name="serverSide" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="serviceContext" nillable="true" type="ax2136:ServiceContext"/>
+                    <xs:element minOccurs="0" name="serviceContext" nillable="true" type="ax2134:ServiceContext"/>
                     <xs:element minOccurs="0" name="serviceContextID" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="serviceGroupContext" nillable="true" type="ax2136:ServiceGroupContext"/>
+                    <xs:element minOccurs="0" name="serviceGroupContext" nillable="true" type="ax2134:ServiceGroupContext"/>
                     <xs:element minOccurs="0" name="serviceGroupContextId" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="sessionContext" nillable="true" type="ax2136:SessionContext"/>
+                    <xs:element minOccurs="0" name="sessionContext" nillable="true" type="ax2134:SessionContext"/>
                     <xs:element minOccurs="0" name="soapAction" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="to" nillable="true" type="ax2201:EndpointReference"/>
-                    <xs:element minOccurs="0" name="transportIn" nillable="true" type="ax2145:TransportInDescription"/>
-                    <xs:element minOccurs="0" name="transportOut" nillable="true" type="ax2145:TransportOutDescription"/>
+                    <xs:element minOccurs="0" name="to" nillable="true" type="ax2197:EndpointReference"/>
+                    <xs:element minOccurs="0" name="transportIn" nillable="true" type="ax2143:TransportInDescription"/>
+                    <xs:element minOccurs="0" name="transportOut" nillable="true" type="ax2143:TransportOutDescription"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="ConfigurationContext">
@@ -761,65 +761,65 @@
                     <xs:element minOccurs="0" name="axisConfiguration" nillable="true" type="ax2146:AxisConfiguration"/>
                     <xs:element minOccurs="0" name="contextRoot" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="listenerManager" nillable="true" type="ax2146:ListenerManager"/>
-                    <xs:element minOccurs="0" name="rootContext" nillable="true" type="ax2136:ConfigurationContext"/>
+                    <xs:element minOccurs="0" name="rootContext" nillable="true" type="ax2134:ConfigurationContext"/>
                     <xs:element minOccurs="0" name="serviceContextPath" nillable="true" type="xs:string"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceGroupContextIDs" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="serviceGroupContextTimeoutInterval" type="xs:long"/>
                     <xs:element minOccurs="0" name="serviceGroupContextTimoutInterval" type="xs:long"/>
                     <xs:element minOccurs="0" name="serviceGroupContexts" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="servicePath" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="threadPool" nillable="true" type="ax2150:ThreadFactory"/>
+                    <xs:element minOccurs="0" name="threadPool" nillable="true" type="ax2148:ThreadFactory"/>
                     <xs:element minOccurs="0" name="transportManager" nillable="true" type="ax2146:ListenerManager"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="OperationContext">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="axisOperation" nillable="true" type="ax2145:AxisOperation"/>
+                    <xs:element minOccurs="0" name="axisOperation" nillable="true" type="ax2143:AxisOperation"/>
                     <xs:element minOccurs="0" name="complete" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="configurationContext" nillable="true" type="ax2136:ConfigurationContext"/>
+                    <xs:element minOccurs="0" name="configurationContext" nillable="true" type="ax2134:ConfigurationContext"/>
                     <xs:element minOccurs="0" name="key" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="logCorrelationIDString" nillable="true" type="xs:string"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="messageContexts" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="operationName" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="rootContext" nillable="true" type="ax2136:ConfigurationContext"/>
-                    <xs:element minOccurs="0" name="serviceContext" nillable="true" type="ax2136:ServiceContext"/>
+                    <xs:element minOccurs="0" name="rootContext" nillable="true" type="ax2134:ConfigurationContext"/>
+                    <xs:element minOccurs="0" name="serviceContext" nillable="true" type="ax2134:ServiceContext"/>
                     <xs:element minOccurs="0" name="serviceGroupName" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="ServiceContext">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="axisService" nillable="true" type="ax2145:AxisService"/>
+                    <xs:element minOccurs="0" name="axisService" nillable="true" type="ax2143:AxisService"/>
                     <xs:element minOccurs="0" name="cachingOperationContext" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="configurationContext" nillable="true" type="ax2136:ConfigurationContext"/>
+                    <xs:element minOccurs="0" name="configurationContext" nillable="true" type="ax2134:ConfigurationContext"/>
                     <xs:element minOccurs="0" name="groupName" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="lastOperationContext" nillable="true" type="ax2136:OperationContext"/>
+                    <xs:element minOccurs="0" name="lastOperationContext" nillable="true" type="ax2134:OperationContext"/>
                     <xs:element minOccurs="0" name="logCorrelationIDString" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="myEPR" nillable="true" type="ax2201:EndpointReference"/>
+                    <xs:element minOccurs="0" name="myEPR" nillable="true" type="ax2197:EndpointReference"/>
                     <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="rootContext" nillable="true" type="ax2136:ConfigurationContext"/>
-                    <xs:element minOccurs="0" name="serviceGroupContext" nillable="true" type="ax2136:ServiceGroupContext"/>
-                    <xs:element minOccurs="0" name="targetEPR" nillable="true" type="ax2201:EndpointReference"/>
+                    <xs:element minOccurs="0" name="rootContext" nillable="true" type="ax2134:ConfigurationContext"/>
+                    <xs:element minOccurs="0" name="serviceGroupContext" nillable="true" type="ax2134:ServiceGroupContext"/>
+                    <xs:element minOccurs="0" name="targetEPR" nillable="true" type="ax2197:EndpointReference"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="ServiceGroupContext">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="description" nillable="true" type="ax2145:AxisServiceGroup"/>
+                    <xs:element minOccurs="0" name="description" nillable="true" type="ax2143:AxisServiceGroup"/>
                     <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="rootContext" nillable="true" type="ax2136:ConfigurationContext"/>
-                    <xs:element minOccurs="0" name="serviceContexts" nillable="true" type="ax2140:Iterator"/>
+                    <xs:element minOccurs="0" name="rootContext" nillable="true" type="ax2134:ConfigurationContext"/>
+                    <xs:element minOccurs="0" name="serviceContexts" nillable="true" type="ax2138:Iterator"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="SessionContext">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="cookieID" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="lastTouchedTime" type="xs:long"/>
-                    <xs:element minOccurs="0" name="rootContext" nillable="true" type="ax2136:ConfigurationContext"/>
-                    <xs:element minOccurs="0" name="serviceGroupContext" nillable="true" type="ax2140:Iterator"/>
+                    <xs:element minOccurs="0" name="rootContext" nillable="true" type="ax2134:ConfigurationContext"/>
+                    <xs:element minOccurs="0" name="serviceGroupContext" nillable="true" type="ax2138:Iterator"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2164="http://description.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://util.deployment.axis2.apache.org/xsd">
+        <xs:schema xmlns:ax2162="http://description.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://util.deployment.axis2.apache.org/xsd">
             <xs:import namespace="http://description.axis2.apache.org/xsd"/>
             <xs:complexType name="PhasesInfo">
                 <xs:sequence>
@@ -834,7 +834,7 @@
                     <xs:element minOccurs="0" name="operationInPhases" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="operationOutFaultPhases" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="operationOutPhases" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="operationPhases" nillable="true" type="ax2164:AxisOperation"/>
+                    <xs:element minOccurs="0" name="operationPhases" nillable="true" type="ax2162:AxisOperation"/>
                     <xs:element minOccurs="0" name="outFaultPhaseList" nillable="true" type="xs:anyType"/>
                 </xs:sequence>
             </xs:complexType>
@@ -859,14 +859,14 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2200="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://addressing.axis2.apache.org/xsd">
+        <xs:schema xmlns:ax2198="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://addressing.axis2.apache.org/xsd">
             <xs:import namespace="http://util.java/xsd"/>
             <xs:complexType name="EndpointReference">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="WSAddressingAnonymous" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="address" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="addressAttributes" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="allReferenceParameters" nillable="true" type="ax2140:Map"/>
+                    <xs:element minOccurs="0" name="allReferenceParameters" nillable="true" type="ax2138:Map"/>
                     <xs:element minOccurs="0" name="attributes" nillable="true" type="xs:anyType"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="extensibleElements" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="logCorrelationIDString" nillable="true" type="xs:string"/>
@@ -891,7 +891,7 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2169="http://securevault.wso2.org/xsd" xmlns:ax2149="http://context.axis2.apache.org/xsd" xmlns:ax2206="http://description.axis2.apache.org/xsd" xmlns:ax2171="http://util.axis2.apache.org/xsd" xmlns:ax2161="http://clustering.axis2.apache.org/xsd" xmlns:ax2162="http://util.java/xsd" xmlns:ax2173="http://transaction.axis2.apache.org/xsd" xmlns:ax2165="http://util.deployment.axis2.apache.org/xsd" xmlns:ax2167="http://net.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://engine.axis2.apache.org/xsd">
+        <xs:schema xmlns:ax2147="http://context.axis2.apache.org/xsd" xmlns:ax2169="http://util.axis2.apache.org/xsd" xmlns:ax2159="http://clustering.axis2.apache.org/xsd" xmlns:ax2204="http://description.axis2.apache.org/xsd" xmlns:ax2160="http://util.java/xsd" xmlns:ax2171="http://transaction.axis2.apache.org/xsd" xmlns:ax2163="http://util.deployment.axis2.apache.org/xsd" xmlns:ax2165="http://net.java/xsd" xmlns:ax2167="http://securevault.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://engine.axis2.apache.org/xsd">
             <xs:import namespace="http://context.axis2.apache.org/xsd"/>
             <xs:import namespace="http://clustering.axis2.apache.org/xsd"/>
             <xs:import namespace="http://util.java/xsd"/>
@@ -904,11 +904,11 @@
             <xs:complexType name="AxisConfiguration">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="childFirstClassLoading" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="clusteringAgent" nillable="true" type="ax2147:ClusteringAgent"/>
-                    <xs:element minOccurs="0" name="configurator" nillable="true" type="ax2146:AxisConfigurator"/>
+                    <xs:element minOccurs="0" name="clusteringAgent" nillable="true" type="ax2145:ClusteringAgent"/>
+                    <xs:element minOccurs="0" name="configurator" nillable="true" type="ax2144:AxisConfigurator"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="faultyModules" nillable="true" type="xs:string"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="faultyServices" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="faultyServicesDuetoModules" nillable="true" type="ax2140:Map"/>
+                    <xs:element minOccurs="0" name="faultyServicesDuetoModules" nillable="true" type="ax2160:Map"/>
                     <xs:element minOccurs="0" name="globalModules" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="globalOutPhase" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="inFaultFlowPhases" nillable="true" type="xs:anyType"/>
@@ -923,31 +923,31 @@
                     <xs:element minOccurs="0" name="outFaultFlowPhases" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="outFaultPhases" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="outFlowPhases" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="phasesInfo" nillable="true" type="ax2163:PhasesInfo"/>
-                    <xs:element minOccurs="0" name="repository" nillable="true" type="ax2166:URL"/>
-                    <xs:element minOccurs="0" name="secretResolver" nillable="true" type="ax2168:SecretResolver"/>
+                    <xs:element minOccurs="0" name="phasesInfo" nillable="true" type="ax2161:PhasesInfo"/>
+                    <xs:element minOccurs="0" name="repository" nillable="true" type="ax2164:URL"/>
+                    <xs:element minOccurs="0" name="secretResolver" nillable="true" type="ax2166:SecretResolver"/>
                     <xs:element minOccurs="0" name="serviceClassLoader" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="serviceGroups" nillable="true" type="ax2140:Iterator"/>
+                    <xs:element minOccurs="0" name="serviceGroups" nillable="true" type="ax2160:Iterator"/>
                     <xs:element minOccurs="0" name="services" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="start" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="systemClassLoader" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="targetResolverChain" nillable="true" type="ax2171:TargetResolver"/>
-                    <xs:element minOccurs="0" name="transactionConfig" nillable="true" type="ax2172:TransactionConfiguration"/>
-                    <xs:element minOccurs="0" name="transactionConfiguration" nillable="true" type="ax2172:TransactionConfiguration"/>
+                    <xs:element minOccurs="0" name="targetResolverChain" nillable="true" type="ax2168:TargetResolver"/>
+                    <xs:element minOccurs="0" name="transactionConfig" nillable="true" type="ax2171:TransactionConfiguration"/>
+                    <xs:element minOccurs="0" name="transactionConfiguration" nillable="true" type="ax2171:TransactionConfiguration"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="transportsIn" nillable="true" type="xs:string"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="transportsOut" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="ListenerManager">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="configctx" nillable="true" type="ax2149:ConfigurationContext"/>
+                    <xs:element minOccurs="0" name="configctx" nillable="true" type="ax2147:ConfigurationContext"/>
                     <xs:element minOccurs="0" name="shutdownHookRequired" type="xs:boolean"/>
                     <xs:element minOccurs="0" name="stopped" type="xs:boolean"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="AxisConfigurator">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="axisConfiguration" nillable="true" type="ax2146:AxisConfiguration"/>
+                    <xs:element minOccurs="0" name="axisConfiguration" nillable="true" type="ax2144:AxisConfiguration"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="ObjectSupplier">
@@ -962,32 +962,32 @@
             <xs:complexType name="Phase">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="handlerCount" type="xs:int"/>
-                    <xs:element minOccurs="0" name="handlerDesc" nillable="true" type="ax2206:HandlerDescription"/>
+                    <xs:element minOccurs="0" name="handlerDesc" nillable="true" type="ax2204:HandlerDescription"/>
                     <xs:element minOccurs="0" name="handlers" nillable="true" type="xs:anyType"/>
                     <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="phaseFirst" nillable="true" type="ax2146:Handler"/>
-                    <xs:element minOccurs="0" name="phaseLast" nillable="true" type="ax2146:Handler"/>
+                    <xs:element minOccurs="0" name="phaseFirst" nillable="true" type="ax2144:Handler"/>
+                    <xs:element minOccurs="0" name="phaseLast" nillable="true" type="ax2144:Handler"/>
                     <xs:element minOccurs="0" name="phaseName" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType abstract="true" name="Handler">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="handlerDesc" nillable="true" type="ax2206:HandlerDescription"/>
+                    <xs:element minOccurs="0" name="handlerDesc" nillable="true" type="ax2204:HandlerDescription"/>
                     <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2158="http://context.axis2.apache.org/xsd" xmlns:ax2159="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://state.clustering.axis2.apache.org/xsd">
+        <xs:schema xmlns:ax2157="http://util.java/xsd" xmlns:ax2156="http://context.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://state.clustering.axis2.apache.org/xsd">
             <xs:import namespace="http://context.axis2.apache.org/xsd"/>
             <xs:import namespace="http://util.java/xsd"/>
             <xs:complexType abstract="true" name="StateManager">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="configurationContext" nillable="true" type="ax2136:ConfigurationContext"/>
-                    <xs:element minOccurs="0" name="replicationExcludePatterns" nillable="true" type="ax2140:Map"/>
+                    <xs:element minOccurs="0" name="configurationContext" nillable="true" type="ax2134:ConfigurationContext"/>
+                    <xs:element minOccurs="0" name="replicationExcludePatterns" nillable="true" type="ax2157:Map"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2160="http://state.clustering.axis2.apache.org/xsd" xmlns:ax2152="http://context.axis2.apache.org/xsd" xmlns:ax2153="http://util.java/xsd" xmlns:ax2156="http://management.clustering.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://clustering.axis2.apache.org/xsd">
+        <xs:schema xmlns:ax2158="http://state.clustering.axis2.apache.org/xsd" xmlns:ax2150="http://context.axis2.apache.org/xsd" xmlns:ax2151="http://util.java/xsd" xmlns:ax2154="http://management.clustering.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://clustering.axis2.apache.org/xsd">
             <xs:import namespace="http://context.axis2.apache.org/xsd"/>
             <xs:import namespace="http://util.java/xsd"/>
             <xs:import namespace="http://management.clustering.axis2.apache.org/xsd"/>
@@ -995,20 +995,20 @@
             <xs:complexType abstract="true" name="ClusteringAgent">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="aliveMemberCount" type="xs:int"/>
-                    <xs:element minOccurs="0" name="configurationContext" nillable="true" type="ax2136:ConfigurationContext"/>
+                    <xs:element minOccurs="0" name="configurationContext" nillable="true" type="ax2150:ConfigurationContext"/>
                     <xs:element minOccurs="0" name="coordinator" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="domains" nillable="true" type="ax2140:Set"/>
+                    <xs:element minOccurs="0" name="domains" nillable="true" type="ax2138:Set"/>
                     <xs:element minOccurs="0" name="members" nillable="true" type="xs:anyType"/>
-                    <xs:element minOccurs="0" name="nodeManager" nillable="true" type="ax2154:NodeManager"/>
-                    <xs:element minOccurs="0" name="stateManager" nillable="true" type="ax2160:StateManager"/>
+                    <xs:element minOccurs="0" name="nodeManager" nillable="true" type="ax2152:NodeManager"/>
+                    <xs:element minOccurs="0" name="stateManager" nillable="true" type="ax2158:StateManager"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2179="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://java2wsdl.description.axis2.apache.org/xsd">
+        <xs:schema xmlns:ax2177="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://java2wsdl.description.axis2.apache.org/xsd">
             <xs:import namespace="http://util.java/xsd"/>
             <xs:complexType name="TypeTable">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="complexSchemaMap" nillable="true" type="ax2140:Map"/>
+                    <xs:element minOccurs="0" name="complexSchemaMap" nillable="true" type="ax2138:Map"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
@@ -1028,7 +1028,7 @@
     <wsdl:message name="IWAAuthenticatorAuthenticationException">
         <wsdl:part name="parameters" element="ns:IWAAuthenticatorAuthenticationException"/>
     </wsdl:message>
-    <wsdl:portType xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" name="IWAAuthenticatorPortType" wsp:PolicyURIs="#c756734ad2b2357eb94f6742d778a740ad7805d63c3df109 #SigOnly">
+    <wsdl:portType xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" name="IWAAuthenticatorPortType" wsp:PolicyURIs="#75eda0ae50db9459e34a0c3daf8fd1b6f28930ceedf1f41a #SigOnly">
         <wsdl:operation name="canHandle">
             <wsdl:input message="ns:canHandleRequest" wsaw:Action="urn:canHandle"/>
             <wsdl:output message="ns:canHandleResponse" wsaw:Action="urn:canHandleResponse"/>

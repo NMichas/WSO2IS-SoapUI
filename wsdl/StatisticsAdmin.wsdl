@@ -1,4 +1,4 @@
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2587="http://context.axis2.apache.org/xsd" xmlns:ax2588="http://engine.axis2.apache.org/xsd" xmlns:ax2589="http://clustering.axis2.apache.org/xsd" xmlns:ax2623="http://threadpool.util.axis2.apache.org/xsd" xmlns:ax2602="http://util.deployment.axis2.apache.org/xsd" xmlns:ax2603="http://description.axis2.apache.org/xsd" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ax2581="http://util.services.statistics.carbon.wso2.org/xsd" xmlns:ax2582="http://services.statistics.carbon.wso2.org/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax2585="http://data.webapp.statistics.carbon.wso2.org/xsd" xmlns:ax2617="http://util.axis2.apache.org/xsd" xmlns:ax2619="http://transaction.axis2.apache.org/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ax2615="http://securevault.wso2.org/xsd" xmlns:ax2591="http://util.java/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ax2593="http://management.clustering.axis2.apache.org/xsd" xmlns:ax2596="http://state.clustering.axis2.apache.org/xsd" xmlns:tns="http://services.statistics.carbon.wso2.org" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax2607="http://net.java/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax2609="http://java2wsdl.description.axis2.apache.org/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://services.statistics.carbon.wso2.org">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2587="http://context.axis2.apache.org/xsd" xmlns:ax2588="http://engine.axis2.apache.org/xsd" xmlns:ax2589="http://clustering.axis2.apache.org/xsd" xmlns:ax2623="http://threadpool.util.axis2.apache.org/xsd" xmlns:ax2602="http://util.deployment.axis2.apache.org/xsd" xmlns:ax2603="http://description.axis2.apache.org/xsd" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ax2581="http://util.services.statistics.carbon.wso2.org/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax2583="http://services.statistics.carbon.wso2.org/xsd" xmlns:ax2585="http://data.webapp.statistics.carbon.wso2.org/xsd" xmlns:ax2617="http://util.axis2.apache.org/xsd" xmlns:ax2619="http://transaction.axis2.apache.org/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ax2615="http://securevault.wso2.org/xsd" xmlns:ax2591="http://util.java/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ax2593="http://management.clustering.axis2.apache.org/xsd" xmlns:ax2596="http://state.clustering.axis2.apache.org/xsd" xmlns:tns="http://services.statistics.carbon.wso2.org" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax2607="http://net.java/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax2609="http://java2wsdl.description.axis2.apache.org/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://services.statistics.carbon.wso2.org">
     <wsdl:documentation>StatisticsAdmin</wsdl:documentation>
     <wsdl:types>
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://data.webapp.statistics.carbon.wso2.org/xsd">
@@ -312,8 +312,22 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2583="http://services.statistics.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://util.services.statistics.carbon.wso2.org/xsd">
+        <xs:schema xmlns:ax2584="http://services.statistics.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://util.services.statistics.carbon.wso2.org/xsd">
             <xs:import namespace="http://services.statistics.carbon.wso2.org/xsd"/>
+            <xs:complexType name="OperationStatistics">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="avgResponseTime" type="xs:double"/>
+                    <xs:element minOccurs="0" name="currentInvocationFaultCount" type="xs:int"/>
+                    <xs:element minOccurs="0" name="currentInvocationRequestCount" type="xs:int"/>
+                    <xs:element minOccurs="0" name="currentInvocationResponseCount" type="xs:int"/>
+                    <xs:element minOccurs="0" name="currentInvocationResponseTime" type="xs:double"/>
+                    <xs:element minOccurs="0" name="maxResponseTime" type="xs:long"/>
+                    <xs:element minOccurs="0" name="minResponseTime" type="xs:long"/>
+                    <xs:element minOccurs="0" name="totalFaultCount" type="xs:int"/>
+                    <xs:element minOccurs="0" name="totalRequestCount" type="xs:int"/>
+                    <xs:element minOccurs="0" name="totalResponseCount" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
             <xs:complexType name="SystemStatistics">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="avgResponseTime" type="xs:double"/>
@@ -327,7 +341,7 @@
                     <xs:element minOccurs="0" name="serverName" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="serverStartTime" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="services" type="xs:int"/>
-                    <xs:element minOccurs="0" name="statService" nillable="true" type="ax2582:SystemStatisticsUtil"/>
+                    <xs:element minOccurs="0" name="statService" nillable="true" type="ax2583:SystemStatisticsUtil"/>
                     <xs:element minOccurs="0" name="systemUpTime" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="totalFaultCount" type="xs:int"/>
                     <xs:element minOccurs="0" name="totalMemory" nillable="true" type="ax2581:Metric"/>
@@ -344,20 +358,6 @@
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="ServiceStatistics">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="avgResponseTime" type="xs:double"/>
-                    <xs:element minOccurs="0" name="currentInvocationFaultCount" type="xs:int"/>
-                    <xs:element minOccurs="0" name="currentInvocationRequestCount" type="xs:int"/>
-                    <xs:element minOccurs="0" name="currentInvocationResponseCount" type="xs:int"/>
-                    <xs:element minOccurs="0" name="currentInvocationResponseTime" type="xs:double"/>
-                    <xs:element minOccurs="0" name="maxResponseTime" type="xs:long"/>
-                    <xs:element minOccurs="0" name="minResponseTime" type="xs:long"/>
-                    <xs:element minOccurs="0" name="totalFaultCount" type="xs:int"/>
-                    <xs:element minOccurs="0" name="totalRequestCount" type="xs:int"/>
-                    <xs:element minOccurs="0" name="totalResponseCount" type="xs:int"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:complexType name="OperationStatistics">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="avgResponseTime" type="xs:double"/>
                     <xs:element minOccurs="0" name="currentInvocationFaultCount" type="xs:int"/>
@@ -389,10 +389,25 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2586="http://data.webapp.statistics.carbon.wso2.org/xsd" xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2625="http://context.axis2.apache.org/xsd" xmlns:ax2584="http://util.services.statistics.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://org.apache.axis2/xsd">
+        <xs:schema xmlns:ax2586="http://data.webapp.statistics.carbon.wso2.org/xsd" xmlns:ax2582="http://util.services.statistics.carbon.wso2.org/xsd" xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2625="http://context.axis2.apache.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://org.apache.axis2/xsd">
             <xs:import namespace="http://util.services.statistics.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://data.webapp.statistics.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://context.axis2.apache.org/xsd"/>
+            <xs:element name="getOperationStatistics">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="operationName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getOperationStatisticsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2581:OperationStatistics"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="getSystemStatistics">
                 <xs:complexType>
                     <xs:sequence/>
@@ -686,21 +701,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getOperationStatistics">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="operationName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getOperationStatisticsResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2581:OperationStatistics"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
         </xs:schema>
         <xs:schema xmlns:ax2610="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://java2wsdl.description.axis2.apache.org/xsd">
             <xs:import namespace="http://util.java/xsd"/>
@@ -711,6 +711,12 @@
             </xs:complexType>
         </xs:schema>
     </wsdl:types>
+    <wsdl:message name="getOperationStatisticsRequest">
+        <wsdl:part name="parameters" element="ns1:getOperationStatistics"/>
+    </wsdl:message>
+    <wsdl:message name="getOperationStatisticsResponse">
+        <wsdl:part name="parameters" element="ns1:getOperationStatisticsResponse"/>
+    </wsdl:message>
     <wsdl:message name="getServiceResponseCountRequest">
         <wsdl:part name="parameters" element="ns1:getServiceResponseCount"/>
     </wsdl:message>
@@ -722,12 +728,6 @@
     </wsdl:message>
     <wsdl:message name="getOperationRequestCountResponse">
         <wsdl:part name="parameters" element="ns1:getOperationRequestCountResponse"/>
-    </wsdl:message>
-    <wsdl:message name="getOperationStatisticsRequest">
-        <wsdl:part name="parameters" element="ns1:getOperationStatistics"/>
-    </wsdl:message>
-    <wsdl:message name="getOperationStatisticsResponse">
-        <wsdl:part name="parameters" element="ns1:getOperationStatisticsResponse"/>
     </wsdl:message>
     <wsdl:message name="getServiceFaultCountRequest">
         <wsdl:part name="parameters" element="ns1:getServiceFaultCount"/>
@@ -847,6 +847,10 @@
         <wsdl:part name="parameters" element="ns1:getSystemFaultCountResponse"/>
     </wsdl:message>
     <wsdl:portType name="StatisticsAdminPortType">
+        <wsdl:operation name="getOperationStatistics">
+            <wsdl:input message="tns:getOperationStatisticsRequest" wsaw:Action="urn:getOperationStatistics"/>
+            <wsdl:output message="tns:getOperationStatisticsResponse" wsaw:Action="urn:getOperationStatisticsResponse"/>
+        </wsdl:operation>
         <wsdl:operation name="getServiceResponseCount">
             <wsdl:input message="tns:getServiceResponseCountRequest" wsaw:Action="urn:getServiceResponseCount"/>
             <wsdl:output message="tns:getServiceResponseCountResponse" wsaw:Action="urn:getServiceResponseCountResponse"/>
@@ -854,10 +858,6 @@
         <wsdl:operation name="getOperationRequestCount">
             <wsdl:input message="tns:getOperationRequestCountRequest" wsaw:Action="urn:getOperationRequestCount"/>
             <wsdl:output message="tns:getOperationRequestCountResponse" wsaw:Action="urn:getOperationRequestCountResponse"/>
-        </wsdl:operation>
-        <wsdl:operation name="getOperationStatistics">
-            <wsdl:input message="tns:getOperationStatisticsRequest" wsaw:Action="urn:getOperationStatistics"/>
-            <wsdl:output message="tns:getOperationStatisticsResponse" wsaw:Action="urn:getOperationStatisticsResponse"/>
         </wsdl:operation>
         <wsdl:operation name="getServiceFaultCount">
             <wsdl:input message="tns:getServiceFaultCountRequest" wsaw:Action="urn:getServiceFaultCount"/>
@@ -941,6 +941,15 @@
     </wsdl:portType>
     <wsdl:binding name="StatisticsAdminSoap11Binding" type="tns:StatisticsAdminPortType">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getOperationStatistics">
+            <soap:operation soapAction="urn:getOperationStatistics" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="getServiceResponseCount">
             <soap:operation soapAction="urn:getServiceResponseCount" style="document"/>
             <wsdl:input>
@@ -952,15 +961,6 @@
         </wsdl:operation>
         <wsdl:operation name="getOperationRequestCount">
             <soap:operation soapAction="urn:getOperationRequestCount" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getOperationStatistics">
-            <soap:operation soapAction="urn:getOperationStatistics" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1148,6 +1148,15 @@
     </wsdl:binding>
     <wsdl:binding name="StatisticsAdminSoap12Binding" type="tns:StatisticsAdminPortType">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getOperationStatistics">
+            <soap12:operation soapAction="urn:getOperationStatistics" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="getServiceResponseCount">
             <soap12:operation soapAction="urn:getServiceResponseCount" style="document"/>
             <wsdl:input>
@@ -1159,15 +1168,6 @@
         </wsdl:operation>
         <wsdl:operation name="getOperationRequestCount">
             <soap12:operation soapAction="urn:getOperationRequestCount" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getOperationStatistics">
-            <soap12:operation soapAction="urn:getOperationStatistics" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1355,6 +1355,15 @@
     </wsdl:binding>
     <wsdl:binding name="StatisticsAdminHttpBinding" type="tns:StatisticsAdminPortType">
         <http:binding verb="POST"/>
+        <wsdl:operation name="getOperationStatistics">
+            <http:operation location="getOperationStatistics"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="getServiceResponseCount">
             <http:operation location="getServiceResponseCount"/>
             <wsdl:input>
@@ -1366,15 +1375,6 @@
         </wsdl:operation>
         <wsdl:operation name="getOperationRequestCount">
             <http:operation location="getOperationRequestCount"/>
-            <wsdl:input>
-                <mime:content type="text/xml" part="parameters"/>
-            </wsdl:input>
-            <wsdl:output>
-                <mime:content type="text/xml" part="parameters"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getOperationStatistics">
-            <http:operation location="getOperationStatistics"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>

@@ -10,6 +10,30 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="getDeviceMetadataList">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDeviceMetadataListResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="removeAllRegistrations">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="removeRegistration">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="deviceRemarks" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="startRegistration">
                 <xs:complexType>
                     <xs:sequence>
@@ -43,30 +67,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="removeAllRegistrations">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="removeRegistration">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="deviceRemarks" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getDeviceMetadataList">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getDeviceMetadataListResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
         </xs:schema>
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://base.identity.carbon.wso2.org/xsd">
             <xs:complexType name="IdentityException">
@@ -94,20 +94,20 @@
             </xs:complexType>
         </xs:schema>
     </wsdl:types>
-    <wsdl:message name="isDeviceRegisteredRequest">
-        <wsdl:part name="parameters" element="ns:isDeviceRegistered"/>
-    </wsdl:message>
-    <wsdl:message name="isDeviceRegisteredResponse">
-        <wsdl:part name="parameters" element="ns:isDeviceRegisteredResponse"/>
-    </wsdl:message>
-    <wsdl:message name="FIDOServiceFIDOAuthenticatorClientException">
-        <wsdl:part name="parameters" element="ns:FIDOServiceFIDOAuthenticatorClientException"/>
-    </wsdl:message>
     <wsdl:message name="getDeviceMetadataListRequest">
         <wsdl:part name="parameters" element="ns:getDeviceMetadataList"/>
     </wsdl:message>
     <wsdl:message name="getDeviceMetadataListResponse">
         <wsdl:part name="parameters" element="ns:getDeviceMetadataListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="FIDOServiceFIDOAuthenticatorClientException">
+        <wsdl:part name="parameters" element="ns:FIDOServiceFIDOAuthenticatorClientException"/>
+    </wsdl:message>
+    <wsdl:message name="isDeviceRegisteredRequest">
+        <wsdl:part name="parameters" element="ns:isDeviceRegistered"/>
+    </wsdl:message>
+    <wsdl:message name="isDeviceRegisteredResponse">
+        <wsdl:part name="parameters" element="ns:isDeviceRegisteredResponse"/>
     </wsdl:message>
     <wsdl:message name="startRegistrationRequest">
         <wsdl:part name="parameters" element="ns:startRegistration"/>
@@ -125,15 +125,15 @@
         <wsdl:part name="parameters" element="ns:finishRegistration"/>
     </wsdl:message>
     <wsdl:portType name="FIDOServicePortType">
-        <wsdl:operation name="isDeviceRegistered">
-            <wsdl:input message="ns:isDeviceRegisteredRequest" wsaw:Action="urn:isDeviceRegistered"/>
-            <wsdl:output message="ns:isDeviceRegisteredResponse" wsaw:Action="urn:isDeviceRegisteredResponse"/>
-            <wsdl:fault message="ns:FIDOServiceFIDOAuthenticatorClientException" name="FIDOServiceFIDOAuthenticatorClientException" wsaw:Action="urn:isDeviceRegisteredFIDOServiceFIDOAuthenticatorClientException"/>
-        </wsdl:operation>
         <wsdl:operation name="getDeviceMetadataList">
             <wsdl:input message="ns:getDeviceMetadataListRequest" wsaw:Action="urn:getDeviceMetadataList"/>
             <wsdl:output message="ns:getDeviceMetadataListResponse" wsaw:Action="urn:getDeviceMetadataListResponse"/>
             <wsdl:fault message="ns:FIDOServiceFIDOAuthenticatorClientException" name="FIDOServiceFIDOAuthenticatorClientException" wsaw:Action="urn:getDeviceMetadataListFIDOServiceFIDOAuthenticatorClientException"/>
+        </wsdl:operation>
+        <wsdl:operation name="isDeviceRegistered">
+            <wsdl:input message="ns:isDeviceRegisteredRequest" wsaw:Action="urn:isDeviceRegistered"/>
+            <wsdl:output message="ns:isDeviceRegisteredResponse" wsaw:Action="urn:isDeviceRegisteredResponse"/>
+            <wsdl:fault message="ns:FIDOServiceFIDOAuthenticatorClientException" name="FIDOServiceFIDOAuthenticatorClientException" wsaw:Action="urn:isDeviceRegisteredFIDOServiceFIDOAuthenticatorClientException"/>
         </wsdl:operation>
         <wsdl:operation name="startRegistration">
             <wsdl:input message="ns:startRegistrationRequest" wsaw:Action="urn:startRegistration"/>
@@ -155,8 +155,8 @@
     </wsdl:portType>
     <wsdl:binding name="FIDOServiceSoap11Binding" type="ns:FIDOServicePortType">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <wsdl:operation name="isDeviceRegistered">
-            <soap:operation soapAction="urn:isDeviceRegistered" style="document"/>
+        <wsdl:operation name="getDeviceMetadataList">
+            <soap:operation soapAction="urn:getDeviceMetadataList" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -167,8 +167,8 @@
                 <soap:fault use="literal" name="FIDOServiceFIDOAuthenticatorClientException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getDeviceMetadataList">
-            <soap:operation soapAction="urn:getDeviceMetadataList" style="document"/>
+        <wsdl:operation name="isDeviceRegistered">
+            <soap:operation soapAction="urn:isDeviceRegistered" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -221,8 +221,8 @@
     </wsdl:binding>
     <wsdl:binding name="FIDOServiceSoap12Binding" type="ns:FIDOServicePortType">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <wsdl:operation name="isDeviceRegistered">
-            <soap12:operation soapAction="urn:isDeviceRegistered" style="document"/>
+        <wsdl:operation name="getDeviceMetadataList">
+            <soap12:operation soapAction="urn:getDeviceMetadataList" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -233,8 +233,8 @@
                 <soap12:fault use="literal" name="FIDOServiceFIDOAuthenticatorClientException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getDeviceMetadataList">
-            <soap12:operation soapAction="urn:getDeviceMetadataList" style="document"/>
+        <wsdl:operation name="isDeviceRegistered">
+            <soap12:operation soapAction="urn:isDeviceRegistered" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -287,8 +287,8 @@
     </wsdl:binding>
     <wsdl:binding name="FIDOServiceHttpBinding" type="ns:FIDOServicePortType">
         <http:binding verb="POST"/>
-        <wsdl:operation name="isDeviceRegistered">
-            <http:operation location="isDeviceRegistered"/>
+        <wsdl:operation name="getDeviceMetadataList">
+            <http:operation location="getDeviceMetadataList"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -296,8 +296,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getDeviceMetadataList">
-            <http:operation location="getDeviceMetadataList"/>
+        <wsdl:operation name="isDeviceRegistered">
+            <http:operation location="isDeviceRegistered"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>

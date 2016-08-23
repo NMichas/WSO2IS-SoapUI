@@ -1,4 +1,4 @@
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2663="http://dao.service.ws.um.carbon.wso2.org/xsd" xmlns:ax2665="http://common.mgt.user.carbon.wso2.org/xsd" xmlns:ax2656="http://core.user.carbon.wso2.org/xsd" xmlns:ax2657="http://api.user.carbon.wso2.org/xsd" xmlns:ns="http://service.ws.um.carbon.wso2.org" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax2660="http://tenant.core.user.carbon.wso2.org/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://service.ws.um.carbon.wso2.org">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2664="http://tenant.core.user.carbon.wso2.org/xsd" xmlns:ax2656="http://core.user.carbon.wso2.org/xsd" xmlns:ax2657="http://api.user.carbon.wso2.org/xsd" xmlns:ns="http://service.ws.um.carbon.wso2.org" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax2660="http://common.mgt.user.carbon.wso2.org/xsd" xmlns:ax2662="http://dao.service.ws.um.carbon.wso2.org/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://service.ws.um.carbon.wso2.org">
     <wsdl:documentation>RemoteUserStoreManagerService</wsdl:documentation>
     <wsdl:types>
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://dao.service.ws.um.carbon.wso2.org/xsd">
@@ -72,11 +72,11 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2664="http://dao.service.ws.um.carbon.wso2.org/xsd" xmlns:ax2666="http://common.mgt.user.carbon.wso2.org/xsd" xmlns:ax2659="http://core.user.carbon.wso2.org/xsd" xmlns:ax2662="http://tenant.core.user.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.ws.um.carbon.wso2.org">
+        <xs:schema xmlns:ax2663="http://dao.service.ws.um.carbon.wso2.org/xsd" xmlns:ax2666="http://tenant.core.user.carbon.wso2.org/xsd" xmlns:ax2661="http://common.mgt.user.carbon.wso2.org/xsd" xmlns:ax2659="http://core.user.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.ws.um.carbon.wso2.org">
             <xs:import namespace="http://core.user.carbon.wso2.org/xsd"/>
-            <xs:import namespace="http://tenant.core.user.carbon.wso2.org/xsd"/>
-            <xs:import namespace="http://dao.service.ws.um.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://common.mgt.user.carbon.wso2.org/xsd"/>
+            <xs:import namespace="http://dao.service.ws.um.carbon.wso2.org/xsd"/>
+            <xs:import namespace="http://tenant.core.user.carbon.wso2.org/xsd"/>
             <xs:element name="RemoteUserStoreManagerServiceUserStoreException">
                 <xs:complexType>
                     <xs:sequence>
@@ -84,55 +84,52 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getProperties">
+            <xs:element name="addUserClaimValues">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="tenant" nillable="true" type="ax2660:Tenant"/>
+                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="claims" nillable="true" type="ax2660:ClaimValue"/>
+                        <xs:element minOccurs="0" name="profileName" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getPropertiesResponse">
+            <xs:element name="getUserClaimValuesForClaims">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ns:ArrayOfString"/>
+                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="claims" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="profileName" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:complexType name="ArrayOfString">
-                <xs:sequence>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="array" nillable="true" type="xs:string"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:element name="isReadOnly">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="isReadOnlyResponse">
+            <xs:element name="getUserClaimValuesForClaimsResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2660:ClaimValue"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getTenantId">
+            <xs:element name="getTenantIdofUser">
                 <xs:complexType>
-                    <xs:sequence/>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string"/>
+                    </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getTenantIdResponse">
+            <xs:element name="getTenantIdofUserResponse">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="return" type="xs:int"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="addRole">
+            <xs:element name="addUserClaimValue">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="userList" nillable="true" type="xs:string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="permissions" nillable="true" type="ax2663:PermissionDTO"/>
+                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="claimURI" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="claimValue" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="profileName" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -158,6 +155,15 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="addRole">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="userList" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="permissions" nillable="true" type="ax2663:PermissionDTO"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="deleteRole">
                 <xs:complexType>
                     <xs:sequence>
@@ -173,24 +179,27 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="getTenantId">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getTenantIdResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="addUser">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
                         <xs:element minOccurs="0" name="credential" nillable="true" type="xs:string"/>
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="roleList" nillable="true" type="xs:string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="claims" nillable="true" type="ax2665:ClaimValue"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="claims" nillable="true" type="ax2660:ClaimValue"/>
                         <xs:element minOccurs="0" name="profileName" nillable="true" type="xs:string"/>
                         <xs:element minOccurs="0" name="requirePasswordChange" type="xs:boolean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="updateCredential">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="newCredential" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="oldCredential" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -224,6 +233,57 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="getUserListOfRole">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getUserListOfRoleResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateCredential">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="newCredential" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="oldCredential" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPasswordExpirationTime">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPasswordExpirationTimeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="isExistingUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="isExistingUserResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="isExistingRole">
                 <xs:complexType>
                     <xs:sequence>
@@ -250,20 +310,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="isExistingUser">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="isExistingUserResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
             <xs:element name="getProfileNames">
                 <xs:complexType>
                     <xs:sequence>
@@ -272,20 +318,6 @@
                 </xs:complexType>
             </xs:element>
             <xs:element name="getProfileNamesResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getUserListOfRole">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getUserListOfRoleResponse">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
@@ -375,7 +407,7 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="claims" nillable="true" type="ax2665:ClaimValue"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="claims" nillable="true" type="ax2660:ClaimValue"/>
                         <xs:element minOccurs="0" name="profileName" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
@@ -410,20 +442,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getPasswordExpirationTime">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getPasswordExpirationTimeResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" type="xs:long"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
             <xs:element name="getUserId">
                 <xs:complexType>
                     <xs:sequence>
@@ -453,61 +471,43 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getTenantIdofUser">
+            <xs:element name="getProperties">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="tenant" nillable="true" type="ax2664:Tenant"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getTenantIdofUserResponse">
+            <xs:element name="getPropertiesResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="return" type="xs:int"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ns:ArrayOfString"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="addUserClaimValue">
+            <xs:complexType name="ArrayOfString">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="array" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="isReadOnly">
                 <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="claimURI" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="claimValue" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="profileName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
+                    <xs:sequence/>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="addUserClaimValues">
+            <xs:element name="isReadOnlyResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="claims" nillable="true" type="ax2665:ClaimValue"/>
-                        <xs:element minOccurs="0" name="profileName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getUserClaimValuesForClaims">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="claims" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="profileName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getUserClaimValuesForClaimsResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2665:ClaimValue"/>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
         </xs:schema>
-        <xs:schema xmlns:ax2661="http://api.user.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tenant.core.user.carbon.wso2.org/xsd">
+        <xs:schema xmlns:ax2665="http://api.user.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tenant.core.user.carbon.wso2.org/xsd">
             <xs:import namespace="http://api.user.carbon.wso2.org/xsd"/>
             <xs:complexType name="Tenant">
                 <xs:complexContent>
-                    <xs:extension base="ax2657:Tenant">
+                    <xs:extension base="ax2665:Tenant">
                         <xs:sequence/>
                     </xs:extension>
                 </xs:complexContent>
@@ -584,17 +584,17 @@
     <wsdl:message name="deleteUserClaimValueRequest">
         <wsdl:part name="parameters" element="ns:deleteUserClaimValue"/>
     </wsdl:message>
-    <wsdl:message name="isReadOnlyRequest">
-        <wsdl:part name="parameters" element="ns:isReadOnly"/>
-    </wsdl:message>
-    <wsdl:message name="isReadOnlyResponse">
-        <wsdl:part name="parameters" element="ns:isReadOnlyResponse"/>
-    </wsdl:message>
     <wsdl:message name="getHybridRolesRequest">
         <wsdl:part name="parameters" element="ns:getHybridRoles"/>
     </wsdl:message>
     <wsdl:message name="getHybridRolesResponse">
         <wsdl:part name="parameters" element="ns:getHybridRolesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="isReadOnlyRequest">
+        <wsdl:part name="parameters" element="ns:isReadOnly"/>
+    </wsdl:message>
+    <wsdl:message name="isReadOnlyResponse">
+        <wsdl:part name="parameters" element="ns:isReadOnlyResponse"/>
     </wsdl:message>
     <wsdl:message name="getUserClaimValuesForClaimsRequest">
         <wsdl:part name="parameters" element="ns:getUserClaimValuesForClaims"/>
@@ -611,17 +611,17 @@
     <wsdl:message name="updateUserListOfRoleRequest">
         <wsdl:part name="parameters" element="ns:updateUserListOfRole"/>
     </wsdl:message>
-    <wsdl:message name="getPropertiesRequest">
-        <wsdl:part name="parameters" element="ns:getProperties"/>
-    </wsdl:message>
-    <wsdl:message name="getPropertiesResponse">
-        <wsdl:part name="parameters" element="ns:getPropertiesResponse"/>
-    </wsdl:message>
     <wsdl:message name="getUserListOfRoleRequest">
         <wsdl:part name="parameters" element="ns:getUserListOfRole"/>
     </wsdl:message>
     <wsdl:message name="getUserListOfRoleResponse">
         <wsdl:part name="parameters" element="ns:getUserListOfRoleResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getPropertiesRequest">
+        <wsdl:part name="parameters" element="ns:getProperties"/>
+    </wsdl:message>
+    <wsdl:message name="getPropertiesResponse">
+        <wsdl:part name="parameters" element="ns:getPropertiesResponse"/>
     </wsdl:message>
     <wsdl:message name="getTenantIdRequest">
         <wsdl:part name="parameters" element="ns:getTenantId"/>
@@ -656,17 +656,17 @@
     <wsdl:message name="listUsersResponse">
         <wsdl:part name="parameters" element="ns:listUsersResponse"/>
     </wsdl:message>
-    <wsdl:message name="getUserClaimValueRequest">
-        <wsdl:part name="parameters" element="ns:getUserClaimValue"/>
-    </wsdl:message>
-    <wsdl:message name="getUserClaimValueResponse">
-        <wsdl:part name="parameters" element="ns:getUserClaimValueResponse"/>
-    </wsdl:message>
     <wsdl:message name="getTenantIdofUserRequest">
         <wsdl:part name="parameters" element="ns:getTenantIdofUser"/>
     </wsdl:message>
     <wsdl:message name="getTenantIdofUserResponse">
         <wsdl:part name="parameters" element="ns:getTenantIdofUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getUserClaimValueRequest">
+        <wsdl:part name="parameters" element="ns:getUserClaimValue"/>
+    </wsdl:message>
+    <wsdl:message name="getUserClaimValueResponse">
+        <wsdl:part name="parameters" element="ns:getUserClaimValueResponse"/>
     </wsdl:message>
     <wsdl:message name="deleteUserRequest">
         <wsdl:part name="parameters" element="ns:deleteUser"/>
@@ -677,11 +677,11 @@
     <wsdl:message name="getProfileNamesResponse">
         <wsdl:part name="parameters" element="ns:getProfileNamesResponse"/>
     </wsdl:message>
-    <wsdl:message name="updateRoleNameRequest">
-        <wsdl:part name="parameters" element="ns:updateRoleName"/>
-    </wsdl:message>
     <wsdl:message name="addUserClaimValueRequest">
         <wsdl:part name="parameters" element="ns:addUserClaimValue"/>
+    </wsdl:message>
+    <wsdl:message name="updateRoleNameRequest">
+        <wsdl:part name="parameters" element="ns:updateRoleName"/>
     </wsdl:message>
     <wsdl:message name="addRoleRequest">
         <wsdl:part name="parameters" element="ns:addRole"/>
@@ -751,15 +751,15 @@
             <wsdl:input message="ns:deleteUserClaimValueRequest" wsaw:Action="urn:deleteUserClaimValue"/>
             <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:deleteUserClaimValueRemoteUserStoreManagerServiceUserStoreException"/>
         </wsdl:operation>
-        <wsdl:operation name="isReadOnly">
-            <wsdl:input message="ns:isReadOnlyRequest" wsaw:Action="urn:isReadOnly"/>
-            <wsdl:output message="ns:isReadOnlyResponse" wsaw:Action="urn:isReadOnlyResponse"/>
-            <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:isReadOnlyRemoteUserStoreManagerServiceUserStoreException"/>
-        </wsdl:operation>
         <wsdl:operation name="getHybridRoles">
             <wsdl:input message="ns:getHybridRolesRequest" wsaw:Action="urn:getHybridRoles"/>
             <wsdl:output message="ns:getHybridRolesResponse" wsaw:Action="urn:getHybridRolesResponse"/>
             <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:getHybridRolesRemoteUserStoreManagerServiceUserStoreException"/>
+        </wsdl:operation>
+        <wsdl:operation name="isReadOnly">
+            <wsdl:input message="ns:isReadOnlyRequest" wsaw:Action="urn:isReadOnly"/>
+            <wsdl:output message="ns:isReadOnlyResponse" wsaw:Action="urn:isReadOnlyResponse"/>
+            <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:isReadOnlyRemoteUserStoreManagerServiceUserStoreException"/>
         </wsdl:operation>
         <wsdl:operation name="getUserClaimValuesForClaims">
             <wsdl:input message="ns:getUserClaimValuesForClaimsRequest" wsaw:Action="urn:getUserClaimValuesForClaims"/>
@@ -775,15 +775,15 @@
             <wsdl:input message="ns:updateUserListOfRoleRequest" wsaw:Action="urn:updateUserListOfRole"/>
             <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:updateUserListOfRoleRemoteUserStoreManagerServiceUserStoreException"/>
         </wsdl:operation>
-        <wsdl:operation name="getProperties">
-            <wsdl:input message="ns:getPropertiesRequest" wsaw:Action="urn:getProperties"/>
-            <wsdl:output message="ns:getPropertiesResponse" wsaw:Action="urn:getPropertiesResponse"/>
-            <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:getPropertiesRemoteUserStoreManagerServiceUserStoreException"/>
-        </wsdl:operation>
         <wsdl:operation name="getUserListOfRole">
             <wsdl:input message="ns:getUserListOfRoleRequest" wsaw:Action="urn:getUserListOfRole"/>
             <wsdl:output message="ns:getUserListOfRoleResponse" wsaw:Action="urn:getUserListOfRoleResponse"/>
             <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:getUserListOfRoleRemoteUserStoreManagerServiceUserStoreException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getProperties">
+            <wsdl:input message="ns:getPropertiesRequest" wsaw:Action="urn:getProperties"/>
+            <wsdl:output message="ns:getPropertiesResponse" wsaw:Action="urn:getPropertiesResponse"/>
+            <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:getPropertiesRemoteUserStoreManagerServiceUserStoreException"/>
         </wsdl:operation>
         <wsdl:operation name="getTenantId">
             <wsdl:input message="ns:getTenantIdRequest" wsaw:Action="urn:getTenantId"/>
@@ -817,15 +817,15 @@
             <wsdl:output message="ns:listUsersResponse" wsaw:Action="urn:listUsersResponse"/>
             <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:listUsersRemoteUserStoreManagerServiceUserStoreException"/>
         </wsdl:operation>
-        <wsdl:operation name="getUserClaimValue">
-            <wsdl:input message="ns:getUserClaimValueRequest" wsaw:Action="urn:getUserClaimValue"/>
-            <wsdl:output message="ns:getUserClaimValueResponse" wsaw:Action="urn:getUserClaimValueResponse"/>
-            <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:getUserClaimValueRemoteUserStoreManagerServiceUserStoreException"/>
-        </wsdl:operation>
         <wsdl:operation name="getTenantIdofUser">
             <wsdl:input message="ns:getTenantIdofUserRequest" wsaw:Action="urn:getTenantIdofUser"/>
             <wsdl:output message="ns:getTenantIdofUserResponse" wsaw:Action="urn:getTenantIdofUserResponse"/>
             <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:getTenantIdofUserRemoteUserStoreManagerServiceUserStoreException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getUserClaimValue">
+            <wsdl:input message="ns:getUserClaimValueRequest" wsaw:Action="urn:getUserClaimValue"/>
+            <wsdl:output message="ns:getUserClaimValueResponse" wsaw:Action="urn:getUserClaimValueResponse"/>
+            <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:getUserClaimValueRemoteUserStoreManagerServiceUserStoreException"/>
         </wsdl:operation>
         <wsdl:operation name="deleteUser">
             <wsdl:input message="ns:deleteUserRequest" wsaw:Action="urn:deleteUser"/>
@@ -836,13 +836,13 @@
             <wsdl:output message="ns:getProfileNamesResponse" wsaw:Action="urn:getProfileNamesResponse"/>
             <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:getProfileNamesRemoteUserStoreManagerServiceUserStoreException"/>
         </wsdl:operation>
-        <wsdl:operation name="updateRoleName">
-            <wsdl:input message="ns:updateRoleNameRequest" wsaw:Action="urn:updateRoleName"/>
-            <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:updateRoleNameRemoteUserStoreManagerServiceUserStoreException"/>
-        </wsdl:operation>
         <wsdl:operation name="addUserClaimValue">
             <wsdl:input message="ns:addUserClaimValueRequest" wsaw:Action="urn:addUserClaimValue"/>
             <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:addUserClaimValueRemoteUserStoreManagerServiceUserStoreException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateRoleName">
+            <wsdl:input message="ns:updateRoleNameRequest" wsaw:Action="urn:updateRoleName"/>
+            <wsdl:fault message="ns:RemoteUserStoreManagerServiceUserStoreException" name="RemoteUserStoreManagerServiceUserStoreException" wsaw:Action="urn:updateRoleNameRemoteUserStoreManagerServiceUserStoreException"/>
         </wsdl:operation>
         <wsdl:operation name="addRole">
             <wsdl:input message="ns:addRoleRequest" wsaw:Action="urn:addRole"/>
@@ -991,8 +991,8 @@
                 <soap:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getHybridRoles">
-            <soap:operation soapAction="urn:getHybridRoles" style="document"/>
+        <wsdl:operation name="isReadOnly">
+            <soap:operation soapAction="urn:isReadOnly" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1003,8 +1003,8 @@
                 <soap:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="isReadOnly">
-            <soap:operation soapAction="urn:isReadOnly" style="document"/>
+        <wsdl:operation name="getHybridRoles">
+            <soap:operation soapAction="urn:getHybridRoles" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1048,8 +1048,8 @@
                 <soap:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getProperties">
-            <soap:operation soapAction="urn:getProperties" style="document"/>
+        <wsdl:operation name="getUserListOfRole">
+            <soap:operation soapAction="urn:getUserListOfRole" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1060,8 +1060,8 @@
                 <soap:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getUserListOfRole">
-            <soap:operation soapAction="urn:getUserListOfRole" style="document"/>
+        <wsdl:operation name="getProperties">
+            <soap:operation soapAction="urn:getProperties" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1147,8 +1147,8 @@
                 <soap:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getUserClaimValue">
-            <soap:operation soapAction="urn:getUserClaimValue" style="document"/>
+        <wsdl:operation name="getTenantIdofUser">
+            <soap:operation soapAction="urn:getTenantIdofUser" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1159,8 +1159,8 @@
                 <soap:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getTenantIdofUser">
-            <soap:operation soapAction="urn:getTenantIdofUser" style="document"/>
+        <wsdl:operation name="getUserClaimValue">
+            <soap:operation soapAction="urn:getUserClaimValue" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1192,8 +1192,8 @@
                 <soap:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="updateRoleName">
-            <soap:operation soapAction="urn:updateRoleName" style="document"/>
+        <wsdl:operation name="addUserClaimValue">
+            <soap:operation soapAction="urn:addUserClaimValue" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1201,8 +1201,8 @@
                 <soap:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="addUserClaimValue">
-            <soap:operation soapAction="urn:addUserClaimValue" style="document"/>
+        <wsdl:operation name="updateRoleName">
+            <soap:operation soapAction="urn:updateRoleName" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1369,8 +1369,8 @@
                 <soap12:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getHybridRoles">
-            <soap12:operation soapAction="urn:getHybridRoles" style="document"/>
+        <wsdl:operation name="isReadOnly">
+            <soap12:operation soapAction="urn:isReadOnly" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1381,8 +1381,8 @@
                 <soap12:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="isReadOnly">
-            <soap12:operation soapAction="urn:isReadOnly" style="document"/>
+        <wsdl:operation name="getHybridRoles">
+            <soap12:operation soapAction="urn:getHybridRoles" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1426,8 +1426,8 @@
                 <soap12:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getProperties">
-            <soap12:operation soapAction="urn:getProperties" style="document"/>
+        <wsdl:operation name="getUserListOfRole">
+            <soap12:operation soapAction="urn:getUserListOfRole" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1438,8 +1438,8 @@
                 <soap12:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getUserListOfRole">
-            <soap12:operation soapAction="urn:getUserListOfRole" style="document"/>
+        <wsdl:operation name="getProperties">
+            <soap12:operation soapAction="urn:getProperties" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1525,8 +1525,8 @@
                 <soap12:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getUserClaimValue">
-            <soap12:operation soapAction="urn:getUserClaimValue" style="document"/>
+        <wsdl:operation name="getTenantIdofUser">
+            <soap12:operation soapAction="urn:getTenantIdofUser" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1537,8 +1537,8 @@
                 <soap12:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getTenantIdofUser">
-            <soap12:operation soapAction="urn:getTenantIdofUser" style="document"/>
+        <wsdl:operation name="getUserClaimValue">
+            <soap12:operation soapAction="urn:getUserClaimValue" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1570,8 +1570,8 @@
                 <soap12:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="updateRoleName">
-            <soap12:operation soapAction="urn:updateRoleName" style="document"/>
+        <wsdl:operation name="addUserClaimValue">
+            <soap12:operation soapAction="urn:addUserClaimValue" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1579,8 +1579,8 @@
                 <soap12:fault use="literal" name="RemoteUserStoreManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="addUserClaimValue">
-            <soap12:operation soapAction="urn:addUserClaimValue" style="document"/>
+        <wsdl:operation name="updateRoleName">
+            <soap12:operation soapAction="urn:updateRoleName" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1708,8 +1708,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
         </wsdl:operation>
-        <wsdl:operation name="getHybridRoles">
-            <http:operation location="getHybridRoles"/>
+        <wsdl:operation name="isReadOnly">
+            <http:operation location="isReadOnly"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -1717,8 +1717,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="isReadOnly">
-            <http:operation location="isReadOnly"/>
+        <wsdl:operation name="getHybridRoles">
+            <http:operation location="getHybridRoles"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -1750,8 +1750,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
         </wsdl:operation>
-        <wsdl:operation name="getProperties">
-            <http:operation location="getProperties"/>
+        <wsdl:operation name="getUserListOfRole">
+            <http:operation location="getUserListOfRole"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -1759,8 +1759,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getUserListOfRole">
-            <http:operation location="getUserListOfRole"/>
+        <wsdl:operation name="getProperties">
+            <http:operation location="getProperties"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -1822,8 +1822,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getUserClaimValue">
-            <http:operation location="getUserClaimValue"/>
+        <wsdl:operation name="getTenantIdofUser">
+            <http:operation location="getTenantIdofUser"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -1831,8 +1831,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getTenantIdofUser">
-            <http:operation location="getTenantIdofUser"/>
+        <wsdl:operation name="getUserClaimValue">
+            <http:operation location="getUserClaimValue"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -1855,14 +1855,14 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="updateRoleName">
-            <http:operation location="updateRoleName"/>
+        <wsdl:operation name="addUserClaimValue">
+            <http:operation location="addUserClaimValue"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
         </wsdl:operation>
-        <wsdl:operation name="addUserClaimValue">
-            <http:operation location="addUserClaimValue"/>
+        <wsdl:operation name="updateRoleName">
+            <http:operation location="updateRoleName"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>

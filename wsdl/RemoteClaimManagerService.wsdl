@@ -39,6 +39,21 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="getAttributeNameFromDomain">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="domainName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="claimURI" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAttributeNameFromDomainResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="getAttributeName">
                 <xs:complexType>
                     <xs:sequence>
@@ -152,21 +167,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getAttributeNameFromDomain">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="domainName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="claimURI" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getAttributeNameFromDomainResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
         </xs:schema>
         <xs:schema xmlns:ax2676="http://api.user.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://core.user.carbon.wso2.org/xsd">
             <xs:import namespace="http://api.user.carbon.wso2.org/xsd"/>
@@ -224,14 +224,14 @@
     <wsdl:message name="getAttributeNameResponse">
         <wsdl:part name="parameters" element="ns:getAttributeNameResponse"/>
     </wsdl:message>
-    <wsdl:message name="deleteClaimMappingRequest">
-        <wsdl:part name="parameters" element="ns:deleteClaimMapping"/>
-    </wsdl:message>
     <wsdl:message name="getAttributeNameFromDomainRequest">
         <wsdl:part name="parameters" element="ns:getAttributeNameFromDomain"/>
     </wsdl:message>
     <wsdl:message name="getAttributeNameFromDomainResponse">
         <wsdl:part name="parameters" element="ns:getAttributeNameFromDomainResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deleteClaimMappingRequest">
+        <wsdl:part name="parameters" element="ns:deleteClaimMapping"/>
     </wsdl:message>
     <wsdl:message name="getAllSupportClaimMappingsByDefaultRequest">
         <wsdl:part name="parameters" element="ns:getAllSupportClaimMappingsByDefault"/>
@@ -278,14 +278,14 @@
             <wsdl:output message="ns:getAttributeNameResponse" wsaw:Action="urn:getAttributeNameResponse"/>
             <wsdl:fault message="ns:RemoteClaimManagerServiceUserStoreException" name="RemoteClaimManagerServiceUserStoreException" wsaw:Action="urn:getAttributeNameRemoteClaimManagerServiceUserStoreException"/>
         </wsdl:operation>
-        <wsdl:operation name="deleteClaimMapping">
-            <wsdl:input message="ns:deleteClaimMappingRequest" wsaw:Action="urn:deleteClaimMapping"/>
-            <wsdl:fault message="ns:RemoteClaimManagerServiceUserStoreException" name="RemoteClaimManagerServiceUserStoreException" wsaw:Action="urn:deleteClaimMappingRemoteClaimManagerServiceUserStoreException"/>
-        </wsdl:operation>
         <wsdl:operation name="getAttributeNameFromDomain">
             <wsdl:input message="ns:getAttributeNameFromDomainRequest" wsaw:Action="urn:getAttributeNameFromDomain"/>
             <wsdl:output message="ns:getAttributeNameFromDomainResponse" wsaw:Action="urn:getAttributeNameFromDomainResponse"/>
             <wsdl:fault message="ns:RemoteClaimManagerServiceUserStoreException" name="RemoteClaimManagerServiceUserStoreException" wsaw:Action="urn:getAttributeNameFromDomainRemoteClaimManagerServiceUserStoreException"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteClaimMapping">
+            <wsdl:input message="ns:deleteClaimMappingRequest" wsaw:Action="urn:deleteClaimMapping"/>
+            <wsdl:fault message="ns:RemoteClaimManagerServiceUserStoreException" name="RemoteClaimManagerServiceUserStoreException" wsaw:Action="urn:deleteClaimMappingRemoteClaimManagerServiceUserStoreException"/>
         </wsdl:operation>
         <wsdl:operation name="getAllSupportClaimMappingsByDefault">
             <wsdl:input message="ns:getAllSupportClaimMappingsByDefaultRequest" wsaw:Action="urn:getAllSupportClaimMappingsByDefault"/>
@@ -385,15 +385,6 @@
                 <soap:fault use="literal" name="RemoteClaimManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="deleteClaimMapping">
-            <soap:operation soapAction="urn:deleteClaimMapping" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:fault name="RemoteClaimManagerServiceUserStoreException">
-                <soap:fault use="literal" name="RemoteClaimManagerServiceUserStoreException"/>
-            </wsdl:fault>
-        </wsdl:operation>
         <wsdl:operation name="getAttributeNameFromDomain">
             <soap:operation soapAction="urn:getAttributeNameFromDomain" style="document"/>
             <wsdl:input>
@@ -402,6 +393,15 @@
             <wsdl:output>
                 <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="RemoteClaimManagerServiceUserStoreException">
+                <soap:fault use="literal" name="RemoteClaimManagerServiceUserStoreException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteClaimMapping">
+            <soap:operation soapAction="urn:deleteClaimMapping" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
             <wsdl:fault name="RemoteClaimManagerServiceUserStoreException">
                 <soap:fault use="literal" name="RemoteClaimManagerServiceUserStoreException"/>
             </wsdl:fault>
@@ -511,15 +511,6 @@
                 <soap12:fault use="literal" name="RemoteClaimManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="deleteClaimMapping">
-            <soap12:operation soapAction="urn:deleteClaimMapping" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:fault name="RemoteClaimManagerServiceUserStoreException">
-                <soap12:fault use="literal" name="RemoteClaimManagerServiceUserStoreException"/>
-            </wsdl:fault>
-        </wsdl:operation>
         <wsdl:operation name="getAttributeNameFromDomain">
             <soap12:operation soapAction="urn:getAttributeNameFromDomain" style="document"/>
             <wsdl:input>
@@ -528,6 +519,15 @@
             <wsdl:output>
                 <soap12:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="RemoteClaimManagerServiceUserStoreException">
+                <soap12:fault use="literal" name="RemoteClaimManagerServiceUserStoreException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteClaimMapping">
+            <soap12:operation soapAction="urn:deleteClaimMapping" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
             <wsdl:fault name="RemoteClaimManagerServiceUserStoreException">
                 <soap12:fault use="literal" name="RemoteClaimManagerServiceUserStoreException"/>
             </wsdl:fault>
@@ -613,12 +613,6 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="deleteClaimMapping">
-            <http:operation location="deleteClaimMapping"/>
-            <wsdl:input>
-                <mime:content type="text/xml" part="parameters"/>
-            </wsdl:input>
-        </wsdl:operation>
         <wsdl:operation name="getAttributeNameFromDomain">
             <http:operation location="getAttributeNameFromDomain"/>
             <wsdl:input>
@@ -627,6 +621,12 @@
             <wsdl:output>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteClaimMapping">
+            <http:operation location="deleteClaimMapping"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
         </wsdl:operation>
         <wsdl:operation name="getAllSupportClaimMappingsByDefault">
             <http:operation location="getAllSupportClaimMappingsByDefault"/>

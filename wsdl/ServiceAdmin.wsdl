@@ -1,4 +1,4 @@
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2575="http://utils.carbon.wso2.org/xsd" xmlns:ax2569="http://neethi.apache.org/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ax2570="http://util.java/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax2573="http://mgt.service.carbon.wso2.org/xsd" xmlns:tns="http://mgt.service.carbon.wso2.org" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://mgt.service.carbon.wso2.org">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2569="http://mgt.service.carbon.wso2.org/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ax2571="http://utils.carbon.wso2.org/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax2573="http://neethi.apache.org/xsd" xmlns:ax2574="http://util.java/xsd" xmlns:tns="http://mgt.service.carbon.wso2.org" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://mgt.service.carbon.wso2.org">
     <wsdl:documentation>ServiceAdmin</wsdl:documentation>
     <wsdl:types>
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://util.java/xsd">
@@ -11,10 +11,18 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2576="http://utils.carbon.wso2.org/xsd" xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2572="http://neethi.apache.org/xsd" xmlns:ax2574="http://mgt.service.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://org.apache.axis2/xsd">
-            <xs:import namespace="http://neethi.apache.org/xsd"/>
+        <xs:schema xmlns:ax2576="http://neethi.apache.org/xsd" xmlns:ax2570="http://mgt.service.carbon.wso2.org/xsd" xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2572="http://utils.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://org.apache.axis2/xsd">
             <xs:import namespace="http://mgt.service.carbon.wso2.org/xsd"/>
             <xs:import namespace="http://utils.carbon.wso2.org/xsd"/>
+            <xs:import namespace="http://neethi.apache.org/xsd"/>
+            <xs:element name="configureMTOM">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="flag" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="ServiceAdminException">
                 <xs:complexType>
                     <xs:sequence>
@@ -27,85 +35,20 @@
                     <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
-            <xs:element name="startService">
+            <xs:element name="removeServicePoliciesByNamespace">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="namesapce" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="getPolicy">
+            <xs:element name="engageModuleToService">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getPolicyResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="stopService">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getWSDL">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getWSDLResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:anyType"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getExposedTransports">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="serviceId" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getExposedTransportsResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="setPolicy">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="policyString" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="addPoliciesToService">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="policy" nillable="true" type="ax2569:Policy"/>
-                        <xs:element minOccurs="0" name="policyType" type="xs:int"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="modulePaths" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="configureMTOM">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="flag" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="version" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -119,7 +62,7 @@
             <xs:element name="listServiceGroupResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2573:ServiceGroupMetaData"/>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2569:ServiceGroupMetaData"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -135,7 +78,7 @@
             <xs:element name="listServicesResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2573:ServiceMetaDataWrapper"/>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2569:ServiceMetaDataWrapper"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -148,23 +91,6 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="return" type="xs:int"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="removeServicePoliciesByNamespace">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="namesapce" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="engageModuleToService">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="version" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -214,7 +140,7 @@
             <xs:element name="getFaultyServiceArchivesResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2573:FaultyServicesWrapper"/>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2569:FaultyServicesWrapper"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -280,7 +206,7 @@
             <xs:element name="getServiceDataResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2573:ServiceMetaData"/>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2569:ServiceMetaData"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -325,7 +251,7 @@
             <xs:element name="ServiceAdminServerException">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="ServerException" nillable="true" type="ax2575:ServerException"/>
+                        <xs:element minOccurs="0" name="ServerException" nillable="true" type="ax2571:ServerException"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -433,7 +359,7 @@
             <xs:element name="getPoliciesResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2573:PolicyMetaData"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2569:PolicyMetaData"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -566,7 +492,81 @@
             <xs:element name="downloadServiceArchiveResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2573:ServiceDownloadData"/>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2569:ServiceDownloadData"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getWSDL">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getWSDLResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:anyType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getExposedTransports">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="serviceId" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getExposedTransportsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setPolicy">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="policyString" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="stopService">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addPoliciesToService">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="policy" nillable="true" type="ax2576:Policy"/>
+                        <xs:element minOccurs="0" name="policyType" type="xs:int"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="modulePaths" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPolicy">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPolicyResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="startService">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -576,12 +576,12 @@
                 <xs:sequence/>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax2571="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://neethi.apache.org/xsd">
+        <xs:schema xmlns:ax2575="http://util.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://neethi.apache.org/xsd">
             <xs:import namespace="http://util.java/xsd"/>
             <xs:complexType abstract="true" name="AbstractPolicyOperator">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="empty" type="xs:boolean"/>
-                    <xs:element minOccurs="0" name="firstPolicyComponent" nillable="true" type="ax2569:PolicyComponent"/>
+                    <xs:element minOccurs="0" name="firstPolicyComponent" nillable="true" type="ax2573:PolicyComponent"/>
                     <xs:element minOccurs="0" name="policyComponents" nillable="true" type="xs:anyType"/>
                 </xs:sequence>
             </xs:complexType>
@@ -592,7 +592,7 @@
             </xs:complexType>
             <xs:complexType name="All">
                 <xs:complexContent>
-                    <xs:extension base="ax2569:AbstractPolicyOperator">
+                    <xs:extension base="ax2573:AbstractPolicyOperator">
                         <xs:sequence>
                             <xs:element minOccurs="0" name="assertions" nillable="true" type="xs:anyType"/>
                             <xs:element minOccurs="0" name="type" type="xs:short"/>
@@ -602,10 +602,10 @@
             </xs:complexType>
             <xs:complexType name="Policy">
                 <xs:complexContent>
-                    <xs:extension base="ax2569:All">
+                    <xs:extension base="ax2573:All">
                         <xs:sequence>
-                            <xs:element minOccurs="0" name="alternatives" nillable="true" type="ax2570:Iterator"/>
-                            <xs:element minOccurs="0" name="attributes" nillable="true" type="ax2570:Map"/>
+                            <xs:element minOccurs="0" name="alternatives" nillable="true" type="ax2575:Iterator"/>
+                            <xs:element minOccurs="0" name="attributes" nillable="true" type="ax2575:Map"/>
                             <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
                             <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
                             <xs:element minOccurs="0" name="type" type="xs:short"/>
@@ -622,7 +622,7 @@
                     <xs:element minOccurs="0" name="mtomStatus" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="serviceContextPath" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="serviceGroupName" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="services" nillable="true" type="ax2573:ServiceMetaData"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="services" nillable="true" type="ax2569:ServiceMetaData"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="ServiceMetaData">
@@ -658,12 +658,12 @@
                     <xs:element minOccurs="0" name="numberOfFaultyServiceGroups" type="xs:int"/>
                     <xs:element minOccurs="0" name="numberOfPages" type="xs:int"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceTypes" nillable="true" type="xs:string"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="services" nillable="true" type="ax2573:ServiceMetaData"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="services" nillable="true" type="ax2569:ServiceMetaData"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="FaultyServicesWrapper">
                 <xs:sequence>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="faultyServices" nillable="true" type="ax2573:FaultyService"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="faultyServices" nillable="true" type="ax2569:FaultyService"/>
                     <xs:element minOccurs="0" name="numberOfFaultyServiceGroups" type="xs:int"/>
                     <xs:element minOccurs="0" name="numberOfPages" type="xs:int"/>
                 </xs:sequence>
@@ -708,11 +708,11 @@
     <wsdl:message name="getExposedTransportsResponse">
         <wsdl:part name="parameters" element="ns1:getExposedTransportsResponse"/>
     </wsdl:message>
-    <wsdl:message name="setPolicyRequest">
-        <wsdl:part name="parameters" element="ns1:setPolicy"/>
-    </wsdl:message>
     <wsdl:message name="removeServicePoliciesByNamespaceRequest">
         <wsdl:part name="parameters" element="ns1:removeServicePoliciesByNamespace"/>
+    </wsdl:message>
+    <wsdl:message name="setPolicyRequest">
+        <wsdl:part name="parameters" element="ns1:setPolicy"/>
     </wsdl:message>
     <wsdl:message name="listServicesRequest">
         <wsdl:part name="parameters" element="ns1:listServices"/>
@@ -816,17 +816,17 @@
     <wsdl:message name="getModulePolicyResponse">
         <wsdl:part name="parameters" element="ns1:getModulePolicyResponse"/>
     </wsdl:message>
-    <wsdl:message name="getPolicyRequest">
-        <wsdl:part name="parameters" element="ns1:getPolicy"/>
-    </wsdl:message>
-    <wsdl:message name="getPolicyResponse">
-        <wsdl:part name="parameters" element="ns1:getPolicyResponse"/>
-    </wsdl:message>
     <wsdl:message name="getBindingOperationPolicyRequest">
         <wsdl:part name="parameters" element="ns1:getBindingOperationPolicy"/>
     </wsdl:message>
     <wsdl:message name="getBindingOperationPolicyResponse">
         <wsdl:part name="parameters" element="ns1:getBindingOperationPolicyResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getPolicyRequest">
+        <wsdl:part name="parameters" element="ns1:getPolicy"/>
+    </wsdl:message>
+    <wsdl:message name="getPolicyResponse">
+        <wsdl:part name="parameters" element="ns1:getPolicyResponse"/>
     </wsdl:message>
     <wsdl:message name="downloadServiceArchiveRequest">
         <wsdl:part name="parameters" element="ns1:downloadServiceArchive"/>
@@ -876,20 +876,17 @@
     <wsdl:message name="getNumberOfActiveServicesResponse">
         <wsdl:part name="parameters" element="ns1:getNumberOfActiveServicesResponse"/>
     </wsdl:message>
-    <wsdl:message name="getNumberOfFaultyServicesRequest">
-        <wsdl:part name="parameters" element="ns1:getNumberOfFaultyServices"/>
-    </wsdl:message>
-    <wsdl:message name="getNumberOfFaultyServicesResponse">
-        <wsdl:part name="parameters" element="ns1:getNumberOfFaultyServicesResponse"/>
-    </wsdl:message>
     <wsdl:message name="getWSDLRequest">
         <wsdl:part name="parameters" element="ns1:getWSDL"/>
     </wsdl:message>
     <wsdl:message name="getWSDLResponse">
         <wsdl:part name="parameters" element="ns1:getWSDLResponse"/>
     </wsdl:message>
-    <wsdl:message name="stopServiceRequest">
-        <wsdl:part name="parameters" element="ns1:stopService"/>
+    <wsdl:message name="getNumberOfFaultyServicesRequest">
+        <wsdl:part name="parameters" element="ns1:getNumberOfFaultyServices"/>
+    </wsdl:message>
+    <wsdl:message name="getNumberOfFaultyServicesResponse">
+        <wsdl:part name="parameters" element="ns1:getNumberOfFaultyServicesResponse"/>
     </wsdl:message>
     <wsdl:message name="getNumberOfServiceGroupsRequest">
         <wsdl:part name="parameters" element="ns1:getNumberOfServiceGroups"/>
@@ -899,6 +896,9 @@
     </wsdl:message>
     <wsdl:message name="setBindingOperationPolicyRequest">
         <wsdl:part name="parameters" element="ns1:setBindingOperationPolicy"/>
+    </wsdl:message>
+    <wsdl:message name="stopServiceRequest">
+        <wsdl:part name="parameters" element="ns1:stopService"/>
     </wsdl:message>
     <wsdl:message name="getOperationPolicyRequest">
         <wsdl:part name="parameters" element="ns1:getOperationPolicy"/>
@@ -925,13 +925,13 @@
             <wsdl:input message="tns:getExposedTransportsRequest" wsaw:Action="urn:getExposedTransports"/>
             <wsdl:output message="tns:getExposedTransportsResponse" wsaw:Action="urn:getExposedTransportsResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="setPolicy">
-            <wsdl:input message="tns:setPolicyRequest" wsaw:Action="urn:setPolicy"/>
-            <wsdl:fault message="tns:ServiceAdminException" name="ServiceAdminException" wsaw:Action="urn:setPolicyServiceAdminException"/>
-        </wsdl:operation>
         <wsdl:operation name="removeServicePoliciesByNamespace">
             <wsdl:input message="tns:removeServicePoliciesByNamespaceRequest" wsaw:Action="urn:removeServicePoliciesByNamespace"/>
             <wsdl:fault message="tns:ServiceAdminException" name="ServiceAdminException" wsaw:Action="urn:removeServicePoliciesByNamespaceServiceAdminException"/>
+        </wsdl:operation>
+        <wsdl:operation name="setPolicy">
+            <wsdl:input message="tns:setPolicyRequest" wsaw:Action="urn:setPolicy"/>
+            <wsdl:fault message="tns:ServiceAdminException" name="ServiceAdminException" wsaw:Action="urn:setPolicyServiceAdminException"/>
         </wsdl:operation>
         <wsdl:operation name="listServices">
             <wsdl:input message="tns:listServicesRequest" wsaw:Action="urn:listServices"/>
@@ -1022,13 +1022,13 @@
             <wsdl:input message="tns:getModulePolicyRequest" wsaw:Action="urn:getModulePolicy"/>
             <wsdl:output message="tns:getModulePolicyResponse" wsaw:Action="urn:getModulePolicyResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="getPolicy">
-            <wsdl:input message="tns:getPolicyRequest" wsaw:Action="urn:getPolicy"/>
-            <wsdl:output message="tns:getPolicyResponse" wsaw:Action="urn:getPolicyResponse"/>
-        </wsdl:operation>
         <wsdl:operation name="getBindingOperationPolicy">
             <wsdl:input message="tns:getBindingOperationPolicyRequest" wsaw:Action="urn:getBindingOperationPolicy"/>
             <wsdl:output message="tns:getBindingOperationPolicyResponse" wsaw:Action="urn:getBindingOperationPolicyResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPolicy">
+            <wsdl:input message="tns:getPolicyRequest" wsaw:Action="urn:getPolicy"/>
+            <wsdl:output message="tns:getPolicyResponse" wsaw:Action="urn:getPolicyResponse"/>
         </wsdl:operation>
         <wsdl:operation name="downloadServiceArchive">
             <wsdl:input message="tns:downloadServiceArchiveRequest" wsaw:Action="urn:downloadServiceArchive"/>
@@ -1071,17 +1071,13 @@
             <wsdl:input message="tns:getNumberOfActiveServicesRequest" wsaw:Action="urn:getNumberOfActiveServices"/>
             <wsdl:output message="tns:getNumberOfActiveServicesResponse" wsaw:Action="urn:getNumberOfActiveServicesResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="getNumberOfFaultyServices">
-            <wsdl:input message="tns:getNumberOfFaultyServicesRequest" wsaw:Action="urn:getNumberOfFaultyServices"/>
-            <wsdl:output message="tns:getNumberOfFaultyServicesResponse" wsaw:Action="urn:getNumberOfFaultyServicesResponse"/>
-        </wsdl:operation>
         <wsdl:operation name="getWSDL">
             <wsdl:input message="tns:getWSDLRequest" wsaw:Action="urn:getWSDL"/>
             <wsdl:output message="tns:getWSDLResponse" wsaw:Action="urn:getWSDLResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="stopService">
-            <wsdl:input message="tns:stopServiceRequest" wsaw:Action="urn:stopService"/>
-            <wsdl:fault message="tns:ServiceAdminException" name="ServiceAdminException" wsaw:Action="urn:stopServiceServiceAdminException"/>
+        <wsdl:operation name="getNumberOfFaultyServices">
+            <wsdl:input message="tns:getNumberOfFaultyServicesRequest" wsaw:Action="urn:getNumberOfFaultyServices"/>
+            <wsdl:output message="tns:getNumberOfFaultyServicesResponse" wsaw:Action="urn:getNumberOfFaultyServicesResponse"/>
         </wsdl:operation>
         <wsdl:operation name="getNumberOfServiceGroups">
             <wsdl:input message="tns:getNumberOfServiceGroupsRequest" wsaw:Action="urn:getNumberOfServiceGroups"/>
@@ -1090,6 +1086,10 @@
         <wsdl:operation name="setBindingOperationPolicy">
             <wsdl:input message="tns:setBindingOperationPolicyRequest" wsaw:Action="urn:setBindingOperationPolicy"/>
             <wsdl:fault message="tns:ServiceAdminException" name="ServiceAdminException" wsaw:Action="urn:setBindingOperationPolicyServiceAdminException"/>
+        </wsdl:operation>
+        <wsdl:operation name="stopService">
+            <wsdl:input message="tns:stopServiceRequest" wsaw:Action="urn:stopService"/>
+            <wsdl:fault message="tns:ServiceAdminException" name="ServiceAdminException" wsaw:Action="urn:stopServiceServiceAdminException"/>
         </wsdl:operation>
         <wsdl:operation name="getOperationPolicy">
             <wsdl:input message="tns:getOperationPolicyRequest" wsaw:Action="urn:getOperationPolicy"/>
@@ -1129,8 +1129,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="setPolicy">
-            <soap:operation soapAction="urn:setPolicy" style="document"/>
+        <wsdl:operation name="removeServicePoliciesByNamespace">
+            <soap:operation soapAction="urn:removeServicePoliciesByNamespace" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1138,8 +1138,8 @@
                 <soap:fault use="literal" name="ServiceAdminException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="removeServicePoliciesByNamespace">
-            <soap:operation soapAction="urn:removeServicePoliciesByNamespace" style="document"/>
+        <wsdl:operation name="setPolicy">
+            <soap:operation soapAction="urn:setPolicy" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1348,8 +1348,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getPolicy">
-            <soap:operation soapAction="urn:getPolicy" style="document"/>
+        <wsdl:operation name="getBindingOperationPolicy">
+            <soap:operation soapAction="urn:getBindingOperationPolicy" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1357,8 +1357,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getBindingOperationPolicy">
-            <soap:operation soapAction="urn:getBindingOperationPolicy" style="document"/>
+        <wsdl:operation name="getPolicy">
+            <soap:operation soapAction="urn:getPolicy" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1456,15 +1456,6 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getNumberOfFaultyServices">
-            <soap:operation soapAction="urn:getNumberOfFaultyServices" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="getWSDL">
             <soap:operation soapAction="urn:getWSDL" style="document"/>
             <wsdl:input>
@@ -1474,14 +1465,14 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="stopService">
-            <soap:operation soapAction="urn:stopService" style="document"/>
+        <wsdl:operation name="getNumberOfFaultyServices">
+            <soap:operation soapAction="urn:getNumberOfFaultyServices" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
-            <wsdl:fault name="ServiceAdminException">
-                <soap:fault use="literal" name="ServiceAdminException"/>
-            </wsdl:fault>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="getNumberOfServiceGroups">
             <soap:operation soapAction="urn:getNumberOfServiceGroups" style="document"/>
@@ -1494,6 +1485,15 @@
         </wsdl:operation>
         <wsdl:operation name="setBindingOperationPolicy">
             <soap:operation soapAction="urn:setBindingOperationPolicy" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:fault name="ServiceAdminException">
+                <soap:fault use="literal" name="ServiceAdminException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="stopService">
+            <soap:operation soapAction="urn:stopService" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1549,8 +1549,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="setPolicy">
-            <soap12:operation soapAction="urn:setPolicy" style="document"/>
+        <wsdl:operation name="removeServicePoliciesByNamespace">
+            <soap12:operation soapAction="urn:removeServicePoliciesByNamespace" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1558,8 +1558,8 @@
                 <soap12:fault use="literal" name="ServiceAdminException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="removeServicePoliciesByNamespace">
-            <soap12:operation soapAction="urn:removeServicePoliciesByNamespace" style="document"/>
+        <wsdl:operation name="setPolicy">
+            <soap12:operation soapAction="urn:setPolicy" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1768,8 +1768,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getPolicy">
-            <soap12:operation soapAction="urn:getPolicy" style="document"/>
+        <wsdl:operation name="getBindingOperationPolicy">
+            <soap12:operation soapAction="urn:getBindingOperationPolicy" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1777,8 +1777,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getBindingOperationPolicy">
-            <soap12:operation soapAction="urn:getBindingOperationPolicy" style="document"/>
+        <wsdl:operation name="getPolicy">
+            <soap12:operation soapAction="urn:getPolicy" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1876,15 +1876,6 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getNumberOfFaultyServices">
-            <soap12:operation soapAction="urn:getNumberOfFaultyServices" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="getWSDL">
             <soap12:operation soapAction="urn:getWSDL" style="document"/>
             <wsdl:input>
@@ -1894,14 +1885,14 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="stopService">
-            <soap12:operation soapAction="urn:stopService" style="document"/>
+        <wsdl:operation name="getNumberOfFaultyServices">
+            <soap12:operation soapAction="urn:getNumberOfFaultyServices" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
-            <wsdl:fault name="ServiceAdminException">
-                <soap12:fault use="literal" name="ServiceAdminException"/>
-            </wsdl:fault>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="getNumberOfServiceGroups">
             <soap12:operation soapAction="urn:getNumberOfServiceGroups" style="document"/>
@@ -1914,6 +1905,15 @@
         </wsdl:operation>
         <wsdl:operation name="setBindingOperationPolicy">
             <soap12:operation soapAction="urn:setBindingOperationPolicy" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:fault name="ServiceAdminException">
+                <soap12:fault use="literal" name="ServiceAdminException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="stopService">
+            <soap12:operation soapAction="urn:stopService" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -1966,14 +1966,14 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="setPolicy">
-            <http:operation location="setPolicy"/>
+        <wsdl:operation name="removeServicePoliciesByNamespace">
+            <http:operation location="removeServicePoliciesByNamespace"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
         </wsdl:operation>
-        <wsdl:operation name="removeServicePoliciesByNamespace">
-            <http:operation location="removeServicePoliciesByNamespace"/>
+        <wsdl:operation name="setPolicy">
+            <http:operation location="setPolicy"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -2143,8 +2143,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getPolicy">
-            <http:operation location="getPolicy"/>
+        <wsdl:operation name="getBindingOperationPolicy">
+            <http:operation location="getBindingOperationPolicy"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -2152,8 +2152,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getBindingOperationPolicy">
-            <http:operation location="getBindingOperationPolicy"/>
+        <wsdl:operation name="getPolicy">
+            <http:operation location="getPolicy"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -2242,15 +2242,6 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getNumberOfFaultyServices">
-            <http:operation location="getNumberOfFaultyServices"/>
-            <wsdl:input>
-                <mime:content type="text/xml" part="parameters"/>
-            </wsdl:input>
-            <wsdl:output>
-                <mime:content type="text/xml" part="parameters"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="getWSDL">
             <http:operation location="getWSDL"/>
             <wsdl:input>
@@ -2260,11 +2251,14 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="stopService">
-            <http:operation location="stopService"/>
+        <wsdl:operation name="getNumberOfFaultyServices">
+            <http:operation location="getNumberOfFaultyServices"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="getNumberOfServiceGroups">
             <http:operation location="getNumberOfServiceGroups"/>
@@ -2277,6 +2271,12 @@
         </wsdl:operation>
         <wsdl:operation name="setBindingOperationPolicy">
             <http:operation location="setBindingOperationPolicy"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="stopService">
+            <http:operation location="stopService"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>

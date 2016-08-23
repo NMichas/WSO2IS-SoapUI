@@ -11,65 +11,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="clearDecisionCache">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="clearPolicyCache">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="clearCarbonAttributeCache">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="clearAllAttributeCaches">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="clearAttributeFinderCache">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="attributeFinder" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="clearAttributeFinderCacheByAttributes">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="attributeFinder" nillable="true" type="xs:string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="attributeIds" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="clearAllResourceCaches">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="clearCarbonResourceCache">
-                <xs:complexType>
-                    <xs:sequence/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="clearResourceFinderCache">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="resourceFinder" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="refreshAttributeFinder">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="attributeFinder" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
             <xs:element name="refreshResourceFinder">
                 <xs:complexType>
                     <xs:sequence>
@@ -184,6 +125,65 @@
                     <xs:sequence>
                         <xs:element minOccurs="0" name="policyCombiningAlgorithm" nillable="true" type="xs:string"/>
                     </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearAttributeFinderCacheByAttributes">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="attributeFinder" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="attributeIds" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearCarbonAttributeCache">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearAttributeFinderCache">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="attributeFinder" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearAllResourceCaches">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearCarbonResourceCache">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearResourceFinderCache">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="resourceFinder" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="refreshAttributeFinder">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="attributeFinder" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearPolicyCache">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearDecisionCache">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearAllAttributeCaches">
+                <xs:complexType>
+                    <xs:sequence/>
                 </xs:complexType>
             </xs:element>
         </xs:schema>

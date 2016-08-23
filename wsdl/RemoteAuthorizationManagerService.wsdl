@@ -15,6 +15,76 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="clearAllRoleAuthorization">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearAllUserAuthorization">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearUserAuthorization">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="resourceId" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearRoleAuthorization">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="resourceId" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearRoleActionOnAllResources">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clearResourceAuthorizations">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="resourceId" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAllowedUIResourcesForUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="permissionRootPath" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAllowedUIResourcesForUserResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="resetPermissionOnUpdateRole">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="newRoleName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="isUserAuthorized">
                 <xs:complexType>
                     <xs:sequence>
@@ -31,15 +101,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="denyRole">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="resourceId" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
             <xs:element name="isRoleAuthorized">
                 <xs:complexType>
                     <xs:sequence>
@@ -53,15 +114,6 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="return" type="xs:boolean"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="denyUser">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="resourceId" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -143,7 +195,7 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="clearUserAuthorization">
+            <xs:element name="denyUser">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
@@ -152,64 +204,12 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="clearRoleAuthorization">
+            <xs:element name="denyRole">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
                         <xs:element minOccurs="0" name="resourceId" nillable="true" type="xs:string"/>
                         <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="clearRoleActionOnAllResources">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="clearResourceAuthorizations">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="resourceId" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getAllowedUIResourcesForUser">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="permissionRootPath" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="getAllowedUIResourcesForUserResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="resetPermissionOnUpdateRole">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="newRoleName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="clearAllUserAuthorization">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="clearAllRoleAuthorization">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -261,29 +261,29 @@
     <wsdl:message name="getDeniedRolesForResourceResponse">
         <wsdl:part name="parameters" element="ns:getDeniedRolesForResourceResponse"/>
     </wsdl:message>
-    <wsdl:message name="isRoleAuthorizedRequest">
-        <wsdl:part name="parameters" element="ns:isRoleAuthorized"/>
-    </wsdl:message>
-    <wsdl:message name="isRoleAuthorizedResponse">
-        <wsdl:part name="parameters" element="ns:isRoleAuthorizedResponse"/>
-    </wsdl:message>
     <wsdl:message name="getAllowedUIResourcesForUserRequest">
         <wsdl:part name="parameters" element="ns:getAllowedUIResourcesForUser"/>
     </wsdl:message>
     <wsdl:message name="getAllowedUIResourcesForUserResponse">
         <wsdl:part name="parameters" element="ns:getAllowedUIResourcesForUserResponse"/>
     </wsdl:message>
+    <wsdl:message name="isRoleAuthorizedRequest">
+        <wsdl:part name="parameters" element="ns:isRoleAuthorized"/>
+    </wsdl:message>
+    <wsdl:message name="isRoleAuthorizedResponse">
+        <wsdl:part name="parameters" element="ns:isRoleAuthorizedResponse"/>
+    </wsdl:message>
     <wsdl:message name="denyRoleRequest">
         <wsdl:part name="parameters" element="ns:denyRole"/>
+    </wsdl:message>
+    <wsdl:message name="clearRoleAuthorizationRequest">
+        <wsdl:part name="parameters" element="ns:clearRoleAuthorization"/>
     </wsdl:message>
     <wsdl:message name="getExplicitlyAllowedUsersForResourceRequest">
         <wsdl:part name="parameters" element="ns:getExplicitlyAllowedUsersForResource"/>
     </wsdl:message>
     <wsdl:message name="getExplicitlyAllowedUsersForResourceResponse">
         <wsdl:part name="parameters" element="ns:getExplicitlyAllowedUsersForResourceResponse"/>
-    </wsdl:message>
-    <wsdl:message name="clearRoleAuthorizationRequest">
-        <wsdl:part name="parameters" element="ns:clearRoleAuthorization"/>
     </wsdl:message>
     <wsdl:message name="clearAllRoleAuthorizationRequest">
         <wsdl:part name="parameters" element="ns:clearAllRoleAuthorization"/>
@@ -339,28 +339,28 @@
             <wsdl:output message="ns:getDeniedRolesForResourceResponse" wsaw:Action="urn:getDeniedRolesForResourceResponse"/>
             <wsdl:fault message="ns:RemoteAuthorizationManagerServiceUserStoreException" name="RemoteAuthorizationManagerServiceUserStoreException" wsaw:Action="urn:getDeniedRolesForResourceRemoteAuthorizationManagerServiceUserStoreException"/>
         </wsdl:operation>
-        <wsdl:operation name="isRoleAuthorized">
-            <wsdl:input message="ns:isRoleAuthorizedRequest" wsaw:Action="urn:isRoleAuthorized"/>
-            <wsdl:output message="ns:isRoleAuthorizedResponse" wsaw:Action="urn:isRoleAuthorizedResponse"/>
-            <wsdl:fault message="ns:RemoteAuthorizationManagerServiceUserStoreException" name="RemoteAuthorizationManagerServiceUserStoreException" wsaw:Action="urn:isRoleAuthorizedRemoteAuthorizationManagerServiceUserStoreException"/>
-        </wsdl:operation>
         <wsdl:operation name="getAllowedUIResourcesForUser">
             <wsdl:input message="ns:getAllowedUIResourcesForUserRequest" wsaw:Action="urn:getAllowedUIResourcesForUser"/>
             <wsdl:output message="ns:getAllowedUIResourcesForUserResponse" wsaw:Action="urn:getAllowedUIResourcesForUserResponse"/>
             <wsdl:fault message="ns:RemoteAuthorizationManagerServiceUserStoreException" name="RemoteAuthorizationManagerServiceUserStoreException" wsaw:Action="urn:getAllowedUIResourcesForUserRemoteAuthorizationManagerServiceUserStoreException"/>
         </wsdl:operation>
+        <wsdl:operation name="isRoleAuthorized">
+            <wsdl:input message="ns:isRoleAuthorizedRequest" wsaw:Action="urn:isRoleAuthorized"/>
+            <wsdl:output message="ns:isRoleAuthorizedResponse" wsaw:Action="urn:isRoleAuthorizedResponse"/>
+            <wsdl:fault message="ns:RemoteAuthorizationManagerServiceUserStoreException" name="RemoteAuthorizationManagerServiceUserStoreException" wsaw:Action="urn:isRoleAuthorizedRemoteAuthorizationManagerServiceUserStoreException"/>
+        </wsdl:operation>
         <wsdl:operation name="denyRole">
             <wsdl:input message="ns:denyRoleRequest" wsaw:Action="urn:denyRole"/>
             <wsdl:fault message="ns:RemoteAuthorizationManagerServiceUserStoreException" name="RemoteAuthorizationManagerServiceUserStoreException" wsaw:Action="urn:denyRoleRemoteAuthorizationManagerServiceUserStoreException"/>
+        </wsdl:operation>
+        <wsdl:operation name="clearRoleAuthorization">
+            <wsdl:input message="ns:clearRoleAuthorizationRequest" wsaw:Action="urn:clearRoleAuthorization"/>
+            <wsdl:fault message="ns:RemoteAuthorizationManagerServiceUserStoreException" name="RemoteAuthorizationManagerServiceUserStoreException" wsaw:Action="urn:clearRoleAuthorizationRemoteAuthorizationManagerServiceUserStoreException"/>
         </wsdl:operation>
         <wsdl:operation name="getExplicitlyAllowedUsersForResource">
             <wsdl:input message="ns:getExplicitlyAllowedUsersForResourceRequest" wsaw:Action="urn:getExplicitlyAllowedUsersForResource"/>
             <wsdl:output message="ns:getExplicitlyAllowedUsersForResourceResponse" wsaw:Action="urn:getExplicitlyAllowedUsersForResourceResponse"/>
             <wsdl:fault message="ns:RemoteAuthorizationManagerServiceUserStoreException" name="RemoteAuthorizationManagerServiceUserStoreException" wsaw:Action="urn:getExplicitlyAllowedUsersForResourceRemoteAuthorizationManagerServiceUserStoreException"/>
-        </wsdl:operation>
-        <wsdl:operation name="clearRoleAuthorization">
-            <wsdl:input message="ns:clearRoleAuthorizationRequest" wsaw:Action="urn:clearRoleAuthorization"/>
-            <wsdl:fault message="ns:RemoteAuthorizationManagerServiceUserStoreException" name="RemoteAuthorizationManagerServiceUserStoreException" wsaw:Action="urn:clearRoleAuthorizationRemoteAuthorizationManagerServiceUserStoreException"/>
         </wsdl:operation>
         <wsdl:operation name="clearAllRoleAuthorization">
             <wsdl:input message="ns:clearAllRoleAuthorizationRequest" wsaw:Action="urn:clearAllRoleAuthorization"/>
@@ -467,8 +467,8 @@
                 <soap:fault use="literal" name="RemoteAuthorizationManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="isRoleAuthorized">
-            <soap:operation soapAction="urn:isRoleAuthorized" style="document"/>
+        <wsdl:operation name="getAllowedUIResourcesForUser">
+            <soap:operation soapAction="urn:getAllowedUIResourcesForUser" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -479,8 +479,8 @@
                 <soap:fault use="literal" name="RemoteAuthorizationManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getAllowedUIResourcesForUser">
-            <soap:operation soapAction="urn:getAllowedUIResourcesForUser" style="document"/>
+        <wsdl:operation name="isRoleAuthorized">
+            <soap:operation soapAction="urn:isRoleAuthorized" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -500,6 +500,15 @@
                 <soap:fault use="literal" name="RemoteAuthorizationManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
+        <wsdl:operation name="clearRoleAuthorization">
+            <soap:operation soapAction="urn:clearRoleAuthorization" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:fault name="RemoteAuthorizationManagerServiceUserStoreException">
+                <soap:fault use="literal" name="RemoteAuthorizationManagerServiceUserStoreException"/>
+            </wsdl:fault>
+        </wsdl:operation>
         <wsdl:operation name="getExplicitlyAllowedUsersForResource">
             <soap:operation soapAction="urn:getExplicitlyAllowedUsersForResource" style="document"/>
             <wsdl:input>
@@ -508,15 +517,6 @@
             <wsdl:output>
                 <soap:body use="literal"/>
             </wsdl:output>
-            <wsdl:fault name="RemoteAuthorizationManagerServiceUserStoreException">
-                <soap:fault use="literal" name="RemoteAuthorizationManagerServiceUserStoreException"/>
-            </wsdl:fault>
-        </wsdl:operation>
-        <wsdl:operation name="clearRoleAuthorization">
-            <soap:operation soapAction="urn:clearRoleAuthorization" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
             <wsdl:fault name="RemoteAuthorizationManagerServiceUserStoreException">
                 <soap:fault use="literal" name="RemoteAuthorizationManagerServiceUserStoreException"/>
             </wsdl:fault>
@@ -653,8 +653,8 @@
                 <soap12:fault use="literal" name="RemoteAuthorizationManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="isRoleAuthorized">
-            <soap12:operation soapAction="urn:isRoleAuthorized" style="document"/>
+        <wsdl:operation name="getAllowedUIResourcesForUser">
+            <soap12:operation soapAction="urn:getAllowedUIResourcesForUser" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -665,8 +665,8 @@
                 <soap12:fault use="literal" name="RemoteAuthorizationManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="getAllowedUIResourcesForUser">
-            <soap12:operation soapAction="urn:getAllowedUIResourcesForUser" style="document"/>
+        <wsdl:operation name="isRoleAuthorized">
+            <soap12:operation soapAction="urn:isRoleAuthorized" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -686,6 +686,15 @@
                 <soap12:fault use="literal" name="RemoteAuthorizationManagerServiceUserStoreException"/>
             </wsdl:fault>
         </wsdl:operation>
+        <wsdl:operation name="clearRoleAuthorization">
+            <soap12:operation soapAction="urn:clearRoleAuthorization" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:fault name="RemoteAuthorizationManagerServiceUserStoreException">
+                <soap12:fault use="literal" name="RemoteAuthorizationManagerServiceUserStoreException"/>
+            </wsdl:fault>
+        </wsdl:operation>
         <wsdl:operation name="getExplicitlyAllowedUsersForResource">
             <soap12:operation soapAction="urn:getExplicitlyAllowedUsersForResource" style="document"/>
             <wsdl:input>
@@ -694,15 +703,6 @@
             <wsdl:output>
                 <soap12:body use="literal"/>
             </wsdl:output>
-            <wsdl:fault name="RemoteAuthorizationManagerServiceUserStoreException">
-                <soap12:fault use="literal" name="RemoteAuthorizationManagerServiceUserStoreException"/>
-            </wsdl:fault>
-        </wsdl:operation>
-        <wsdl:operation name="clearRoleAuthorization">
-            <soap12:operation soapAction="urn:clearRoleAuthorization" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
             <wsdl:fault name="RemoteAuthorizationManagerServiceUserStoreException">
                 <soap12:fault use="literal" name="RemoteAuthorizationManagerServiceUserStoreException"/>
             </wsdl:fault>
@@ -815,8 +815,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="isRoleAuthorized">
-            <http:operation location="isRoleAuthorized"/>
+        <wsdl:operation name="getAllowedUIResourcesForUser">
+            <http:operation location="getAllowedUIResourcesForUser"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -824,8 +824,8 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getAllowedUIResourcesForUser">
-            <http:operation location="getAllowedUIResourcesForUser"/>
+        <wsdl:operation name="isRoleAuthorized">
+            <http:operation location="isRoleAuthorized"/>
             <wsdl:input>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
@@ -839,6 +839,12 @@
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:input>
         </wsdl:operation>
+        <wsdl:operation name="clearRoleAuthorization">
+            <http:operation location="clearRoleAuthorization"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
         <wsdl:operation name="getExplicitlyAllowedUsersForResource">
             <http:operation location="getExplicitlyAllowedUsersForResource"/>
             <wsdl:input>
@@ -847,12 +853,6 @@
             <wsdl:output>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="clearRoleAuthorization">
-            <http:operation location="clearRoleAuthorization"/>
-            <wsdl:input>
-                <mime:content type="text/xml" part="parameters"/>
-            </wsdl:input>
         </wsdl:operation>
         <wsdl:operation name="clearAllRoleAuthorization">
             <http:operation location="clearAllRoleAuthorization"/>

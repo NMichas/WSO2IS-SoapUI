@@ -3,20 +3,6 @@
     <wsdl:types>
         <xs:schema xmlns:ax2351="http://dto.oauth2.identity.carbon.wso2.org/xsd" xmlns:ns="http://org.apache.axis2/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://org.apache.axis2/xsd">
             <xs:import namespace="http://dto.oauth2.identity.carbon.wso2.org/xsd"/>
-            <xs:element name="validate">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="validationReqDTO" nillable="true" type="ax2350:OAuth2TokenValidationRequestDTO"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="validateResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2350:OAuth2TokenValidationResponseDTO"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
             <xs:element name="findOAuthConsumerIfTokenIsValid">
                 <xs:complexType>
                     <xs:sequence>
@@ -45,6 +31,20 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="validate">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="validationReqDTO" nillable="true" type="ax2350:OAuth2TokenValidationRequestDTO"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="validateResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax2350:OAuth2TokenValidationResponseDTO"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
         </xs:schema>
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://dto.oauth2.identity.carbon.wso2.org/xsd">
             <xs:complexType name="OAuth2TokenValidationRequestDTO">
@@ -66,6 +66,12 @@
                     <xs:element minOccurs="0" name="value" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
+            <xs:complexType name="OAuth2ClientApplicationDTO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="accessTokenValidationResponse" nillable="true" type="ax2350:OAuth2TokenValidationResponseDTO"/>
+                    <xs:element minOccurs="0" name="consumerKey" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
             <xs:complexType name="OAuth2TokenValidationResponseDTO">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="authorizationContextToken" nillable="true" type="ax2350:OAuth2TokenValidationResponseDTO_AuthorizationContextToken"/>
@@ -80,12 +86,6 @@
                 <xs:sequence>
                     <xs:element minOccurs="0" name="tokenString" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="tokenType" nillable="true" type="xs:string"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:complexType name="OAuth2ClientApplicationDTO">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="accessTokenValidationResponse" nillable="true" type="ax2350:OAuth2TokenValidationResponseDTO"/>
-                    <xs:element minOccurs="0" name="consumerKey" nillable="true" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="OAuth2IntrospectionResponseDTO">
